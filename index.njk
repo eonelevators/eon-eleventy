@@ -2562,7 +2562,7 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
     left: 0;
     width: 100%;
     bottom: 0; /* extend to bottom */
-    background-image: url('assets/img/banner-eon.png'); /* replace with your image */
+    background-image: url('assets/img/room.png'); /* replace with your image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
@@ -2596,9 +2596,9 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 
   #ball_Preferred_Lift_Speed {
     width: 20px;
-    height: 40px;
-    background: red;
-    border-radius: 50%;
+    height: 30px;
+    background: #101b42;
+    border-radius: 30px;
     position: absolute;
     bottom: 0; /* start idle at bottom */
     left: 50%;
@@ -2606,6 +2606,10 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 	z-index:100;
   }
   
+  #downloadRecommendationsBtn{
+	visibility:hidden;
+	border-radius:25px;
+  }
 </style>
 <section class="testimonial-area-six ptb-100 jarallax">
 
@@ -3871,6 +3875,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
   </div>
 </div>
 
+
 <!-- Villa / Duplex Lift Requirement Form Modal -->
 <div class="modal fade" id="villaLiftModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -4058,7 +4063,19 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  <!-- Navigation Buttons -->
 						  <div class="d-flex justify-content-between mt-4">
 							<button type="button" class="btn btn-outline-secondary prevBtn11"  id="villaPrevBtn" onclick="villaPrevBtnFun()">Back</button>
+							
+							<!--
 							<button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
+							-->
+							
+							
+							<!-- Right side -->
+  <div>
+	<button type="button" class="btn btn-info me-2 cursor-pointer" id="downloadRecommendationsBtn">Download as PDF</button>
+    <button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
+  </div>
+  
+  
 						  </div>
 
 						</form>
@@ -4084,11 +4101,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  <!-- Labels below slider -->
 								  <div class="d-flex justify-content-between mt-1 px-1 text-white">
 									<span class="small">0</span>
+									<span class="small">0.3</span>
 									<span class="small">0.5</span>
 									<span class="small">1.0</span>
 									<span class="small">1.5</span>
 									<span class="small">2.0</span>
-									<span class="small">2.5</span>
 								  </div>
 								</div>
 							
@@ -4642,7 +4659,7 @@ function initMultiStepForm(formId, sidebarId, progressId, nextBtnId, prevBtnId) 
 	var valuesToSubmit = $(this).serialize();
 	$.ajax({
 	//url:"http://localhost/eon-elevator-action/contact-action.php",
-	url:"http://128.199.22.182/eon-elevator-action/contact-action.php",
+	url:"https://axonlabs.ai/eon-elevator-action/contact-action.php",
 	type: "POST",      				// Type of request to be send, called as method
 	data:  new FormData(this),	// Data sent to server, a set of key/value pairs representing form fields and values 
 	contentType: false,       		// The content type used when sending data to the server. Default is: "application/x-www-form-urlencoded"
@@ -5064,10 +5081,10 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 <script>
 	number_of_floors_prev="";
 	$(document).on("change", 'input[name="number_of_floors"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
+	    $("#images_for_questions").css({"display":""})
 		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var images = ["1.png", "2.png"];
+		var images = ["1.png"];
 		$("#images_for_questions").html("");
 		$.each(images, function(i, img){
 		    img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
@@ -5080,11 +5097,11 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 		}
 	});
 	$(document).on("change", 'input[name="number_of_passengers"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		$("#images_for_questions").css({"display":""})
 		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 		var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
-		var images = ["1.png", "2.png"];
+		var images = ["1.png"];
 		$("#images_for_questions").html("");
 		$.each(images, function(i, img){
 		   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
@@ -5092,11 +5109,11 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 		});
 	});
 	$(document).on("change", 'input[name="number_of_openings"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		$("#images_for_questions").css({"display":""})
 		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 		var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-		var images = ["1.png", "2.png"];
+		var images = ["1.png"];
 		$("#images_for_questions").html("");
 		$.each(images, function(i, img){
 		   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
@@ -5104,25 +5121,49 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 		});
 	});
 	$(document).on("change", 'input[name="operating_speed_values"]', function () {
+	    $("#images_for_questions").css({"display":"none"})
 		$("#Preferred_Lift_Speed_anim_div").css({"display":""})
 		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 		var operating_speed_values_value = $('input[name="operating_speed_values"]:checked').val();
+		operating_speed_values_value_number=operating_speed_values_value.replace("m/s","");
+		operating_speed_values_value_number=operating_speed_values_value_number.trim();
+		
+		
+		
+		speedMap_temp = {
+    0: '0',
+    1: '0.3',
+    2: '0.5',
+    3: '1.0',
+    4: '1.5',
+    5: '2.0'
+  };
+  for(x in speedMap_temp){
+	if(speedMap_temp[x]==operating_speed_values_value_number){
+		document.getElementById("speedSlider").value=x;
+		updateSpeed(x);
+	}
+  }
+	
+  
+		
+									
 		$("#images_for_questions").html("");
 	});
 	function villaPrevBtnFun(){
-		
+		$("#downloadRecommendationsBtn").css({"visibility":"hidden"})
+				
 		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
-		
 		if(activeDivId!="number_of_floors_div"){
 			form_step_name_div=form_steps_arr[activeDivId_index-1];
 			form_step_name=form_step_name_div.replace("_div","")
 			if(form_step_name=="number_of_floors"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				var images = ["1.png", "2.png"];
+				var images = ["1.png"];
 				$("#images_for_questions").html("");
 				$.each(images, function(i, img){
 					img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
@@ -5130,11 +5171,12 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				});
 			}
 			if(form_step_name=="number_of_passengers"){
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 				if ($('input[name="number_of_passengers"]:checked').length > 0) {
 					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
-					var images = ["1.png", "2.png"];
+					var images = ["1.png"];
 					$("#images_for_questions").html("");
 					$.each(images, function(i, img){
 					   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
@@ -5146,11 +5188,12 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				}
 			}
 			if(form_step_name=="number_of_openings"){
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 				if ($('input[name="number_of_openings"]:checked').length > 0) {
 					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-					var images = ["1.png", "2.png"];
+					var images = ["1.png"];
 					$("#images_for_questions").html("");
 					$.each(images, function(i, img){
 					   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
@@ -5162,16 +5205,23 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				}
 			}
 			if(form_step_name=="operating_speed_values"){
+				$("#images_for_questions").css({"display":"none"})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
 				$("#images_for_questions").html("");
 			}
 			if(form_step_name=="maximum_duty_cycle_category_values"){
+			    $("#downloadRecommendationsBtn").css({"visibility":"visible"})
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#images_for_questions").html("");
+				
+		
 			}
 		}
 	}
+	
 	function villaNextBtnFun(){
+		$("#downloadRecommendationsBtn").css({"visibility":"hidden"})
 		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
@@ -5180,9 +5230,10 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 			form_step_name_div=form_steps_arr[activeDivId_index+1];
 			form_step_name=form_step_name_div.replace("_div","")
 			if(form_step_name=="number_of_floors"){
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				var images = ["1.png", "2.png"];
+				var images = ["1.png"];
 				$("#images_for_questions").html("");
 				$.each(images, function(i, img){
 					img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
@@ -5190,12 +5241,13 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				});
 			}
 			if(form_step_name=="number_of_passengers"){
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 				if ($('input[name="number_of_passengers"]:checked').length > 0) {
 					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
 					
-					var images = ["1.png", "2.png"];
+					var images = ["1.png"];
 					$("#images_for_questions").html("");
 					$.each(images, function(i, img){
 					   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
@@ -5207,11 +5259,12 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				}
 			}
 			if(form_step_name=="number_of_openings"){
+				$("#images_for_questions").css({"display":""})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 				if ($('input[name="number_of_openings"]:checked').length > 0) {
 					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-					var images = ["1.png", "2.png"];
+					var images = ["1.png"];
 					$("#images_for_questions").html("");
 					$.each(images, function(i, img){
 					   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
@@ -5223,10 +5276,13 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 				}
 			}
 			if(form_step_name=="operating_speed_values"){
+				$("#images_for_questions").css({"display":"none"})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
 				$("#images_for_questions").html("");
 			}
 			if(form_step_name=="maximum_duty_cycle_category_values"){
+				$("#images_for_questions").css({"display":""})
+			    $("#downloadRecommendationsBtn").css({"visibility":"visible"})
 				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#images_for_questions").html("");
 			}
@@ -5235,6 +5291,7 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 	}
 	
 	function recommendedImgUrlFun(obj){
+	    $("#images_for_questions").html("")
 		data_number_of_floors=obj.getAttribute("data_number_of_floors")
 		data_recommendation=obj.getAttribute("data_recommendation");
 		img_src="assets/img/images_for_questions/recommendations/"+data_number_of_floors+"/"+data_recommendation+".png";
@@ -5243,6 +5300,17 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 			$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		}
 	}
+	
+	
+	document.addEventListener("DOMContentLoaded", function () {
+	  const downloadBtn = document.getElementById("downloadRecommendationsBtn");
+	  if (downloadBtn) {
+		downloadBtn.addEventListener("click", function () {
+		  document.getElementById("villaNextBtn").click();
+		});
+	  }
+	});
+
 </script>
 
 
@@ -5254,6 +5322,8 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
 	$('input[name="number_of_openings"]').prop('checked', false);
 	$('input[name="operating_speed_values"]').prop('checked', false);
     document.getElementById("Preferred_Lift_Speed_anim_div").style.display="none";
+	document.getElementById("images_for_questions").style.display="none";
+	
 });
 </script>
   <script>
@@ -5273,7 +5343,7 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
 
   function calculateBoundaries() {
     floorPx = 0;
-    topPx = container.offsetHeight - (topLine.offsetTop + ballSize);
+    topPx = container.offsetHeight+20 - (topLine.offsetTop + ballSize);
   }
 
   function animate() {
@@ -5332,12 +5402,14 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
   <script>
   const speedMap = {
     0: '0',
-    1: '0.5',
-    2: '1.0',
-    3: '1.5',
-    4: '2.0',
-    5: '2.5'
+    1: '0.3',
+    2: '0.5',
+    3: '1.0',
+    4: '1.5',
+    5: '2.0'
   };
+  
+									
 
   function updateSpeed(value) {
     document.getElementById('speedValue').innerText = speedMap[value];
