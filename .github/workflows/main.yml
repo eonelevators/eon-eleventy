@@ -6,12 +6,8 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
-    env:
-      APP_DIR: /home/master/applications/jkkppyvmpr/public_html/eon/eleventy
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -27,13 +23,32 @@ jobs:
       - name: Build Eleventy site
         run: npx @11ty/eleventy --output=_site
 
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: site
+          path: _site
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    if: "contains(github.event.head_commit.message, '[deploy]')"   # ✅ Only run if commit message includes [deploy]
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+          path: _site
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 128.199.22.182 >> ~/.ssh/known_hosts
 
+      - name: Test SSH connection
+        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no master_znavuzmyxy@128.199.22.182 "echo Connected!"
+
       - name: Deploy via rsync
-        run: |
-          rsync -avz --delete _site/ master_znavuzmyxy@128.199.22.182:$APP_DIR/
+        run: rsync -avz --delete _site/ master_znavuzmyxy@128.199.22.182:/home/master/applications/jkkppyvmpr/public_html/eon/eleventy/
