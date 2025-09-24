@@ -23,7 +23,9 @@ jobs:
         run: npm ci
 
       - name: Build Eleventy site
-        run: npx @11ty/eleventy --output=_site
+        run: |
+          rm -rf _site           # 🧹 clean old build
+          npx @11ty/eleventy --output=_site
 
       - name: Setup SSH
         run: |
