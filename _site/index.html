@@ -214,7 +214,7 @@
               <div class="service-icon"><img src="assets/img/homepage/appartment1.png" class="mt-1 img-fluid three-d-image w-65"></div>
               <span class="eon-navy">Villa</span>
             </a>
-            <a href="#"  data-bs-toggle="modal" data-bs-target="#villaLiftModal" class="service-box" data-value="Commercial">
+            <a href="#"  data-bs-toggle="modal" data-bs-target="#apartmentLiftModal" class="service-box" data-value="Commercial">
               <div class="service-tag1">SATTVA chose EON</div>
               <div class="service-icon"><img src="assets/img/homepage/shopping-mall.png" class="mt-1 img-fluid three-d-image w-65"></div>
               <span class="eon-navy">Apartments</span>
@@ -2530,23 +2530,23 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   font-size: 1rem;
   opacity: 0.9;
 }
-#images_for_questions{
+#villalift_images_for_questions{
 	padding-top:3.5rem;
 }
-#images_for_questions img{
+#villalift_images_for_questions img{
 	padding:0.5rem;
 }
 .viewrecommendationimage{
 	cursor:pointer;
 }
-#maximum_duty_cycle_category_values_div{
+#villalift_maximum_duty_cycle_category_values_div{
 	height: 25rem;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 
-  #Preferred_Lift_Speed_anim_div {
+  #villalift_Preferred_Lift_Speed_anim_div {
     position: relative;
     width: 100%;
     height: 400px; /* adjust as per modal height */
@@ -2556,7 +2556,7 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   
   
   /* Background image from top line to bottom */
-  #backgroundArea {
+  #villalift_backgroundArea {
     position: absolute;
     top: 100px; /* same as top line */
     left: 0;
@@ -2570,7 +2570,7 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   }
   
 
-  .Preferred_Lift_Speed_controls {
+  .villalift_Preferred_Lift_Speed_controls {
     /*position: absolute;
     top: 10px;
     left: 50%;
@@ -2578,14 +2578,14 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
     z-index: 10;*/
   }
 
-  .Preferred_Lift_Speed_controls button {
+  .villalift_Preferred_Lift_Speed_controls button {
     margin: 0 5px;
     padding: 2px 5px;
     font-size: 14px;
     cursor: pointer;
   }
 
-  #topLine_Preferred_Lift_Speed {
+  #villalift_topLine_Preferred_Lift_Speed {
     position: absolute;
     top: 100px; /* horizontal line position */
     left: 0;
@@ -2594,7 +2594,7 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
     background: black;
   }
 
-  #ball_Preferred_Lift_Speed {
+  #villalift_ball_Preferred_Lift_Speed {
     width: 20px;
     height: 30px;
     background: #101b42;
@@ -2606,7 +2606,7 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 	z-index:100;
   }
   
-  #downloadRecommendationsBtn{
+  #villalift_downloadRecommendationsBtn{
 	visibility:hidden;
 	border-radius:25px;
   }
@@ -3876,7 +3876,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 </div>
 
 
-<!-- Villa / Duplex Lift Requirement Form Modal -->
+<!-- Villa / Duplex Lift Requirement Form Modal starts -->
 <div class="modal fade" id="villaLiftModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
@@ -3915,7 +3915,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
-						  <div class="form-step villaLiftFormSteps active" id="number_of_floors_div">
+						  <div class="form-step villaLiftFormSteps active" id="villalift_number_of_floors_div">
 						  
 						  <p class="mt-4">
 						  Firstly, congrats on owning a Villa! For us to recommend the right Elevator for your need, we would request you to answer 5 quick 'sizing' queries.
@@ -3929,9 +3929,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+3" 
 										  data-floor="G+3">
 										<div class="card-wrap">
@@ -3943,9 +3943,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+4" 
 										  data-floor="G+4">
 										<div class="card-wrap">
@@ -3957,9 +3957,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+5" 
 										  data-floor="G+5">
 										<div class="card-wrap">
@@ -3971,9 +3971,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+7" 
 										  data-floor="G+7">
 										<div class="card-wrap">
@@ -3985,9 +3985,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+10" 
 										  data-floor="G+10">
 										<div class="card-wrap">
@@ -3999,9 +3999,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+20" 
 										  data-floor="G+20">
 										<div class="card-wrap">
@@ -4013,9 +4013,9 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								 <div class="col-6 col-lg-6">
 									  <label class="option-card">
 										<input 
-										  class="option-input floor-radio" 
+										  class="option-input villalift_floor-radio" 
 										  type="radio" 
-										  name="number_of_floors" 
+										  name="villalift_number_of_floors" 
 										  value="G+30" 
 										  data-floor="G+30">
 										<div class="card-wrap">
@@ -4028,7 +4028,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  </div>
 
 						  <!-- STEP 2: Q2 -->
-						  <div class="form-step villaLiftFormSteps" id="number_of_passengers_div">
+						  <div class="form-step villaLiftFormSteps" id="villalift_number_of_passengers_div">
 							<h5 class="mb-3 mt-4">Q2. What would be the max passenger capacity for your Elevator?</h5>
 							<div id="passengers-options" class="row g-3 mb-4 mt-3">
 							
@@ -4037,7 +4037,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="4">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="4">
 										<div class="card-wrap">
 										  <div class="label-text">4</div>
 										</div>
@@ -4050,7 +4050,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="5">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="5">
 										<div class="card-wrap">
 										  <div class="label-text">5</div>
 										</div>
@@ -4059,7 +4059,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="6">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="6">
 										<div class="card-wrap">
 										  <div class="label-text">6</div>
 										</div>
@@ -4068,7 +4068,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="10">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
 										<div class="card-wrap">
 										  <div class="label-text">10</div>
 										</div>
@@ -4077,7 +4077,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="20">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
 										<div class="card-wrap">
 										  <div class="label-text">20</div>
 										</div>
@@ -4090,7 +4090,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="30">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="30">
 										<div class="card-wrap">
 										  <div class="label-text">30</div>
 										</div>
@@ -4103,7 +4103,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="9">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="9">
 										<div class="card-wrap">
 										  <div class="label-text">9</div>
 										</div>
@@ -4112,7 +4112,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="10">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
 										<div class="card-wrap">
 										  <div class="label-text">10</div>
 										</div>
@@ -4121,7 +4121,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="15">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="15">
 										<div class="card-wrap">
 										  <div class="label-text">15</div>
 										</div>
@@ -4134,7 +4134,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="18">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="18">
 										<div class="card-wrap">
 										  <div class="label-text">18</div>
 										</div>
@@ -4143,7 +4143,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="10">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
 										<div class="card-wrap">
 										  <div class="label-text">10</div>
 										</div>
@@ -4152,7 +4152,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="15">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="15">
 										<div class="card-wrap">
 										  <div class="label-text">15</div>
 										</div>
@@ -4161,7 +4161,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="20">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
 										<div class="card-wrap">
 										  <div class="label-text">20</div>
 										</div>
@@ -4174,7 +4174,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="20">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
 										<div class="card-wrap">
 										  <div class="label-text">20</div>
 										</div>
@@ -4187,7 +4187,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_passengers" value="29">
+										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="29">
 										<div class="card-wrap">
 										  <div class="label-text">29</div>
 										</div>
@@ -4202,7 +4202,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  </div>
 
 						  <!-- STEP 3: Q3 -->
-						  <div class="form-step villaLiftFormSteps" id="number_of_openings_div">
+						  <div class="form-step villaLiftFormSteps" id="villalift_number_of_openings_div">
 							<h5 class="mb-3 mt-4">Q3. How many openings you would prefer?</h5>
 							<div id="openings-options" class="row g-3 mb-4 mt-3">
 							
@@ -4211,7 +4211,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 2 Side">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 2 Side</div>
 										</div>
@@ -4224,7 +4224,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front</div>
 										</div>
@@ -4233,7 +4233,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 2 Side">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 2 Side</div>
 										</div>
@@ -4242,7 +4242,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 1 Rear">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 1 Rear</div>
 										</div>
@@ -4255,7 +4255,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 2 Side">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 2 Side</div>
 										</div>
@@ -4268,7 +4268,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front</div>
 										</div>
@@ -4277,7 +4277,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 2 Side">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 2 Side</div>
 										</div>
@@ -4286,7 +4286,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 1 Rear">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 1 Rear</div>
 										</div>
@@ -4299,7 +4299,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front</div>
 										</div>
@@ -4308,7 +4308,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 2 Side">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 2 Side</div>
 										</div>
@@ -4317,7 +4317,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front + 1 Rear">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front + 1 Rear</div>
 										</div>
@@ -4330,7 +4330,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front</div>
 										</div>
@@ -4343,7 +4343,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="number_of_openings" value="1 Front">
+										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
 										<div class="card-wrap">
 										  <div class="label-text">1 Front</div>
 										</div>
@@ -4358,16 +4358,16 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  </div>
 
 						  <!-- STEP 4: Q4 -->
-						  <div class="form-step villaLiftFormSteps" id="operating_speed_values_div">
+						  <div class="form-step villaLiftFormSteps" id="villalift_operating_speed_values_div">
 							<h5 class="mb-3 mt-4">Q4. Our Elevators can operate at 4 different speeds. The standard one is at 1m/s that normally is used in Villas. However please select the preferred speed.</h5>
-							<div id="operating_speed_values-options" class="row g-3 mb-4 mt-3">
+							<div id="villalift_operating_speed_values-options" class="row g-3 mb-4 mt-3">
 							
 							  
-								<div class="operating_speed_values-group row" data-floor="G+3" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+3" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="0.3 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.3 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">0.3 m/s</div>
 										</div>
@@ -4376,11 +4376,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+4" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+4" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="0.5 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.5 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">0.5 m/s</div>
 										</div>
@@ -4389,7 +4389,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.0 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.0 m/s</div>
 										</div>
@@ -4398,11 +4398,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+5" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+5" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="0.5 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.5 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">0.5 m/s</div>
 										</div>
@@ -4411,11 +4411,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+7" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+7" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.0 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.0 m/s</div>
 										</div>
@@ -4424,7 +4424,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.5 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.5 m/s</div>
 										</div>
@@ -4433,11 +4433,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+10" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+10" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.0 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.0 m/s</div>
 										</div>
@@ -4446,7 +4446,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.5 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.5 m/s</div>
 										</div>
@@ -4455,7 +4455,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="2.0 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="2.0 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">2.0 m/s</div>
 										</div>
@@ -4464,11 +4464,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+20" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+20" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="1.5 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">1.5 m/s</div>
 										</div>
@@ -4477,11 +4477,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  
 								</div>
 							  
-								<div class="operating_speed_values-group row" data-floor="G+30" style="display:none; margin:0;">
+								<div class="villalift_operating_speed_values-group row" data-floor="G+30" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="operating_speed_values" value="2.0 m/s">
+										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="2.0 m/s">
 										<div class="card-wrap">
 										  <div class="label-text">2.0 m/s</div>
 										</div>
@@ -4496,19 +4496,19 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  </div>
 
 						  <!-- STEP 5: Q5 -->
-						  <div class="form-step villaLiftFormSteps" id="maximum_duty_cycle_category_values_div">
+						  <div class="form-step villaLiftFormSteps" id="villalift_maximum_duty_cycle_category_values_div">
 							<h5 class="mb-3 mt-4">Our Recommendation</h5>
-							<div id="maximum_duty_cycle_category_values-options" class="row g-3 mb-4 mt-3">
+							<div id="villalift_maximum_duty_cycle_category_values-options" class="row g-3 mb-4 mt-3">
 							
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+3" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+3" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+3' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+3][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+3&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+3' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+3][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+3&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
 										</div>
 										
 										
@@ -4524,30 +4524,30 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+4" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+4" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Nest <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+4' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Nest Description<br>Features : <br>EON Aeris Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aeris Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Nest Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Nest Description<br>Features : <br>EON Aeris Nest Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aeris Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Nest Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Metro <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+4' data_recommendation='second_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Metro Description<br>Features : <br>EON Aegis Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aegis Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Metro Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Metro Features" checked>
+										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Metro Description<br>Features : <br>EON Aegis Metro Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aegis Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Metro Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Metro Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Nest <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+4' data_recommendation='third_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Nest Description<br>Features : <br>EON Plexus Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Plexus Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Nest Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Nest Features" checked>
+										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Nest Description<br>Features : <br>EON Plexus Nest Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Plexus Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Nest Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Nest Features" checked>
 										</div>
 										
 										
@@ -4563,14 +4563,14 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+5" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+5" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Summit<br>Description : <br>EON Aegis Summit Description <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+5' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Features : <br>EON Aegis Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+5][]" value="Product Name : EON Aegis Summit&lt;br&gt;Description : &lt;br&gt;EON Aegis Summit Description &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+5&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Features : &lt;br&gt;EON Aegis Summit Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Summit<br>Description : <br>EON Aegis Summit Description <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+5' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Features : <br>EON Aegis Summit Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+5][]" value="Product Name : EON Aegis Summit&lt;br&gt;Description : &lt;br&gt;EON Aegis Summit Description &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+5&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Features : &lt;br&gt;EON Aegis Summit Features" checked>
 										</div>
 										
 										
@@ -4586,30 +4586,30 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+7" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+7" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Metro <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+7' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Metro Description<br>Features : <br>EON Plexus Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Plexus Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Metro Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Metro Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Metro Description<br>Features : <br>EON Plexus Metro Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Plexus Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Metro Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Metro Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Axira Metro <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+7' data_recommendation='second_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Axira Metro Description<br>Features : <br>EON Axira Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Axira Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Axira Metro Description&lt;br&gt;Features : &lt;br&gt;EON Axira Metro Features" checked>
+										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Axira Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Axira Metro Description<br>Features : <br>EON Axira Metro Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Axira Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Axira Metro Description&lt;br&gt;Features : &lt;br&gt;EON Axira Metro Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON GLT Metro <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+7' data_recommendation='third_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON GLT Metro Description<br>Features : <br>EON GLT Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON GLT Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON GLT Metro Description&lt;br&gt;Features : &lt;br&gt;EON GLT Metro Features" checked>
+										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON GLT Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON GLT Metro Description<br>Features : <br>EON GLT Metro Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON GLT Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON GLT Metro Description&lt;br&gt;Features : &lt;br&gt;EON GLT Metro Features" checked>
 										</div>
 										
 										
@@ -4625,30 +4625,30 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+10" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+10" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Summit <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+10' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Summit Description<br>Features : <br>EON Aeris Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aeris Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Summit Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Summit Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Summit Description<br>Features : <br>EON Aeris Summit Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aeris Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Summit Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Summit Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+10' data_recommendation='second_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
+										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
 										</div>
 										
 										
 									  
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Summit <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+10' data_recommendation='third_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Summit Description<br>Features : <br>EON Plexus Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Plexus Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Summit Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Summit Features" checked>
+										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Summit Description<br>Features : <br>EON Plexus Summit Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Plexus Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Summit Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Summit Features" checked>
 										</div>
 										
 										
@@ -4664,14 +4664,14 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+20" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+20" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Metro <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+20' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Metro Description<br>Features : <br>EON Evora Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+20][]" value="Product Name : EON Evora Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+20&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Metro Description&lt;br&gt;Features : &lt;br&gt;EON Evora Metro Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+20' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Metro Description<br>Features : <br>EON Evora Metro Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+20][]" value="Product Name : EON Evora Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+20&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Metro Description&lt;br&gt;Features : &lt;br&gt;EON Evora Metro Features" checked>
 										</div>
 										
 										
@@ -4687,14 +4687,14 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </ul>
 								</div>
 							  
-								<div class="maximum_duty_cycle_category_values-group row" data-floor="G+30" style="display:none; margin:0;">
+								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+30" style="display:none; margin:0;">
 								  
 								  <ul>
 									
 										
 										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Summit <i class='bi bi-eye viewrecommendationimage' data_number_of_floors='G+30' data_recommendation='first_recommendation' onclick='recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Summit Description<br>Features : <br>EON Evora Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="maximum_duty_cycle_category_values[G+30][]" value="Product Name : EON Evora Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_number_of_floors=&#39;G+30&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Summit Description&lt;br&gt;Features : &lt;br&gt;EON Evora Summit Features" checked>
+										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+30' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Summit Description<br>Features : <br>EON Evora Summit Features</div></li>
+										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+30][]" value="Product Name : EON Evora Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+30&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Summit Description&lt;br&gt;Features : &lt;br&gt;EON Evora Summit Features" checked>
 										</div>
 										
 										
@@ -4740,7 +4740,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							
 							<!-- Right side -->
   <div>
-	<button type="button" class="btn btn-info me-2 cursor-pointer" id="downloadRecommendationsBtn">Download as PDF</button>
+	<button type="button" class="btn btn-info me-2 cursor-pointer" id="villalift_downloadRecommendationsBtn">Download as PDF</button>
     <button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
   </div>
   
@@ -4750,11 +4750,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						</form>
 					</div>
 					<div class="col-md-4">
-						<div id="images_for_questions">
+						<div id="villalift_images_for_questions">
 						</div>
-						<div id="Preferred_Lift_Speed_anim_div">
-							<div class="Preferred_Lift_Speed_controls text-center px-2">
-								  <p class="mb-1 text-white">Speed Simulation: <span id="speedValue">0</span> m/s</p>
+						<div id="villalift_Preferred_Lift_Speed_anim_div">
+							<div class="villalift_Preferred_Lift_Speed_controls text-center px-2">
+								  <p class="mb-1 text-white">Speed Simulation: <span id="villalift_speedValue">0</span> m/s</p>
 
 								  <!-- Slider -->
 								  <input 
@@ -4765,7 +4765,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 									step="1" 
 									value="0" 
 									id="speedSlider"
-									oninput="updateSpeed(this.value)">
+									oninput="villalift_updateSpeed(this.value)">
 
 								  <!-- Labels below slider -->
 								  <div class="d-flex justify-content-between mt-1 px-1 text-white">
@@ -4779,11 +4779,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								</div>
 							
 							<!-- Background image below the line -->
-							<div id="backgroundArea"></div>
+							<div id="villalift_backgroundArea"></div>
   
   
-							<div id="topLine_Preferred_Lift_Speed"></div>
-							<div id="ball_Preferred_Lift_Speed"></div>
+							<div id="villalift_topLine_Preferred_Lift_Speed"></div>
+							<div id="villalift_ball_Preferred_Lift_Speed"></div>
 						  </div>
 						  
 					</div>	
@@ -4795,7 +4795,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
     </div>
   </div>
 </div>
-<!-- High Rise Office Lift Modal -->
+<!-- Villa / Duplex Lift Requirement Form Modal ends -->
 <!-- High Rise Office Lift Requirement Form Modal -->
 <div class="modal fade" id="officeLiftModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -5688,9 +5688,9 @@ var prodswiper = new Swiper('.swiper-container1', {
 
 
 
-
+<!-- this is villa related functionality starts -->
 <script>
-document.querySelectorAll(".floor-radio").forEach(radio => {
+document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
     // Hide all passengers groups
     document.querySelectorAll(".passengers-group").forEach(g => g.style.display = "none");
@@ -5704,7 +5704,7 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 </script>
 
 <script>
-document.querySelectorAll(".floor-radio").forEach(radio => {
+document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
     // Hide all openings groups
     document.querySelectorAll(".openings-group").forEach(g => g.style.display = "none");
@@ -5717,28 +5717,28 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 });
 </script>
 <script>
-document.querySelectorAll(".floor-radio").forEach(radio => {
+document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
-    // Hide all operating_speed_values groups
-    document.querySelectorAll(".operating_speed_values-group").forEach(g => g.style.display = "none");
+    // Hide all villalift_operating_speed_values groups
+    document.querySelectorAll(".villalift_operating_speed_values-group").forEach(g => g.style.display = "none");
 
     // Show only the group matching selected floor
     const selected = this.dataset.floor;
-    const group = document.querySelector('.operating_speed_values-group[data-floor="'+selected+'"]');
+    const group = document.querySelector('.villalift_operating_speed_values-group[data-floor="'+selected+'"]');
     if(group) group.style.display = "flex"; // keep Bootstrap row styling
   });
 });
 </script>
 
 <script>
-document.querySelectorAll(".floor-radio").forEach(radio => {
+document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
-    // Hide all maximum_duty_cycle_category_values groups
-    document.querySelectorAll(".maximum_duty_cycle_category_values-group").forEach(g => g.style.display = "none");
+    // Hide all villalift_maximum_duty_cycle_category_values groups
+    document.querySelectorAll(".villalift_maximum_duty_cycle_category_values-group").forEach(g => g.style.display = "none");
 
     // Show only the group matching selected floor
     const selected = this.dataset.floor;
-    const group = document.querySelector('.maximum_duty_cycle_category_values-group[data-floor="'+selected+'"]');
+    const group = document.querySelector('.villalift_maximum_duty_cycle_category_values-group[data-floor="'+selected+'"]');
     if(group) group.style.display = "flex"; // keep Bootstrap row styling
   });
 });
@@ -5748,54 +5748,54 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 </script>
 
 <script>
-	number_of_floors_prev="";
-	$(document).on("change", 'input[name="number_of_floors"]', function () {
-	    $("#images_for_questions").css({"display":""})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
+	villalift_number_of_floors_prev="";
+	$(document).on("change", 'input[name="villalift_number_of_floors"]', function () {
+	    $("#villalift_images_for_questions").css({"display":""})
+		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 		var images = ["1.png"];
-		$("#images_for_questions").html("");
+		$("#villalift_images_for_questions").html("");
 		$.each(images, function(i, img){
-		    img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
-			$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		    img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
+			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
-		if(number_of_floors_prev!=number_of_floors_value){
-			$('input[name="number_of_passengers"]').prop('checked', false);
-			$('input[name="number_of_openings"]').prop('checked', false);
-			$('input[name="operating_speed_values"]').prop('checked', false);
+		if(villalift_number_of_floors_prev!=villalift_number_of_floors_value){
+			$('input[name="villalift_number_of_passengers"]').prop('checked', false);
+			$('input[name="villalift_number_of_openings"]').prop('checked', false);
+			$('input[name="villalift_operating_speed_values"]').prop('checked', false);
 		}
 	});
-	$(document).on("change", 'input[name="number_of_passengers"]', function () {
-		$("#images_for_questions").css({"display":""})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
+	$(document).on("change", 'input[name="villalift_number_of_passengers"]', function () {
+		$("#villalift_images_for_questions").css({"display":""})
+		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+		var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 		var images = ["1.png"];
-		$("#images_for_questions").html("");
+		$("#villalift_images_for_questions").html("");
 		$.each(images, function(i, img){
-		   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
-			$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
+			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-	$(document).on("change", 'input[name="number_of_openings"]', function () {
-		$("#images_for_questions").css({"display":""})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
+	$(document).on("change", 'input[name="villalift_number_of_openings"]', function () {
+		$("#villalift_images_for_questions").css({"display":""})
+		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+		var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 		var images = ["1.png"];
-		$("#images_for_questions").html("");
+		$("#villalift_images_for_questions").html("");
 		$.each(images, function(i, img){
-		   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
-			$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
+			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-	$(document).on("change", 'input[name="operating_speed_values"]', function () {
-	    $("#images_for_questions").css({"display":"none"})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var operating_speed_values_value = $('input[name="operating_speed_values"]:checked').val();
-		operating_speed_values_value_number=operating_speed_values_value.replace("m/s","");
-		operating_speed_values_value_number=operating_speed_values_value_number.trim();
+	$(document).on("change", 'input[name="villalift_operating_speed_values"]', function () {
+	    $("#villalift_images_for_questions").css({"display":"none"})
+		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
+		var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+		var villalift_operating_speed_values_value = $('input[name="villalift_operating_speed_values"]:checked').val();
+		villalift_operating_speed_values_value_number=villalift_operating_speed_values_value.replace("m/s","");
+		villalift_operating_speed_values_value_number=villalift_operating_speed_values_value_number.trim();
 		
 		
 		
@@ -5808,81 +5808,81 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
     5: '2.0'
   };
   for(x in speedMap_temp){
-	if(speedMap_temp[x]==operating_speed_values_value_number){
+	if(speedMap_temp[x]==villalift_operating_speed_values_value_number){
 		document.getElementById("speedSlider").value=x;
-		updateSpeed(x);
+		villalift_updateSpeed(x);
 	}
   }
 	
   
 		
 									
-		$("#images_for_questions").html("");
+		$("#villalift_images_for_questions").html("");
 	});
 	function villaPrevBtnFun(){
-		$("#downloadRecommendationsBtn").css({"visibility":"hidden"})
+		$("#villalift_downloadRecommendationsBtn").css({"visibility":"hidden"})
 				
-		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
+		var form_steps_arr=["villalift_number_of_floors_div","villalift_number_of_passengers_div","villalift_number_of_openings_div","villalift_operating_speed_values_div","villalift_maximum_duty_cycle_category_values_div","your_contact_details_div"];
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
-		if(activeDivId!="number_of_floors_div"){
+		if(activeDivId!="villalift_number_of_floors_div"){
 			form_step_name_div=form_steps_arr[activeDivId_index-1];
 			form_step_name=form_step_name_div.replace("_div","")
-			if(form_step_name=="number_of_floors"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
+			if(form_step_name=="villalift_number_of_floors"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
-				$("#images_for_questions").html("");
+				$("#villalift_images_for_questions").html("");
 				$.each(images, function(i, img){
-					img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
-					$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
+					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 				});
 			}
-			if(form_step_name=="number_of_passengers"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_passengers"]:checked').length > 0) {
-					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
+			if(form_step_name=="villalift_number_of_passengers"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+				if ($('input[name="villalift_number_of_passengers"]:checked').length > 0) {
+					var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 					var images = ["1.png"];
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 					$.each(images, function(i, img){
-					   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
-						$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
+						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 					});
 				}
 				else{
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 				}
 			}
-			if(form_step_name=="number_of_openings"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_openings"]:checked').length > 0) {
-					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
+			if(form_step_name=="villalift_number_of_openings"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+				if ($('input[name="villalift_number_of_openings"]:checked').length > 0) {
+					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 					$.each(images, function(i, img){
-					   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
-						$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
+						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 					});
 				}
 				else{
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 				}
 			}
-			if(form_step_name=="operating_speed_values"){
-				$("#images_for_questions").css({"display":"none"})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-				$("#images_for_questions").html("");
+			if(form_step_name=="villalift_operating_speed_values"){
+				$("#villalift_images_for_questions").css({"display":"none"})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
+				$("#villalift_images_for_questions").html("");
 			}
-			if(form_step_name=="maximum_duty_cycle_category_values"){
-			    $("#downloadRecommendationsBtn").css({"visibility":"visible"})
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				$("#images_for_questions").html("");
+			if(form_step_name=="villalift_maximum_duty_cycle_category_values"){
+			    $("#villalift_downloadRecommendationsBtn").css({"visibility":"visible"})
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				$("#villalift_images_for_questions").html("");
 				
 		
 			}
@@ -5890,89 +5890,89 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
 	}
 	
 	function villaNextBtnFun(){
-		$("#downloadRecommendationsBtn").css({"visibility":"hidden"})
-		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
+		$("#villalift_downloadRecommendationsBtn").css({"visibility":"hidden"})
+		var form_steps_arr=["villalift_number_of_floors_div","villalift_number_of_passengers_div","villalift_number_of_openings_div","villalift_operating_speed_values_div","villalift_maximum_duty_cycle_category_values_div","your_contact_details_div"];
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
 		
 		if(activeDivId!="your_contact_details_div"){
 			form_step_name_div=form_steps_arr[activeDivId_index+1];
 			form_step_name=form_step_name_div.replace("_div","")
-			if(form_step_name=="number_of_floors"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
+			if(form_step_name=="villalift_number_of_floors"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
-				$("#images_for_questions").html("");
+				$("#villalift_images_for_questions").html("");
 				$.each(images, function(i, img){
-					img_src="assets/img/images_for_questions/number_of_floors/"+number_of_floors_value+"/"+img;
-					$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
+					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 				});
 			}
-			if(form_step_name=="number_of_passengers"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_passengers"]:checked').length > 0) {
-					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
+			if(form_step_name=="villalift_number_of_passengers"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+				if ($('input[name="villalift_number_of_passengers"]:checked').length > 0) {
+					var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 					
 					var images = ["1.png"];
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 					$.each(images, function(i, img){
-					   img_src="assets/img/images_for_questions/number_of_passengers/"+number_of_floors_value+"/"+number_of_passengers_value+"/"+img;
-						$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
+						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 					});
 				}
 				else{
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 				}
 			}
-			if(form_step_name=="number_of_openings"){
-				$("#images_for_questions").css({"display":""})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_openings"]:checked').length > 0) {
-					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
+			if(form_step_name=="villalift_number_of_openings"){
+				$("#villalift_images_for_questions").css({"display":""})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
+				if ($('input[name="villalift_number_of_openings"]:checked').length > 0) {
+					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 					$.each(images, function(i, img){
-					   img_src="assets/img/images_for_questions/number_of_openings/"+number_of_floors_value+"/"+number_of_openings_value+"/"+img;
-						$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
+						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 					});
 				}
 				else{
-					$("#images_for_questions").html("");
+					$("#villalift_images_for_questions").html("");
 				}
 			}
-			if(form_step_name=="operating_speed_values"){
-				$("#images_for_questions").css({"display":"none"})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-				$("#images_for_questions").html("");
+			if(form_step_name=="villalift_operating_speed_values"){
+				$("#villalift_images_for_questions").css({"display":"none"})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
+				$("#villalift_images_for_questions").html("");
 			}
-			if(form_step_name=="maximum_duty_cycle_category_values"){
-				$("#images_for_questions").css({"display":""})
-			    $("#downloadRecommendationsBtn").css({"visibility":"visible"})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				$("#images_for_questions").html("");
+			if(form_step_name=="villalift_maximum_duty_cycle_category_values"){
+				$("#villalift_images_for_questions").css({"display":""})
+			    $("#villalift_downloadRecommendationsBtn").css({"visibility":"visible"})
+				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+				$("#villalift_images_for_questions").html("");
 			}
 		}
 		
 	}
 	
-	function recommendedImgUrlFun(obj){
-	    $("#images_for_questions").html("")
-		data_number_of_floors=obj.getAttribute("data_number_of_floors")
+	function villalift_recommendedImgUrlFun(obj){
+	    $("#villalift_images_for_questions").html("")
+		data_villalift_number_of_floors=obj.getAttribute("data_villalift_number_of_floors")
 		data_recommendation=obj.getAttribute("data_recommendation");
-		img_src="assets/img/images_for_questions/recommendations/"+data_number_of_floors+"/"+data_recommendation+".png";
-		images_for_questions_html=$("#images_for_questions").html();
-		if (!images_for_questions_html.includes(img_src)) {
-			$("#images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		img_src="assets/img/villalift_images_for_questions/recommendations/"+data_villalift_number_of_floors+"/"+data_recommendation+".png";
+		villalift_images_for_questions_html=$("#villalift_images_for_questions").html();
+		if (!villalift_images_for_questions_html.includes(img_src)) {
+			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		}
 	}
 	
 	
 	document.addEventListener("DOMContentLoaded", function () {
-	  const downloadBtn = document.getElementById("downloadRecommendationsBtn");
+	  const downloadBtn = document.getElementById("villalift_downloadRecommendationsBtn");
 	  if (downloadBtn) {
 		downloadBtn.addEventListener("click", function () {
 		  document.getElementById("villaNextBtn").click();
@@ -5986,20 +5986,20 @@ document.querySelectorAll(".floor-radio").forEach(radio => {
  <script>
 var villaLiftModal = document.getElementById('villaLiftModal');
 villaLiftModal.addEventListener('show.bs.modal', function () {
-	$('input[name="number_of_floors"]').prop('checked', false);
-    $('input[name="number_of_passengers"]').prop('checked', false);
-	$('input[name="number_of_openings"]').prop('checked', false);
-	$('input[name="operating_speed_values"]').prop('checked', false);
-    document.getElementById("Preferred_Lift_Speed_anim_div").style.display="none";
-	document.getElementById("images_for_questions").style.display="none";
+	$('input[name="villalift_number_of_floors"]').prop('checked', false);
+    $('input[name="villalift_number_of_passengers"]').prop('checked', false);
+	$('input[name="villalift_number_of_openings"]').prop('checked', false);
+	$('input[name="villalift_operating_speed_values"]').prop('checked', false);
+    document.getElementById("villalift_Preferred_Lift_Speed_anim_div").style.display="none";
+	document.getElementById("villalift_images_for_questions").style.display="none";
 	
 });
 </script>
   <script>
 	// ball and topline animations for Preferred_Lift_Speed starts
-    const ball = document.getElementById("ball_Preferred_Lift_Speed");
-  const topLine = document.getElementById("topLine_Preferred_Lift_Speed");
-  const container = document.getElementById("Preferred_Lift_Speed_anim_div");
+    const ball = document.getElementById("villalift_ball_Preferred_Lift_Speed");
+  const topLine = document.getElementById("villalift_topLine_Preferred_Lift_Speed");
+  const container = document.getElementById("villalift_Preferred_Lift_Speed_anim_div");
 
   let speed = 0;
   let pos = 0;
@@ -6035,10 +6035,10 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
   function setSpeed(newSpeed,obj) {
 	//if(newSpeed==0){
 	if(0){
-		$("#ball_Preferred_Lift_Speed").css({"bottom":"0px"})
+		$("#villalift_ball_Preferred_Lift_Speed").css({"bottom":"0px"})
 	}
 	else{
-		$(".Preferred_Lift_Speed_controls_btn").each(function(){
+		$(".villalift_Preferred_Lift_Speed_controls_btn").each(function(){
 			if($(this).hasClass("btn-success")){
 				$(this).removeClass("btn-success")
 			}
@@ -6046,7 +6046,7 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
 				$(this).removeClass("btn-primary")
 			}
 		});
-		$(".Preferred_Lift_Speed_controls_btn").each(function(){
+		$(".villalift_Preferred_Lift_Speed_controls_btn").each(function(){
 			$(this).addClass("btn-primary")
 		});
 		$(obj).removeClass("btn-primary")
@@ -6080,11 +6080,12 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
   
 									
 
-  function updateSpeed(value) {
-    document.getElementById('speedValue').innerText = speedMap[value];
+  function villalift_updateSpeed(value) {
+    document.getElementById('villalift_speedValue').innerText = speedMap[value];
     setSpeed(Number(value), null); // call your original function
   }
 </script>
+<!-- this is villa related functionality ends -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
 </html>
