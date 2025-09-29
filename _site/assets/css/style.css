@@ -16,9 +16,9 @@ Default Style
   --color-secondary: #fcd84e;
 
   /* Custom Palette */
-  --color-teal: #44ede8;
+  --color-teal: #fcd84e;
   --color-purple: #682DC9;
-  --color-dark-teal: #067473;
+  --color-dark-teal: #0f52ba;
   --color-navy: #101B42;
 }
 
@@ -120,13 +120,13 @@ button:focus {
    color: var(--color-navy);
 }
 .eon-teal{
- color: #44ede8;
+ color: #fcd84e;
 }
 .eon-purple{
  color: #682DC9;
 }
 .eon-dark-teal{
- color: #067473;
+ color: #0f52ba;
 }
 .eon-navy{
  color:  #101B42;
@@ -247,7 +247,7 @@ textarea.form-control {
 Default Btn Area Style*/
 .default-btn {
   font-size: 16px;
-  color: #004b50;
+  color: #0f52ba;
   padding: 20px 30px;
   line-height: 1;
   -webkit-transition: all 0.5s;
@@ -951,7 +951,7 @@ legend {
   gap: 10px;
 }
 .step-sidebar li.active i {
-  background: #004b50; /* neon green */
+  background: #0f52ba; /* neon green */
   color: #fff;
   box-shadow: 0 0 0 4px rgba(31,223,159,0.25);
 }
@@ -1004,7 +1004,7 @@ legend {
 #hospitalNextBtn,
 #warehouseNextBtn,
 #officeNextBtn {
-  background: #004b50;
+  background: #0f52ba;
   border: none;
   border-radius: 25px;
   padding: 10px 28px;
@@ -1087,7 +1087,7 @@ legend {
 }
 .default-btn {
     font-size: 16px;
-    color: #004b50;
+    color: #0f52ba;
     padding: 15px 30px;
     line-height: 1;
     -webkit-transition: all 0.5s;
@@ -1201,6 +1201,44 @@ display: block;
  background : var(--color-dark-teal);
  color:#fff;
 }
+/* Buton 4 Bitti starts */
+.btn-dwd {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 20px;
+  /*border: 1px solid #fff;*/
+  cursor: pointer;  
+  position:relative;
+  overflow:hidden;
+  margin: 0 20px;
+  font-weight: 400;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius:1.4rem;
+  background-color:#fcd84e;
+  color:#fff;
+}
+
+.btn-dwd:before {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 50px;
+  background : #fff;
+  right: -40px;
+  top: -40px;
+  transform: rotate(37deg);
+  transition: all .3s;
+  opacity: 0.3;
+}
+
+.btn-dwd:hover:before {
+  right: 105%;
+}
+.btn-dwd:hover {
+ background : var(--color-dark-teal);
+ color:#fff;
+}
 .btn-buynow2 {
   text-align: center;
   display: inline-block;
@@ -1253,7 +1291,7 @@ display: block;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius:1.4rem;
   background-color:#fff;
-  color:#004b50;
+  color:#0f52ba;
 }
 
 .btn-buynow1:before {
@@ -1274,7 +1312,7 @@ display: block;
 }
 .btn-buynow1:hover {
  background : #e1e1e1;
- color:#004b50;
+ color:#0f52ba;
 }
 
 /* Buton 4 Bitti starts */
@@ -1384,7 +1422,7 @@ display: block;
 
 
 .estimate-banner {
-  background: #fff;
+  background: #fffffff5;
   border-radius: 20px;
   box-shadow: 0 6px 25px rgba(0,0,0,0.08);
   padding: 40px;
@@ -4005,7 +4043,7 @@ Choose Us Area Five Style
 }
 
 .choose-us-area-three.choose-us-area-five .single-choose:hover {
-  background-color: #004b50;
+  background-color: #0f52ba;
 }
 
 /*
@@ -4391,7 +4429,7 @@ Blog Area Five Style
 Footer Top Area Five Style
 ======================================================*/
 .footer-top-area.footer-top-area-five {
-  background-color: #004b50;
+  background-color: #0f52ba;
   background-image: none;
 }
 
