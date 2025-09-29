@@ -2601,13 +2601,12 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 	z-index:100;
   }
   
-<<<<<<< Updated upstream
+
   #villalift_downloadRecommendationsBtn{
 	visibility:hidden;
 	border-radius:25px;
   }
-=======
->>>>>>> Stashed changes
+
 </style>
 <section class="testimonial-area-six ptb-100 jarallax">
 
@@ -3873,12 +3872,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
   </div>
 </div>
 
-<<<<<<< Updated upstream
+
 
 <!-- Villa / Duplex Lift Requirement Form Modal starts -->
-=======
-<!-- Villa / Duplex Lift Requirement Form Modal -->
->>>>>>> Stashed changes
+
+
 <div class="modal fade" id="villaLiftModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
@@ -4066,8 +4064,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  <div class="d-flex justify-content-between mt-4">
 							<button type="button" class="btn btn-outline-secondary prevBtn11"  id="villaPrevBtn" onclick="villaPrevBtnFun()">Back</button>
 							<button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
-<<<<<<< Updated upstream
-							-->
+
 							
 							
 							<!-- Right side -->
@@ -4075,10 +4072,7 @@ Magadi Main Road, Bengaluru - 560091.</p>
 	<button type="button" class="btn btn-info me-2 cursor-pointer" id="villalift_downloadRecommendationsBtn">Download as PDF</button>
     <button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
   </div>
-  
-  
-=======
->>>>>>> Stashed changes
+
 						  </div>
 
 						</form>
@@ -5082,7 +5076,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 </script>
 
 <script>
-<<<<<<< Updated upstream
 	villalift_number_of_floors_prev="";
 	$(document).on("change", 'input[name="villalift_number_of_floors"]', function () {
 	    $("#villalift_images_for_questions").css({"display":""})
@@ -5090,15 +5083,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 		var images = ["1.png"];
 		$("#villalift_images_for_questions").html("");
-=======
-	number_of_floors_prev="";
-	$(document).on("change", 'input[name="number_of_floors"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var images = ["1.png", "2.png"];
-		$("#images_for_questions").html("");
->>>>>>> Stashed changes
 		$.each(images, function(i, img){
 		    img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5109,7 +5093,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			$('input[name="villalift_operating_speed_values"]').prop('checked', false);
 		}
 	});
-<<<<<<< Updated upstream
+
 	$(document).on("change", 'input[name="villalift_number_of_passengers"]', function () {
 		$("#villalift_images_for_questions").css({"display":""})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5117,21 +5101,13 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 		var images = ["1.png"];
 		$("#villalift_images_for_questions").html("");
-=======
-	$(document).on("change", 'input[name="number_of_passengers"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
-		var images = ["1.png", "2.png"];
-		$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 		$.each(images, function(i, img){
 		   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-<<<<<<< Updated upstream
+
 	$(document).on("change", 'input[name="villalift_number_of_openings"]', function () {
 		$("#villalift_images_for_questions").css({"display":""})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5139,21 +5115,13 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 		var images = ["1.png"];
 		$("#villalift_images_for_questions").html("");
-=======
-	$(document).on("change", 'input[name="number_of_openings"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-		var images = ["1.png", "2.png"];
-		$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 		$.each(images, function(i, img){
 		   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-<<<<<<< Updated upstream
+
 	$(document).on("change", 'input[name="villalift_operating_speed_values"]', function () {
 	    $("#villalift_images_for_questions").css({"display":"none"})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5199,7 +5167,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
 				$("#villalift_images_for_questions").html("");
-=======
+
 	$(document).on("change", 'input[name="operating_speed_values"]', function () {
 		$("#Preferred_Lift_Speed_anim_div").css({"display":""})
 		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
@@ -5221,13 +5189,8 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
 				var images = ["1.png", "2.png"];
 				$("#images_for_questions").html("");
->>>>>>> Stashed changes
-				$.each(images, function(i, img){
-					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
-					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
-				});
-			}
-<<<<<<< Updated upstream
+
+
 			if(form_step_name=="villalift_number_of_passengers"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5236,25 +5199,9 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="number_of_passengers"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_passengers"]:checked').length > 0) {
-					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
-					var images = ["1.png", "2.png"];
-					$("#images_for_questions").html("");
->>>>>>> Stashed changes
-					$.each(images, function(i, img){
-					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
-						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
-					});
-				}
-				else{
-					$("#villalift_images_for_questions").html("");
-				}
-			}
-<<<<<<< Updated upstream
+
+
+
 			if(form_step_name=="villalift_number_of_openings"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5263,15 +5210,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="number_of_openings"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_openings"]:checked').length > 0) {
-					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-					var images = ["1.png", "2.png"];
-					$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5281,7 +5220,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-<<<<<<< Updated upstream
+
 			if(form_step_name=="villalift_operating_speed_values"){
 				$("#villalift_images_for_questions").css({"display":"none"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5292,53 +5231,33 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#villalift_images_for_questions").html("");
-				
+
 		
-=======
-			if(form_step_name=="operating_speed_values"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-				$("#images_for_questions").html("");
-			}
-			if(form_step_name=="maximum_duty_cycle_category_values"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				$("#images_for_questions").html("");
->>>>>>> Stashed changes
-			}
 		}
 	}
 	function villaNextBtnFun(){
-<<<<<<< Updated upstream
+
 		$("#villalift_downloadRecommendationsBtn").css({"visibility":"hidden"})
 		var form_steps_arr=["villalift_number_of_floors_div","villalift_number_of_passengers_div","villalift_number_of_openings_div","villalift_operating_speed_values_div","villalift_maximum_duty_cycle_category_values_div","your_contact_details_div"];
-=======
-		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
->>>>>>> Stashed changes
+
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
 		
 		if(activeDivId!="your_contact_details_div"){
 			form_step_name_div=form_steps_arr[activeDivId_index+1];
 			form_step_name=form_step_name_div.replace("_div","")
-<<<<<<< Updated upstream
 			if(form_step_name=="villalift_number_of_floors"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
 				$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="number_of_floors"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				var images = ["1.png", "2.png"];
-				$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 				$.each(images, function(i, img){
 					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
 					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 				});
 			}
-<<<<<<< Updated upstream
 			if(form_step_name=="villalift_number_of_passengers"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5348,16 +5267,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="number_of_passengers"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_passengers"]:checked').length > 0) {
-					var number_of_passengers_value = $('input[name="number_of_passengers"]:checked').val();
-					
-					var images = ["1.png", "2.png"];
-					$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5367,7 +5277,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-<<<<<<< Updated upstream
+
 			if(form_step_name=="villalift_number_of_openings"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5376,15 +5286,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="number_of_openings"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				if ($('input[name="number_of_openings"]:checked').length > 0) {
-					var number_of_openings_value = $('input[name="number_of_openings"]:checked').val();
-					var images = ["1.png", "2.png"];
-					$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5394,7 +5296,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-<<<<<<< Updated upstream
+
 			if(form_step_name=="villalift_operating_speed_values"){
 				$("#villalift_images_for_questions").css({"display":"none"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5405,28 +5307,17 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			    $("#villalift_downloadRecommendationsBtn").css({"visibility":"visible"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#villalift_images_for_questions").html("");
-=======
-			if(form_step_name=="operating_speed_values"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-				$("#images_for_questions").html("");
-			}
-			if(form_step_name=="maximum_duty_cycle_category_values"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				$("#images_for_questions").html("");
->>>>>>> Stashed changes
+
 			}
 		}
 		
 	}
 	
-<<<<<<< Updated upstream
+
 	function villalift_recommendedImgUrlFun(obj){
 	    $("#villalift_images_for_questions").html("")
 		data_villalift_number_of_floors=obj.getAttribute("data_villalift_number_of_floors")
-=======
-	function recommendedImgUrlFun(obj){
-		data_number_of_floors=obj.getAttribute("data_number_of_floors")
->>>>>>> Stashed changes
+
 		data_recommendation=obj.getAttribute("data_recommendation");
 		img_src="assets/img/villalift_images_for_questions/recommendations/"+data_villalift_number_of_floors+"/"+data_recommendation+".png";
 		villalift_images_for_questions_html=$("#villalift_images_for_questions").html();
@@ -5434,10 +5325,7 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		}
 	}
-<<<<<<< Updated upstream
-	
-	
-	document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 	  const downloadBtn = document.getElementById("villalift_downloadRecommendationsBtn");
 	  if (downloadBtn) {
 		downloadBtn.addEventListener("click", function () {
@@ -5445,30 +5333,20 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		});
 	  }
 	});
-
-=======
->>>>>>> Stashed changes
 </script>
 
 
  <script>
 var villaLiftModal = document.getElementById('villaLiftModal');
 villaLiftModal.addEventListener('show.bs.modal', function () {
-<<<<<<< Updated upstream
+
 	$('input[name="villalift_number_of_floors"]').prop('checked', false);
     $('input[name="villalift_number_of_passengers"]').prop('checked', false);
 	$('input[name="villalift_number_of_openings"]').prop('checked', false);
 	$('input[name="villalift_operating_speed_values"]').prop('checked', false);
     document.getElementById("villalift_Preferred_Lift_Speed_anim_div").style.display="none";
 	document.getElementById("villalift_images_for_questions").style.display="none";
-	
-=======
-	$('input[name="number_of_floors"]').prop('checked', false);
-    $('input[name="number_of_passengers"]').prop('checked', false);
-	$('input[name="number_of_openings"]').prop('checked', false);
-	$('input[name="operating_speed_values"]').prop('checked', false);
-    document.getElementById("Preferred_Lift_Speed_anim_div").style.display="none";
->>>>>>> Stashed changes
+
 });
 </script>
   <script>
