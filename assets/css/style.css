@@ -12,12 +12,12 @@ Default Style
 
   /* Base Colors */
   --color-default: #222222;
-  --color-primary: #674ea7;
+  --color-primary: #0f52ba;
   --color-secondary: #fcd84e;
 
   /* Custom Palette */
   --color-teal: #fcd84e;
-  --color-purple: #682DC9;
+  --color-purple: #0f52ba;
   --color-dark-teal: #0f52ba;
   --color-navy: #101B42;
 }
@@ -177,19 +177,19 @@ ul {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #000;
+  color: #fff;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #000;
+  color: #fff;
 }
 
 .form-control::-ms-input-placeholder {
-  color: #000;
+  color: #fff;
 }
 
 .form-control::placeholder {
-  color: #000;
+  color: #fff;
 }
 
 .form-control:focus {
@@ -921,6 +921,26 @@ legend {
   overflow: hidden;
 }
 
+.modal-content .form-control { 
+  color: #000; 
+}
+
+.modal-content .form-control::-webkit-input-placeholder {
+  color: #000;
+}
+
+.modal-content .form-control:-ms-input-placeholder {
+  color: #000;
+}
+
+.modal-content .form-control::-ms-input-placeholder {
+  color: #000;
+}
+
+.modal-content .form-control::placeholder {
+  color: #000;
+}
+
 /* Sidebar steps */
 .step-sidebar {
   border-right: 1px solid rgba(255,255,255,0.08);
@@ -1216,7 +1236,7 @@ display: block;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius:1.4rem;
   background-color:#fcd84e;
-  color:#fff;
+  color:#000;
 }
 
 .btn-dwd:before {
@@ -1236,7 +1256,7 @@ display: block;
   right: 105%;
 }
 .btn-dwd:hover {
- background : var(--color-dark-teal);
+ background : var(--color-navy);
  color:#fff;
 }
 .btn-buynow2 {
@@ -2379,6 +2399,7 @@ Counter Area Style
   line-height: 1;
   font-size: 40px;
   margin-bottom: 15px;
+  font-weight:700;
 }
 
 /*
@@ -4031,7 +4052,7 @@ About Area Five Style
 Choose Us Area Five Style
 ======================================================*/
 .choose-us-area-three.choose-us-area-five .single-choose {
-  background-color: #effffb;
+  background-color: #f0f8ff;
 }
 
 .choose-us-area-three.choose-us-area-five .single-choose span {
@@ -4429,7 +4450,7 @@ Blog Area Five Style
 Footer Top Area Five Style
 ======================================================*/
 .footer-top-area.footer-top-area-five {
-  background-color: #0f52ba;
+  background-color:  var(--color-navy);
   background-image: none;
 }
 
@@ -5032,16 +5053,18 @@ Team Area Four Style
 
 .team-area.team-area-six .single-team .team-content ul li {
   display: inline-block;
-  padding: 0 5px;
+  padding: 5px;
+  border-radius:50%;
+  background-color:#fff;
 }
 
 .team-area.team-area-six .single-team .team-content ul li a {
-  color: #ffffff;
+  color: #0f52ba;
   font-size: 18px;
 }
 
 .team-area.team-area-six .single-team .team-content ul li a:hover {
-  color: #ffffff;
+  color: #0f52ba;
   -webkit-animation: rubberBand 1s linear;
           animation: rubberBand 1s linear;
 }
@@ -8038,7 +8061,7 @@ Nice select Area Style*/
 
 .nice-select .option.selected.focus {
   background-color: #262566;
-  color: var( --color-purple);
+  color:#fff;
 }
 
 /*
@@ -8272,7 +8295,7 @@ font-size: .75rem;
   justify-content: center;
 }
 
-.parallax-item .overlay {
+.parallax-item .overlays {
   background: rgba(0,0,0,0.55);
   padding: 60px 30px;
   border-radius: 12px;
