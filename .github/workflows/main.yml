@@ -50,10 +50,10 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 128.199.22.182 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 162.241.123.127 >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
-        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no master_znavuzmyxy@128.199.22.182 "echo Connected!"
+        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no eonelcfi@162.241.123.127 "echo Connected!"
 
       - name: Deploy via rsync
-        run: rsync -avz --delete _site/ master_znavuzmyxy@128.199.22.182:/home/master/applications/jkkppyvmpr/public_html/eon/eleventy/
+        run: rsync -avz --delete _site/ eonelcfi@162.241.123.127:/home2/eonelcfi/public_html/website/
