@@ -1,4 +1,4 @@
-name: Build and Deploy Eleventy to Cloudways
+name: Build and Deploy Eleventy to cPanel
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "contains(github.event.head_commit.message, '[deploy]')"   # ✅ Only build when commit msg includes [deploy]
+    if: "contains(github.event.head_commit.message, '[deploy]')"
 
     steps:
       - name: Checkout repository
@@ -35,8 +35,8 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: build    # ✅ Deploy only after build finishes
-    if: "contains(github.event.head_commit.message, '[deploy]')"   # ✅ Same condition
+    needs: build
+    if: "contains(github.event.head_commit.message, '[deploy]')"
 
     steps:
       - name: Download build artifact
@@ -53,7 +53,7 @@ jobs:
           ssh-keyscan -H 162.241.123.127 >> ~/.ssh/known_hosts
 
       - name: Test SSH connection
-        run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no eonelcfi@162.241.123.127 "echo Connected!"
+        run: ssh -o StrictHostKeyChecking=no eonelcfi@162.241.123.127 "echo Connected!"
 
       - name: Deploy via rsync
         run: rsync -avz --delete _site/ eonelcfi@162.241.123.127:/home2/eonelcfi/public_html/website/
