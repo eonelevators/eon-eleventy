@@ -195,7 +195,7 @@
 		</header>
 		<!-- End Heder Area -->
 		
-<section class="getquote-section px-4 py-0" style="background: url('../assets/img/bg-ban.png') center/cover no-repeat;>
+<section class="getquote-section px-4 py-0" style="background: url('../assets/img/bg-ban1.png') center/cover no-repeat;>
   <div class="container-fluid home-4-banner">
     <div class="estimate-banner">
       <div class="row align-items-center justify-content-center">
@@ -576,7 +576,7 @@
 
 		
 		<!-- Start Hero Slider Six Area -->
-		<section style="background-color:#0f52ba; py-5">
+		<section style="background-color:#cbdffb; py-5">
 			
 			
 					
@@ -584,8 +584,8 @@
 <div class="row align-items-center py-5">
 						<div class="col-lg-12">
 							
-									<span class="top-title text-white">Welcome to EON Elevators</span>
-									<h2 class="text-white mb-4">South India’s Trusted Elevator Solutions Partner — licensed, ISO-certified, and committed to innovation & service excellence.</h2>									
+									<span class="top-title eon-navy">Welcome to EON Elevators</span>
+									<h2 class="eon-navy mb-4">South India’s Trusted Elevator Solutions Partner — licensed, ISO-certified, and committed to innovation & service excellence.</h2>									
 
 								</div>
 							
@@ -1025,19 +1025,25 @@ display: flex;
 }
 
 .text {
-	display: grid;
+  display: flex;
+  flex-direction: column; /* stack items vertically */
   position: absolute;
   top: 0;
-  right: -100%;   /* hidden by default */
+  right: -100%;
   width: 65%;
   height: 100%;
   padding: 2rem;
   background: #fff;
   box-shadow: inset 1px 1px 15px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
-  transition: right 0.4s ease-in-out;  /* smooth slide */
-  z-index: 2; /* make sure it's above image but below overlay heading */
+  transition: right 0.4s ease-in-out;
+  z-index: 2;
 }
+
+.text a {
+  margin-top: auto; /* pushes it to the bottom */
+}
+
 .tree {
 	place-self: center;
 	width: calc(50px + 2vw);
@@ -1215,34 +1221,34 @@ display: flex;
       left: 0;
       opacity: 0;
       width: 100%;
-      color: #323237;
+      color: #000;
       display: block;
       transition: all 0.4s ease;
       position: absolute;
-      background: #adadaf;
+      background: #ffc107;
       content: attr(data-back);
       transform: rotateX(-90deg);
       transform-origin: center;
       padding: 0 30px;
       line-height: 40px;
-      border-radius: 4px;
+      border-radius: 1.4rem;
     }
 
     .btn-flip:before {
       top: 0;
       left: 0;
       opacity: 1;
-      color: #adadaf;
+      color: #fff;
       display: block;
       padding: 0 30px;
       line-height: 40px;
       transition: all 0.4s ease;
       position: relative;
-      background: #323237;
+      background: #0f52ba;
       content: attr(data-front);
       transform: rotateX(0deg);
       transform-origin: center;
-      border-radius: 4px;
+      border-radius: 1.4rem;
     }
 	.details-wrapper .detail-card {
   display: none;
@@ -1442,7 +1448,7 @@ display: flex;
         <div class="wrap animate pop border-gold">
           <div class="overlay bg-purple">
             <div class="overlay-content animate slide-left delay-2 border-gold">
-              <h1 class="animate slide-left pop delay-4 text-white">NEST</h1>
+              <h1 class="animate slide-left pop delay-4 text-white">NEST Series</h1>
               <p class="animate slide-left pop delay-5 text-light">Diagnose the problem at your school</p>
             </div>
           </div>
@@ -1458,7 +1464,7 @@ display: flex;
         <div class="wrap animate pop border-gold">
           <div class="overlay bg-red">
             <div class="overlay-content animate slide-left delay-2 border-gold">
-              <h1 class="animate slide-left pop delay-4 text-white">METRO</h1>
+              <h1 class="animate slide-left pop delay-4 text-white">METRO Series</h1>
               <p class="animate slide-left pop delay-5 text-light">METRO a bespoke solution...</p>
             </div>
           </div>
@@ -1474,7 +1480,7 @@ display: flex;
         <div class="wrap animate pop border-gold">
           <div class="overlay bg-purple">
             <div class="overlay-content animate slide-left delay-2 border-gold">
-              <h1 class="animate slide-left pop delay-4 text-white">SUMMIT</h1>
+              <h1 class="animate slide-left pop delay-4 text-white">SUMMIT Series</h1>
               <p class="animate slide-left pop delay-5 text-light">SUMMIT the change...</p>
             </div>
           </div>
@@ -1492,7 +1498,7 @@ display: flex;
       <div class="detail-card" id="nest">
 	  <div class="row">
         <div class="col-lg-4">		
-		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h3>The <b>NEST Series</b> is our villa-focused home elevator range, created for effortless installation and everyday elegance. Built on a compact, machine-room-less architecture, NEST slips into tight shafts or open atriums with minimal civil work, no deep pit, and whisper-quiet operation. Its modular rails and plug-and-play wiring shorten site time dramatically, letting homeowners upgrade vertical mobility without disrupting family life.</h3>
                 <ol>
                   <li>Ideally suited for G+3 to G+10 floors</li>
@@ -1501,7 +1507,7 @@ display: flex;
 				</div>
               </div>
 			   <div class="col-lg-4">  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h5 class="eon-navy">NEST Series Key Features</h5>
                 <ol>
                   <li>IS 17900 and EN 81 Compliant</li>
@@ -1516,13 +1522,13 @@ display: flex;
                     </ul>
                   </li>
                 </ol>
-				<a href="#" class="btn-buynow btn-six explore-btn mt-4" data-target="nest-prods">Explore Products</a>
+				<a href="#" class="btn-buynow btn-six explore-btn d-none mt-4" data-target="nest-prods">Explore Products</a>
 
 				 </div>
 				</div>
 			   <div class="col-lg-4">
  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;"> 
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;"> 
 <img src="assets/img/eon_img_1.png" class="img-fluid">
                 <!-- Buttons -->
                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalForm" class="btn-buynow2 btn-six float-end mt-4 mx-auto">Talk To Our Tech Expert</a>
@@ -1536,7 +1542,7 @@ display: flex;
       <div class="detail-card" id="metro">
           <div class="row">
         <div class="col-lg-4">		
-		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h3>The <b>NEST Series</b> is our villa-focused home elevator range, created for effortless installation and everyday elegance. Built on a compact, machine-room-less architecture, NEST slips into tight shafts or open atriums with minimal civil work, no deep pit, and whisper-quiet operation. Its modular rails and plug-and-play wiring shorten site time dramatically, letting homeowners upgrade vertical mobility without disrupting family life.</h3>
                 <ol>
                   <li>Ideally suited for G+3 to G+10 floors</li>
@@ -1545,7 +1551,7 @@ display: flex;
 				</div>
               </div>
 			   <div class="col-lg-4">  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h5 class="eon-navy">NEST Series Key Features</h5>
                 <ol>
                   <li>IS 17900 and EN 81 Compliant</li>
@@ -1560,12 +1566,12 @@ display: flex;
                     </ul>
                   </li>
                 </ol>
-				<a href="#" class="btn-buynow btn-six explore-btn mt-4" data-target="metro-prods">Explore Products</a>
+				<a href="#" class="btn-buynow btn-six explore-btn d-none mt-4" data-target="metro-prods">Explore Products</a>
 				 </div>
 				</div>
 			   <div class="col-lg-4">
  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;"> 
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;"> 
 <img src="assets/img/eon_img_1.png" class="img-fluid">
                 <!-- Buttons -->
                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalForm" class="btn-buynow2 btn-six float-end mt-4 mx-auto">Talk To Our Tech Expert</a>
@@ -1579,7 +1585,7 @@ display: flex;
       <div class="detail-card" id="summit">
       <div class="row">
         <div class="col-lg-4">		
-		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+		<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h3>The <b>NEST Series</b> is our villa-focused home elevator range, created for effortless installation and everyday elegance. Built on a compact, machine-room-less architecture, NEST slips into tight shafts or open atriums with minimal civil work, no deep pit, and whisper-quiet operation. Its modular rails and plug-and-play wiring shorten site time dramatically, letting homeowners upgrade vertical mobility without disrupting family life.</h3>
                 <ol>
                   <li>Ideally suited for G+3 to G+10 floors</li>
@@ -1588,7 +1594,7 @@ display: flex;
 				</div>
               </div>
 			   <div class="col-lg-4">  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;">
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;">
                 <h5 class="eon-navy">NEST Series Key Features</h5>
                 <ol>
                   <li>IS 17900 and EN 81 Compliant</li>
@@ -1603,13 +1609,13 @@ display: flex;
                     </ul>
                   </li>
                 </ol>
-				<a href="#" class="btn-buynow btn-six explore-btn mt-4" data-target="summit-prods">Explore Products</a>
+				<a href="#" class="btn-buynow btn-six explore-btn d-none mt-4" data-target="summit-prods">Explore Products</a>
 
 				 </div>
 				</div>
 			   <div class="col-lg-4">
  
-			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #effffb;"> 
+			  	<div class="cards h-100" style="box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.05);padding: 30px;background-color: #f0f8ff;"> 
 <img src="assets/img/eon_img_1.png" class="img-fluid">
                 <!-- Buttons -->
                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalForm" class="btn-buynow2 btn-six float-end mt-4 mx-auto">Talk To Our Tech Expert</a>
@@ -3924,104 +3930,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							<div class="row g-3">
 							
 							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+3" 
-										  data-floor="G+3">
-										<div class="card-wrap">
-										  <div class="label-text">G+3</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+4" 
-										  data-floor="G+4">
-										<div class="card-wrap">
-										  <div class="label-text">G+4</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+5" 
-										  data-floor="G+5">
-										<div class="card-wrap">
-										  <div class="label-text">G+5</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+7" 
-										  data-floor="G+7">
-										<div class="card-wrap">
-										  <div class="label-text">G+7</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+10" 
-										  data-floor="G+10">
-										<div class="card-wrap">
-										  <div class="label-text">G+10</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+20" 
-										  data-floor="G+20">
-										<div class="card-wrap">
-										  <div class="label-text">G+20</div>
-										</div>
-									  </label>
-									</div>
-							
-								 <div class="col-6 col-lg-6">
-									  <label class="option-card">
-										<input 
-										  class="option-input villalift_floor-radio" 
-										  type="radio" 
-										  name="villalift_number_of_floors" 
-										  value="G+30" 
-										  data-floor="G+30">
-										<div class="card-wrap">
-										  <div class="label-text">G+30</div>
-										</div>
-									  </label>
-									</div>
-							
 							</div>
 						  </div>
 
@@ -4030,169 +3938,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							<h5 class="mb-3 mt-4">Q2. What would be the max passenger capacity for your Elevator?</h5>
 							<div id="passengers-options" class="row g-3 mb-4 mt-3">
 							
-							  
-								<div class="passengers-group row" data-floor="G+3" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="4">
-										<div class="card-wrap">
-										  <div class="label-text">4</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+4" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="5">
-										<div class="card-wrap">
-										  <div class="label-text">5</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="6">
-										<div class="card-wrap">
-										  <div class="label-text">6</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
-										<div class="card-wrap">
-										  <div class="label-text">10</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
-										<div class="card-wrap">
-										  <div class="label-text">20</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+5" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="30">
-										<div class="card-wrap">
-										  <div class="label-text">30</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+7" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="9">
-										<div class="card-wrap">
-										  <div class="label-text">9</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
-										<div class="card-wrap">
-										  <div class="label-text">10</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="15">
-										<div class="card-wrap">
-										  <div class="label-text">15</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+10" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="18">
-										<div class="card-wrap">
-										  <div class="label-text">18</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="10">
-										<div class="card-wrap">
-										  <div class="label-text">10</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="15">
-										<div class="card-wrap">
-										  <div class="label-text">15</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
-										<div class="card-wrap">
-										  <div class="label-text">20</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+20" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="20">
-										<div class="card-wrap">
-										  <div class="label-text">20</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="passengers-group row" data-floor="G+30" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_passengers" value="29">
-										<div class="card-wrap">
-										  <div class="label-text">29</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
 							  
 							  
 							  
@@ -4205,151 +3950,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							<div id="openings-options" class="row g-3 mb-4 mt-3">
 							
 							  
-								<div class="openings-group row" data-floor="G+3" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 2 Side</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+4" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 2 Side</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 1 Rear</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+5" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 2 Side</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+7" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 2 Side</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 1 Rear</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+10" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 2 Side">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 2 Side</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front + 1 Rear">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front + 1 Rear</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+20" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="openings-group row" data-floor="G+30" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_number_of_openings" value="1 Front">
-										<div class="card-wrap">
-										  <div class="label-text">1 Front</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
 							  
 							  
 							</div>
@@ -4361,133 +3961,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							<div id="villalift_operating_speed_values-options" class="row g-3 mb-4 mt-3">
 							
 							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+3" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.3 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">0.3 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+4" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">0.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+5" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="0.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">0.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+7" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+10" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="2.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">2.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+20" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="1.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
-								<div class="villalift_operating_speed_values-group row" data-floor="G+30" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="villalift_operating_speed_values" value="2.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">2.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-							  
 							  
 							  
 							</div>
@@ -4498,215 +3971,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							<h5 class="mb-3 mt-4">Our Recommendation</h5>
 							<div id="villalift_maximum_duty_cycle_category_values-options" class="row g-3 mb-4 mt-3">
 							
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+3" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+3' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+3][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+3&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+4" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Nest Description<br>Features : <br>EON Aeris Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aeris Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Nest Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Metro Description<br>Features : <br>EON Aegis Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Aegis Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Metro Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Metro Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+4' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Nest Description<br>Features : <br>EON Plexus Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+4][]" value="Product Name : EON Plexus Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+4&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Nest Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Nest Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												<table border='1' cellpadding='5' width='100%'><tr><th>EON Aeris Nest</th><th>EON Aegis Metro</th><th>EON Plexus Nest</th></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr></table>
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+5" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Summit<br>Description : <br>EON Aegis Summit Description <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+5' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Features : <br>EON Aegis Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+5][]" value="Product Name : EON Aegis Summit&lt;br&gt;Description : &lt;br&gt;EON Aegis Summit Description &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+5&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Features : &lt;br&gt;EON Aegis Summit Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+7" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Metro Description<br>Features : <br>EON Plexus Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Plexus Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Metro Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Metro Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Axira Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Axira Metro Description<br>Features : <br>EON Axira Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON Axira Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Axira Metro Description&lt;br&gt;Features : &lt;br&gt;EON Axira Metro Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON GLT Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+7' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON GLT Metro Description<br>Features : <br>EON GLT Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+7][]" value="Product Name : EON GLT Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+7&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON GLT Metro Description&lt;br&gt;Features : &lt;br&gt;EON GLT Metro Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												<table border='1' cellpadding='5' width='100%'><tr><th>EON Plexus Metro</th><th>EON Axira Metro</th><th>EON GLT Metro</th></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr></table>
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+10" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Aeris Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aeris Summit Description<br>Features : <br>EON Aeris Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aeris Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aeris Summit Description&lt;br&gt;Features : &lt;br&gt;EON Aeris Summit Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Second Recommendation</h5> <div class="ms-4">Product Name : EON Aegis Nest <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='second_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Aegis Nest Description<br>Features : <br>EON Aegis Nest Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Aegis Nest &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;second_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Aegis Nest Description&lt;br&gt;Features : &lt;br&gt;EON Aegis Nest Features" checked>
-										</div>
-										
-										
-									  
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">Third Recommendation</h5> <div class="ms-4">Product Name : EON Plexus Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+10' data_recommendation='third_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Plexus Summit Description<br>Features : <br>EON Plexus Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+10][]" value="Product Name : EON Plexus Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+10&#39; data_recommendation=&#39;third_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Plexus Summit Description&lt;br&gt;Features : &lt;br&gt;EON Plexus Summit Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												<table border='1' cellpadding='5' width='100%'><tr><th>EON Aeris Summit</th><th>EON Aegis Nest</th><th>EON Plexus Summit</th></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr><tr align='left'><td>input 1</td><td>input 2</td><td>input 3</td></tr></table>
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+20" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Metro <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+20' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Metro Description<br>Features : <br>EON Evora Metro Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+20][]" value="Product Name : EON Evora Metro &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+20&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Metro Description&lt;br&gt;Features : &lt;br&gt;EON Evora Metro Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
-							  
-								<div class="villalift_maximum_duty_cycle_category_values-group row" data-floor="G+30" style="display:none; margin:0;">
-								  
-								  <ul>
-									
-										
-										<div class="label-text">
-										  <li><h5 class="mt-2">First Recommendation</h5> <div class="ms-4">Product Name : EON Evora Summit <i class='bi bi-eye viewrecommendationimage' data_villalift_number_of_floors='G+30' data_recommendation='first_recommendation' onclick='villalift_recommendedImgUrlFun(this)'></i><br>Description : <br>EON Evora Summit Description<br>Features : <br>EON Evora Summit Features</div></li>
-										  <input class="option-input" type="checkbox" name="villalift_maximum_duty_cycle_category_values[G+30][]" value="Product Name : EON Evora Summit &lt;i class=&#39;bi bi-eye viewrecommendationimage&#39; data_villalift_number_of_floors=&#39;G+30&#39; data_recommendation=&#39;first_recommendation&#39; onclick=&#39;villalift_recommendedImgUrlFun(this)&#39;&gt;&lt;/i&gt;&lt;br&gt;Description : &lt;br&gt;EON Evora Summit Description&lt;br&gt;Features : &lt;br&gt;EON Evora Summit Features" checked>
-										</div>
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												
-											</div>
-										
-									  
-								  
-								  </ul>
-								</div>
 							  
 							  
 							  
@@ -5192,16 +4456,16 @@ Magadi Main Road, Bengaluru - 560091.</p>
 
 <div class="modal fade" id="modalForm" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="max-width: 420px;background-color:var(--color-dark-teal)">
+    <div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="max-width: 420px;background-color:#fff">
       <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-body p-0 text-center">
-        <h5 class="fw-bold mb-2">Schedule an Appointment</h5>
-        <p class="text-white small mb-4">Book your appointment today. Hassle-free scheduling, tailored to your needs.</p>
+        <h5 class="fw-bold mb-2 eon-navy">Schedule an Appointment</h5>
+        <p class="eon-navy small mb-4 d-none">Book your appointment today. Hassle-free scheduling, tailored to your needs.</p>
         <form class="px-3">
-          <input type="text" class="form-control rounded-pill mb-2" placeholder="Your Name" required>
-          <input type="email" class="form-control rounded-pill mb-2" placeholder="Your Email" required>
-          <input type="tel" class="form-control rounded-pill mb-2" placeholder="Contact Number" required>          
-          <textarea class="form-control rounded-3 mb-2" rows="2" placeholder="Your Requirement"></textarea>
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="Your Name" required>
+          <input type="email" class="form-control rounded-pill mb-2 eon-navy" placeholder="Your Email" required>
+          <input type="tel" class="form-control rounded-pill mb-2 eon-navy" placeholder="Contact Number" required>          
+          <textarea class="form-control rounded-3 mb-2 eon-navy" rows="2" placeholder="Your Requirement"></textarea>
          
           <button type="submit" class="btn btn-buynow mx-0 w-100 rounded-pill fw-semibold">Buy Now</button>
         </form>
