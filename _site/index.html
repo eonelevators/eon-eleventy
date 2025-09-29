@@ -122,7 +122,7 @@
 				<div class="navbar-area">
 					<!-- Menu For Mobile Device -->
 					<div class="mobile-nav">
-						<a href="#" class="logo">
+						<a href="/website/" class="logo">
 							<img src="assets/img/logo.png" class="w-50 img-fluid"  alt="Logo">
 						</a>
 					</div>
@@ -131,14 +131,14 @@
 					<div class="main-nav">
 						<nav class="navbar navbar-expand-md navbar-light">
 							<div class="container">
-								<a class="navbar-brand" href="#">
+								<a class="navbar-brand" href="/website/">
 									<img src="assets/img/logo.png" class="w-50 img-fluid" alt="Logo">
 								</a>
 								
 								<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 									<ul class="navbar-nav m-auto">
 										<li class="nav-item">
-											<a href="/" class="nav-link active">
+											<a href="/website/" class="nav-link active">
 												Home
 												
 											</a>
@@ -146,42 +146,44 @@
 										</li>
 
 										<li class="nav-item">
-											<a href="/our-office/" class="nav-link">About</a>
+											<a href="/website/our-office/" class="nav-link">Our Offices</a>
 										</li>
 
 										<li class="nav-item">
-											<a href="/products/" class="nav-link dropdown-toggle">
+											<a href="#" class="nav-link dropdown-toggle">
 												Products
 												<i class="bx bx-chevron-down"></i>
 											</a>
 
 											<ul class="dropdown-menu">
 												<li class="nav-item">
-													<a href="#" class="nav-link">Traction MRL Elevators</a>
+													<a href="/website/product-mrl-elevator/" class="nav-link">Traction MRL Elevators</a>
 												</li>
 
 												<li class="nav-item">
-													<a href="#" class="nav-link">Traction MR Elevators</a>
+													<a href="/website/product-mr-elevator/" class="nav-link">Traction MR Elevators</a>
 												</li>
 
 												<li class="nav-item">
-													<a href="#" class="nav-link">Hydraulic Elevators</a>
+													<a href="/website/product-hydraulic-elevator/" class="nav-link">Hydraulic Elevators</a>
 												</li>
 
 											</ul>
 										</li>
 										<li class="nav-item">
-											<a href="#" class="nav-link">Testimonial</a>
+											<a href="/website/blogs/" class="nav-link">Blogs</a>
 										</li>
 										
 										<li class="nav-item">
-											<a href="#" class="nav-link">Awards</a>
-										</li>
-
-										
+											<a href="/website/case-studies/" class="nav-link">Case Studies</a>
+										</li>	
 										<li class="nav-item">
-											<a href="#" class="nav-link">Contact</a>
-										</li>
+											<a href="/website/gallery/" class="nav-link">Gallery</a>
+										</li>	
+										<li class="nav-item">
+											<a href="/website/careers/" class="nav-link">Careers</a>
+										</li>										
+										
 									</ul>
 									
 									
@@ -264,8 +266,8 @@
         <!-- Quick Links -->
         <div class="quick-links">
           <a href="#" class="mx-1 btn-buynow samewidth d-none">Raise A Service Ticket →</a>
-          <a href="#" class="mx-1 btn-buynow samewidth">Modernize Existing Lift →</a>
-          <a href="#" class="mx-1 btn-buynow samewidth">Renew Your AMC →</a>
+          <a href="#"  data-bs-toggle="modal" data-bs-target="#modalExistingForm" class="mx-1 btn-buynow samewidth">Modernize Existing Lift →</a>
+          <a href="#"  data-bs-toggle="modal" data-bs-target="#amcModal" class="mx-1 btn-buynow samewidth">Renew Your AMC →</a>
         </div>
       </div>
     </div>
@@ -595,7 +597,7 @@
 		</section>
 		<!-- End Hero Slider Six Area -->
 <!-- Start Get A Quat Area Six -->
-<section class="get-quat-area-six pb-100">
+<section class="get-quat-area-six pb-100 d-none">
   <div class="container">
     <div class="tab get-quat-list-tab">
       <div class="row align-items-center">
@@ -952,15 +954,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <style>
-.text-purple { color: #8E7CC3; }
-.bg-purple { background: #8E7CC3; }
-.border-purple { border-color: #8E7CC3 !important; }
+.text-purple { color: var(--color-navy); }
+.bg-purple { background: var(--color-navy);  }
+.border-purple { border-color: var(--color-navy);  !important; }
 
-.bg-red { background: #E74C3C; }
+.bg-red { background: var(--color-teal); }
 .border-red { border-color: #E74C3C !important; }
 
-.bg-gold { background: #F1C40F; }
-.border-gold { border-color: #f7f7f7 !important; }
+.bg-gold { background: var(--color-dark-teal) }
+.border-gold { border-color: var(--color-dark-teal) !important; }
 .wrap {
 	 display: flex;
   flex-direction: column;
@@ -1435,17 +1437,18 @@ display: flex;
 
 <section class="cid-method" id="academy-method">
   <div class="container">
-    <div class="title-wrapper mb-3">
-      <h4 class="text-center pb-4 fw-semibold text-purple">
-        
-      </h4>
-    </div>
+  <div class="section-title my-4 section-title-five">
+				
+					<h2>  Our Latest Product Stack</h2>
+				
+				</div>
+ 
 
     <!-- Card Grid -->
     <div class="row g-4 align-items-stretch cards-wrapper">
       <!-- Card 1 -->
       <div class="col-lg-4 col-md-6">
-        <div class="wrap animate pop border-gold">
+        <div class="wrap animate pop">
           <div class="overlay bg-purple">
             <div class="overlay-content animate slide-left delay-2 border-gold">
               <h1 class="animate slide-left pop delay-4 text-white">NEST Series</h1>
@@ -1461,7 +1464,7 @@ display: flex;
 
       <!-- Card 2 -->
       <div class="col-lg-4 col-md-6">
-        <div class="wrap animate pop border-gold">
+        <div class="wrap animate pop">
           <div class="overlay bg-red">
             <div class="overlay-content animate slide-left delay-2 border-gold">
               <h1 class="animate slide-left pop delay-4 text-white">METRO Series</h1>
@@ -1477,8 +1480,8 @@ display: flex;
 
       <!-- Card 3 -->
       <div class="col-lg-4 col-md-6">
-        <div class="wrap animate pop border-gold">
-          <div class="overlay bg-purple">
+        <div class="wrap animate pop">
+          <div class="overlay bg-gold">
             <div class="overlay-content animate slide-left delay-2 border-gold">
               <h1 class="animate slide-left pop delay-4 text-white">SUMMIT Series</h1>
               <p class="animate slide-left pop delay-5 text-light">SUMMIT the change...</p>
@@ -2308,18 +2311,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 								<span>Tech Lead</span>
 								
 								<ul>
-									<li>
-										<a href="#">
-											<i class="bx bxl-facebook"></i>
-										</a>
-									</li>
-									
-									<li>
+								<li>
 										<a href="#">
 											<i class="bx bxl-linkedin"></i>
 										</a>
-									</li>
-									
+									</li>									
 								</ul>
 							</div>
 						</div>
@@ -2340,18 +2336,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 								<span>CEO & MD</span>
 
 								<ul>
-									<li>
-										<a href="#">
-											<i class="bx bxl-facebook"></i>
-										</a>
-									</li>
-									
-									<li>
+								<li>
 										<a href="#">
 											<i class="bx bxl-linkedin"></i>
 										</a>
-									</li>
-									
+									</li>									
 								</ul>
 							</div>
 						</div>
@@ -2372,18 +2361,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 								<span>CIO</span>
 
 								<ul>
-									<li>
-										<a href="#">
-											<i class="bx bxl-facebook"></i>
-										</a>
-									</li>
-									
-									<li>
+								<li>
 										<a href="#">
 											<i class="bx bxl-linkedin"></i>
 										</a>
-									</li>
-									
+									</li>									
 								</ul>
 							</div>
 						</div>
@@ -2404,18 +2386,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 								<span>Marketer</span>
 
 								<ul>
-									<li>
-										<a href="#">
-											<i class="bx bxl-facebook"></i>
-										</a>
-									</li>
-									
-									<li>
+								<li>
 										<a href="#">
 											<i class="bx bxl-linkedin"></i>
 										</a>
-									</li>
-									
+									</li>									
 								</ul>
 							</div>
 						</div>
@@ -2425,14 +2400,16 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 		</section>
 		<!-- End Team Area -->
 		<!-- Why EON Leads - Parallax Items -->
-<section class="why-eon-section text-white text-center">
+<section class="why-eon-section text-white">
 
   <!-- Advanced Technology -->
   <div class="parallax-item" style="background-image: url('assets/img/bg1.webp');">
     <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 overlay text-center mb-3 mb-md-0">
+      <div class="row align-items-center overlays mb-3 mb-md-0">
+        <div class="col-md-3 text-end">
           <h2 class="eon-teal">Advanced Technology</h2>
+		  </div>
+		  <div class="col-md-9 text-start">
 		   <p>Our elevators combine IoT intelligence, predictive maintenance, and advanced control systems, supported by technologies like GMV and Arkel, creating a strong foundation for continuous innovation and long-term reliability.</p>
         </div>       
       </div>
@@ -2442,9 +2419,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   <!-- Unmatched Reliability -->
   <div class="parallax-item" style="background-image: url('assets/img/bg-4.jpg');">
     <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 overlay text-center mb-3 mb-md-0">
+      <div class="row align-items-center overlays mb-3 mb-md-0">
+        <div class="col-md-3 text-end">
           <h2 class="eon-teal">Unmatched Reliability</h2>
+		   </div>
+		  <div class="col-md-9 text-start">
 		   <p>Built with proven components and strict quality checks, EON elevators deliver consistent uptime and dependable performance for every ride.</p>
         </div>       
       </div>
@@ -2454,9 +2433,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   <!-- Comprehensive Service -->
   <div class="parallax-item" style="background-image: url('assets/img/bg1.webp');">
     <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 overlay text-center mb-3 mb-md-0">
+       <div class="row align-items-center overlays mb-3 mb-md-0">
+        <div class="col-md-3 text-end">
           <h2 class="eon-teal">Comprehensive Service</h2>
+		   </div>
+		  <div class="col-md-9 text-start">
 		  <p>From custom design to seamless installation and ongoing maintenance, EON provides complete lifecycle support to ensure every elevator runs safely and efficiently.</p>
         </div>
        
@@ -2467,9 +2448,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   <!-- Safety First -->
   <div class="parallax-item" style="background-image: url('assets/img/bg-4.jpg');">
     <div class="container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 overlay text-center mb-3 mb-md-0">
+      <div class="row align-items-center overlays mb-3 mb-md-0">
+        <div class="col-md-3 text-end">
           <h2 class="eon-teal">Safety First</h2>
+		   </div>
+		  <div class="col-md-9 text-start">
 		   <p>Every EON elevator is built to international standards, including IS 17900 and EN 81 compliance, with features like bi-directional safety gears, emergency auto rescue, and overload protection — ensuring worry-free mobility every ride.</p>
         </div>
        
@@ -2480,9 +2463,11 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   <!-- Customization Excellence -->
   <div class="parallax-item" style="background-image: url('assets/img/bg1.webp');">
     <div class=" container">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-md-6 overlay text-center mb-3 mb-md-0">
+     <div class="row align-items-center overlays mb-3 mb-md-0">
+        <div class="col-md-3 text-end">
           <h2 class="eon-teal">Customization Excellence</h2>
+		   </div>
+		  <div class="col-md-9 text-start">
 		   <p>From premium residences to large-scale commercial projects, EON delivers tailored elevator solutions with flexible designs, finishes, and features to match every unique requirement.</p>
         </div>
         
@@ -2858,14 +2843,14 @@ to install an elevator.  </p>
               <ul class="styleul mbr-fonts-style display-6">
                 <li>
                   <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri text-primary"></span>
-                  <strong>15 Aug 2025</strong>
+                  <strong>Read Out Latest Blogs</strong>
                 </li>
               </ul>
               <p class="mbr-fonts-style display-7">
                 Smart Elevators for Smart Cities: How EON is Shaping the Future of Urban Mobility.
               </p>
               <div class="mbr-section-btn">
-                <a class="btn btn-warning display-4 border-0" style="background-color:var(--color-navy);color:#fff;" href="/blogs/" target="_blank">
+                <a class="btn display-4 border-0 btn-buynow 2" style="background-color:var(--color-navy);color:#fff;" href="/blogs/" target="_blank">
                   Read More
                 </a>
               </div>
@@ -2900,7 +2885,7 @@ to install an elevator.  </p>
               <div class="row">
                 <div class="col-md-6">
                   <span class="mbr-iconfont mobi-mbri-calendar mobi-mbri"></span>
-                  <!---<span class="mbr-fonts-style display-7 eon-navy">28 May 2025</span>--->
+                  <!---<span class="mbr-fonts-style display-7 eon-teal">28 May 2025</span>--->
                   <h4  class="mbr-fonts-style display-7">
                     Elevator Trends for 2025: Design Innovations That Appeal to Luxury Residences and Premium Real Estate.
                   </h4>
@@ -2936,7 +2921,7 @@ to install an elevator.  </p>
                   <h4 class="mbr-fonts-style display-7">
                     Safety Codes, Compliance, and Regulations for Elevators in New Indian Developments: What Every Builder and Architect Must Know.
                   </h4>
-                  <a href="https://eonelevators.in/blog/lifestyle-design" class="eon-navy" target="_blank">Read More &gt;&gt;</a>
+                  <a href="https://eonelevators.in/blog/lifestyle-design" class="eon-teal" target="_blank">Read More &gt;&gt;</a>
                 </div>
                 <div class="col-md-6">
                 <img src="assets/img/blog/safety_code.jpeg" class="w-75 img-fluid" alt="Smart Elevators">
@@ -2952,7 +2937,7 @@ to install an elevator.  </p>
                   <h4 class="mbr-fonts-style display-7">
                     Space-Efficient Elevator Solutions: Maximizing Usable Area in Compact and Modern Indian Homes.
                   </h4>
-                  <a href="https://eonelevators.in/blog/lifestyle-design" class="eon-navy" target="_blank">Read More &gt;&gt;</a>
+                  <a href="https://eonelevators.in/blog/lifestyle-design" class="eon-teal" target="_blank">Read More &gt;&gt;</a>
                 </div>
                 <div class="col-md-6">
                 <img src="assets/img/blog/space.png" class="w-75 img-fluid" alt="Smart Elevators">
@@ -2981,7 +2966,7 @@ to install an elevator.  </p>
           Shape your future with EON Elevators. 
           Join a team that values integrity, innovation, and excellence — and take your career to the next level.
         </p>
-        <a href="careers/" class="btn btn-outline-light px-4 py-2">
+        <a href="careers/" class="btn btn-dwd px-4 py-2">
           View Job Openings
         </a>
       </div>
@@ -5228,6 +5213,109 @@ Magadi Main Road, Bengaluru - 560091.</p>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="modalExistingForm" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="max-width: 420px;background-color:#fff">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body p-0 text-center">
+        <h5 class="fw-bold mb-2 eon-navy">Schedule an Appointment</h5>
+        
+        <form class="px-3 text-start">
+          <!-- Name -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="Your Name" required>
+          
+          <!-- Mobile No -->
+          <input type="tel" class="form-control rounded-pill mb-2 eon-navy" placeholder="Mobile Number" required>
+          
+          <!-- Email -->
+          <input type="email" class="form-control rounded-pill mb-2 eon-navy" placeholder="Email ID" required>
+          
+          <!-- Type of Lift -->
+          <select class="form-control rounded-pill mb-2 eon-navy" required>
+            <option value="" disabled selected>Select Type of Lift</option>
+            <option value="residential">Residential Lift</option>
+            <option value="commercial">Commercial Lift</option>
+            <option value="villa">Villa Lift</option>
+            <option value="hospital">Hospital Lift</option>
+          </select>
+          
+          <!-- Age of Lift -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="How many years old is the lift?" required>
+          
+          <!-- City with Pincode -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="City with Pincode" required>
+          
+          <!-- Submit -->
+          <button type="submit" class="btn btn-buynow mx-0 w-100 rounded-pill fw-semibold">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="amcModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow p-4 position-relative border-0" style="max-width: 420px;background-color:#fff">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body p-0 text-center">
+        <h5 class="fw-bold mb-2 eon-navy">Lift AMC Enquiry</h5>
+        
+        <form class="px-3 text-start">
+          <!-- Name -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="Your Name" required>
+          
+          <!-- Mobile No -->
+          <input type="tel" class="form-control rounded-pill mb-2 eon-navy" placeholder="Mobile Number" required>
+          
+          <!-- Email -->
+          <input type="email" class="form-control rounded-pill mb-2 eon-navy" placeholder="Email ID" required>
+          
+          <!-- Type of Lift -->
+          <select class="form-control rounded-pill mb-2 eon-navy" required>
+            <option value="" disabled selected>Select Type of Lift</option>
+            <option value="residential">Residential Lift</option>
+            <option value="commercial">Commercial Lift</option>
+            <option value="villa">Villa Lift</option>
+            <option value="hospital">Hospital Lift</option>
+          </select>
+          
+          <!-- Lift Capacity -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="Lift Capacity (kgs/persons)" required>
+          
+          <!-- City with Pincode -->
+          <input type="text" class="form-control rounded-pill mb-2 eon-navy" placeholder="City with Pincode" required>
+          
+          <!-- AMC Type -->
+          <select class="form-control rounded-pill mb-2 eon-navy" required>
+            <option value="" disabled selected>Select AMC Type</option>
+            <option value="comprehensive">Comprehensive</option>
+            <option value="non-comprehensive">Non-Comprehensive</option>
+          </select>
+
+          <!-- AMC Duration -->
+          <select class="form-control rounded-pill mb-2 eon-navy" required>
+            <option value="" disabled selected>AMC Duration</option>
+            <option value="1">1 Year</option>
+            <option value="2">2 Years</option>
+            <option value="3">3 Years</option>
+            <option value="5">5 Years</option>
+          </select>
+
+          <!-- Service Provider -->
+          <select class="form-control rounded-pill mb-2 eon-navy" required>
+            <option value="" disabled selected>Service Provider</option>
+            <option value="existing">Existing Provider</option>
+            <option value="us">Us Only</option>
+          </select>
+          
+          <!-- Submit -->
+          <button type="submit" class="btn btn-buynow mx-0 w-100 rounded-pill fw-semibold">Submit AMC Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 function initMultiStepForm(formId, sidebarId, progressId, nextBtnId, prevBtnId) {
   const form = document.getElementById(formId);
