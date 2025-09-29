@@ -177,19 +177,19 @@ ul {
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .form-control::-ms-input-placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .form-control::placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .form-control:focus {
@@ -1053,7 +1053,7 @@ legend {
 
 /* Close button */
 .btn-close {
-  filter: invert(1);
+  /*filter: invert(1);*/
 }
 
 .btn-primary {
@@ -1069,8 +1069,8 @@ legend {
 
 /* Close button fix */
 .btn-close {
-  z-index: 1056;
-  filter: invert(1); /* makes it white */
+  /*z-index: 1056;*/
+ /* filter: invert(1); /* makes it white */
 }
 .about-area {
     background-color: #f9fbfe;
@@ -4763,7 +4763,7 @@ Get A Quat Area Six
           box-shadow: 0 0 20px 3px rgb(0 0 0 / 33%);
   background-color: #ffffff;
   padding: 50px;
-  border-top: 2px solid var( --color-dark-teal);
+ /* border-top: 2px solid var( --color-dark-teal);*/
   margin-top: -50px;
   border-radius:30px;
   position: relative;
