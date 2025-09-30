@@ -921,6 +921,26 @@ legend {
   overflow: hidden;
 }
 
+#villaLiftModal .modal-content .form-control { 
+  color: #fff; 
+}
+
+#villaLiftModal .modal-content .form-control::-webkit-input-placeholder {
+  color: #e1e1e1;
+}
+
+#villaLiftModal .modal-content .form-control:-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#villaLiftModal .modal-content .form-control::-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#villaLiftModal .modal-content .form-control::placeholder {
+  color: #e1e1e1;
+}
+
 .modal-content .form-control { 
   color: #000; 
 }
