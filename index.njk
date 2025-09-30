@@ -45,6 +45,110 @@
 		
 		<!-- Title -->
 		<title>EON Elevators Pvt Ltd.	</title>
+		
+		
+		
+<style>
+.swal2-container {
+  z-index: 200000000000000000 !important; /* higher than Bootstrap modal (1050) */
+}
+.eon-difference {
+  background: #fff; /* Outer background */
+}
+
+.eon-box {
+  background: linear-gradient(90deg, #067473, #682dc9);
+}
+.eon-box h3 {
+  font-size: 1.5rem;
+}
+.eon-box p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+#villalift_images_for_questions{
+	padding-top:3.5rem;
+}
+#villalift_images_for_questions img{
+	padding:0.5rem;
+}
+.viewrecommendationimage{
+	cursor:pointer;
+}
+#villalift_maximum_duty_cycle_category_values_div{
+	height: 25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+  #villalift_Preferred_Lift_Speed_anim_div {
+    position: relative;
+    width: 100%;
+    height: 400px; /* adjust as per modal height */
+    background: #0b1437;
+    overflow: hidden;
+  }
+  
+  
+  /* Background image from top line to bottom */
+  #villalift_backgroundArea {
+    position: absolute;
+    top: 100px; /* same as top line */
+    left: 0;
+    width: 100%;
+    bottom: 0; /* extend to bottom */
+    background-image: url('assets/img/room.png'); /* replace with your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    z-index: 1;
+  }
+  
+
+  .villalift_Preferred_Lift_Speed_controls {
+    /*position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;*/
+  }
+
+  .villalift_Preferred_Lift_Speed_controls button {
+    margin: 0 5px;
+    padding: 2px 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #villalift_topLine_Preferred_Lift_Speed {
+    position: absolute;
+    top: 100px; /* horizontal line position */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+  }
+
+  #villalift_ball_Preferred_Lift_Speed {
+    width: 20px;
+    height: 30px;
+    background: #101b42;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0; /* start idle at bottom */
+    left: 50%;
+    transform: translateX(-50%);
+	z-index:100;
+  }
+  
+  #villalift_downloadRecommendationsBtn{
+	visibility:hidden;
+	border-radius:25px;
+  }
+</style>
+
+
     </head>
 
     <body class="body-five">
@@ -2507,107 +2611,6 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
   </div>
 </section>
 
-<style>
-.swal2-container {
-  z-index: 200000000000000000 !important; /* higher than Bootstrap modal (1050) */
-}
-.eon-difference {
-  background: #fff; /* Outer background */
-}
-
-.eon-box {
-  background: linear-gradient(90deg, #0f52ba, #682dc9);
-}
-.eon-box h3 {
-  font-size: 1.5rem;
-}
-.eon-box p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-#villalift_images_for_questions{
-	padding-top:3.5rem;
-}
-#villalift_images_for_questions img{
-	padding:0.5rem;
-}
-.viewrecommendationimage{
-	cursor:pointer;
-}
-#villalift_maximum_duty_cycle_category_values_div{
-	height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-
-  #villalift_Preferred_Lift_Speed_anim_div {
-    position: relative;
-    width: 100%;
-    height: 400px; /* adjust as per modal height */
-    background: #0b1437;
-    overflow: hidden;
-  }
-  
-  
-  /* Background image from top line to bottom */
-  #villalift_backgroundArea {
-    position: absolute;
-    top: 100px; /* same as top line */
-    left: 0;
-    width: 100%;
-    bottom: 0; /* extend to bottom */
-    background-image: url('assets/img/banner-eon.png'); /* replace with your image */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top;
-    z-index: 1;
-  }
-  
-
-  .villalift_Preferred_Lift_Speed_controls {
-    /*position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;*/
-  }
-
-  .villalift_Preferred_Lift_Speed_controls button {
-    margin: 0 5px;
-    padding: 2px 5px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  #villalift_topLine_Preferred_Lift_Speed {
-    position: absolute;
-    top: 100px; /* horizontal line position */
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: black;
-  }
-
-  #villalift_ball_Preferred_Lift_Speed {
-    width: 20px;
-    height: 40px;
-    background: red;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0; /* start idle at bottom */
-    left: 50%;
-    transform: translateX(-50%);
-	z-index:100;
-  }
-  
-
-  #villalift_downloadRecommendationsBtn{
-	visibility:hidden;
-	border-radius:25px;
-  }
-
-</style>
 <section class="testimonial-area-six ptb-100 jarallax">
 
 <div class="container">
@@ -3888,8 +3891,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 
 
 <!-- Villa / Duplex Lift Requirement Form Modal starts -->
-
-
 <div class="modal fade" id="villaLiftModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
@@ -4076,8 +4077,10 @@ Magadi Main Road, Bengaluru - 560091.</p>
 						  <!-- Navigation Buttons -->
 						  <div class="d-flex justify-content-between mt-4">
 							<button type="button" class="btn btn-outline-secondary prevBtn11"  id="villaPrevBtn" onclick="villaPrevBtnFun()">Back</button>
+							
+							<!--
 							<button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
-
+							-->
 							
 							
 							<!-- Right side -->
@@ -4085,7 +4088,8 @@ Magadi Main Road, Bengaluru - 560091.</p>
 	<button type="button" class="btn btn-info me-2 cursor-pointer" id="villalift_downloadRecommendationsBtn">Download as PDF</button>
     <button type="button" class="btn btn-primary nextBtn11" id="villaNextBtn" onclick="villaNextBtnFun()">Next</button>
   </div>
-
+  
+  
 						  </div>
 
 						</form>
@@ -4111,11 +4115,11 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  <!-- Labels below slider -->
 								  <div class="d-flex justify-content-between mt-1 px-1 text-white">
 									<span class="small">0</span>
+									<span class="small">0.3</span>
 									<span class="small">0.5</span>
 									<span class="small">1.0</span>
 									<span class="small">1.5</span>
 									<span class="small">2.0</span>
-									<span class="small">2.5</span>
 								  </div>
 								</div>
 							
@@ -4772,7 +4776,7 @@ function initMultiStepForm(formId, sidebarId, progressId, nextBtnId, prevBtnId) 
 	var valuesToSubmit = $(this).serialize();
 	$.ajax({
 	//url:"http://localhost/eon-elevator-action/contact-action.php",
-	url:"http://128.199.22.182/eon-elevator-action/contact-action.php",
+	url:"https://axonlabs.ai/eon-elevator-action/contact-action.php",
 	type: "POST",      				// Type of request to be send, called as method
 	data:  new FormData(this),	// Data sent to server, a set of key/value pairs representing form fields and values 
 	contentType: false,       		// The content type used when sending data to the server. Default is: "application/x-www-form-urlencoded"
@@ -5131,7 +5135,6 @@ var prodswiper = new Swiper('.swiper-container1', {
 </script>
 
 
-
 <!-- this is villa related functionality starts -->
 <script>
 document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
@@ -5209,7 +5212,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			$('input[name="villalift_operating_speed_values"]').prop('checked', false);
 		}
 	});
-
 	$(document).on("change", 'input[name="villalift_number_of_passengers"]', function () {
 		$("#villalift_images_for_questions").css({"display":""})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5217,13 +5219,11 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 		var images = ["1.png"];
 		$("#villalift_images_for_questions").html("");
-
 		$.each(images, function(i, img){
 		   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-
 	$(document).on("change", 'input[name="villalift_number_of_openings"]', function () {
 		$("#villalift_images_for_questions").css({"display":""})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5231,13 +5231,11 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 		var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 		var images = ["1.png"];
 		$("#villalift_images_for_questions").html("");
-
 		$.each(images, function(i, img){
 		   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
 	});
-
 	$(document).on("change", 'input[name="villalift_operating_speed_values"]', function () {
 	    $("#villalift_images_for_questions").css({"display":"none"})
 		$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5283,30 +5281,11 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
 				$("#villalift_images_for_questions").html("");
-
-	$(document).on("change", 'input[name="operating_speed_values"]', function () {
-		$("#Preferred_Lift_Speed_anim_div").css({"display":""})
-		var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-		var operating_speed_values_value = $('input[name="operating_speed_values"]:checked').val();
-		$("#images_for_questions").html("");
-	});
-	function villaPrevBtnFun(){
-		
-		var form_steps_arr=["number_of_floors_div","number_of_passengers_div","number_of_openings_div","operating_speed_values_div","maximum_duty_cycle_category_values_div","your_contact_details_div"];
-		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
-		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
-		
-		if(activeDivId!="number_of_floors_div"){
-			form_step_name_div=form_steps_arr[activeDivId_index-1];
-			form_step_name=form_step_name_div.replace("_div","")
-			if(form_step_name=="number_of_floors"){
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				$("#Preferred_Lift_Speed_anim_div").css({"display":"none"})
-				var number_of_floors_value = $('input[name="number_of_floors"]:checked').val();
-				var images = ["1.png", "2.png"];
-				$("#images_for_questions").html("");
-
-
+				$.each(images, function(i, img){
+					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
+					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+				});
+			}
 			if(form_step_name=="villalift_number_of_passengers"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5315,9 +5294,15 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_passengers_value = $('input[name="villalift_number_of_passengers"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-
-
-
+					$.each(images, function(i, img){
+					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
+						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+					});
+				}
+				else{
+					$("#villalift_images_for_questions").html("");
+				}
+			}
 			if(form_step_name=="villalift_number_of_openings"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5326,7 +5311,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5336,7 +5320,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-
 			if(form_step_name=="villalift_operating_speed_values"){
 				$("#villalift_images_for_questions").css({"display":"none"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5347,15 +5330,15 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#villalift_images_for_questions").html("");
-
+				
 		
+			}
 		}
 	}
+	
 	function villaNextBtnFun(){
-
 		$("#villalift_downloadRecommendationsBtn").css({"visibility":"hidden"})
 		var form_steps_arr=["villalift_number_of_floors_div","villalift_number_of_passengers_div","villalift_number_of_openings_div","villalift_operating_speed_values_div","villalift_maximum_duty_cycle_category_values_div","your_contact_details_div"];
-
 		var activeDivId = $(".villaLiftFormSteps.active").attr("id");
 		let activeDivId_index = form_steps_arr.indexOf(activeDivId);
 		
@@ -5368,7 +5351,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 				var villalift_number_of_floors_value = $('input[name="villalift_number_of_floors"]:checked').val();
 				var images = ["1.png"];
 				$("#villalift_images_for_questions").html("");
-
 				$.each(images, function(i, img){
 					img_src="assets/img/villalift_images_for_questions/number_of_floors/"+villalift_number_of_floors_value+"/"+img;
 					$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5383,7 +5365,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_passengers/"+villalift_number_of_floors_value+"/"+villalift_number_of_passengers_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5393,7 +5374,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-
 			if(form_step_name=="villalift_number_of_openings"){
 				$("#villalift_images_for_questions").css({"display":""})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
@@ -5402,7 +5382,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					var villalift_number_of_openings_value = $('input[name="villalift_number_of_openings"]:checked').val();
 					var images = ["1.png"];
 					$("#villalift_images_for_questions").html("");
-
 					$.each(images, function(i, img){
 					   img_src="assets/img/villalift_images_for_questions/number_of_openings/"+villalift_number_of_floors_value+"/"+villalift_number_of_openings_value+"/"+img;
 						$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
@@ -5412,7 +5391,6 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 					$("#villalift_images_for_questions").html("");
 				}
 			}
-
 			if(form_step_name=="villalift_operating_speed_values"){
 				$("#villalift_images_for_questions").css({"display":"none"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":""})
@@ -5423,17 +5401,14 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			    $("#villalift_downloadRecommendationsBtn").css({"visibility":"visible"})
 				$("#villalift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
 				$("#villalift_images_for_questions").html("");
-
 			}
 		}
 		
 	}
 	
-
 	function villalift_recommendedImgUrlFun(obj){
 	    $("#villalift_images_for_questions").html("")
 		data_villalift_number_of_floors=obj.getAttribute("data_villalift_number_of_floors")
-
 		data_recommendation=obj.getAttribute("data_recommendation");
 		img_src="assets/img/villalift_images_for_questions/recommendations/"+data_villalift_number_of_floors+"/"+data_recommendation+".png";
 		villalift_images_for_questions_html=$("#villalift_images_for_questions").html();
@@ -5441,7 +5416,9 @@ document.querySelectorAll(".villalift_floor-radio").forEach(radio => {
 			$("#villalift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		}
 	}
-document.addEventListener("DOMContentLoaded", function () {
+	
+	
+	document.addEventListener("DOMContentLoaded", function () {
 	  const downloadBtn = document.getElementById("villalift_downloadRecommendationsBtn");
 	  if (downloadBtn) {
 		downloadBtn.addEventListener("click", function () {
@@ -5449,20 +5426,20 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	  }
 	});
+
 </script>
 
 
  <script>
 var villaLiftModal = document.getElementById('villaLiftModal');
 villaLiftModal.addEventListener('show.bs.modal', function () {
-
 	$('input[name="villalift_number_of_floors"]').prop('checked', false);
     $('input[name="villalift_number_of_passengers"]').prop('checked', false);
 	$('input[name="villalift_number_of_openings"]').prop('checked', false);
 	$('input[name="villalift_operating_speed_values"]').prop('checked', false);
     document.getElementById("villalift_Preferred_Lift_Speed_anim_div").style.display="none";
 	document.getElementById("villalift_images_for_questions").style.display="none";
-
+	
 });
 </script>
   <script>
@@ -5482,7 +5459,7 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
 
   function calculateBoundaries() {
     floorPx = 0;
-    topPx = container.offsetHeight - (topLine.offsetTop + ballSize);
+    topPx = container.offsetHeight+20 - (topLine.offsetTop + ballSize);
   }
 
   function animate() {
@@ -5541,12 +5518,14 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
   <script>
   const speedMap = {
     0: '0',
-    1: '0.5',
-    2: '1.0',
-    3: '1.5',
-    4: '2.0',
-    5: '2.5'
+    1: '0.3',
+    2: '0.5',
+    3: '1.0',
+    4: '1.5',
+    5: '2.0'
   };
+  
+									
 
   function villalift_updateSpeed(value) {
     document.getElementById('villalift_speedValue').innerText = speedMap[value];
