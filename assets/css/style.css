@@ -4550,7 +4550,7 @@ Header Area Six
   color: var( --color-dark-teal);
   margin-right: 5px;
   font-size: 15px;
-  background-color: #def5ee;
+  background-color: #f0f8ff;
   width: 25px;
   height: 25px;
   line-height: 25px;
@@ -4579,7 +4579,7 @@ Header Area Six
   color: var( --color-dark-teal);
   margin-right: 5px;
   font-size: 15px;
-  background-color: #def5ee;
+  background-color: #f0f8ff;
   width: 25px;
   height: 25px;
   line-height: 25px;
@@ -4823,7 +4823,7 @@ Get A Quat Area Six
 	margin-bottom:25px;
 }
 .get-quat-list-tab .single-get-list.active{
-	background-color:#def5ee;
+	background-color:#f0f8ff;
 	color:var( --color-dark-teal);
 	/*border: 1px solid var( --color-dark-teal);*/
 }
