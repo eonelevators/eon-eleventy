@@ -1488,16 +1488,19 @@ display: block;
 /* Service icons */
 .service-options {
   display: flex;
-  gap: 45px;
+  justify-content: center; 
+  gap: 30px;
+  flex-wrap: nowrap; 
   margin-bottom: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
+  width: 100%;
+  padding: 0 40px; 
+  box-sizing: border-box; 
 }
 
 .service-box {
   text-align: center;
   position: relative;
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -1593,8 +1596,8 @@ display: block;
 }
 
 .service-icon {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   background: #f1f1f1;
   display: flex;
@@ -1653,11 +1656,14 @@ display: block;
 /* Checkbox */
 .checkbox-terms {
   font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .checkbox-terms a {
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -1666,6 +1672,8 @@ display: block;
   gap: 10px;
   font-size: 15px;
   font-weight: 600;
+  padding-left: 80px !important;
+  padding-right: 40px;
 }
 
 .quick-links a {  
@@ -8337,7 +8345,7 @@ font-size: .75rem;
 .three-d-image {
  -webkit-filter: drop-shadow(5px 5px 5px #222);
  filter: drop-shadow(5px 5px 5px #222);
- width:60px;
+ width:75px;
 }
 .three-d-image1 {
  -webkit-filter: drop-shadow(5px 5px 5px #fff);

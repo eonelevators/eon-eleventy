@@ -353,6 +353,7 @@
       </div>
 
       <!-- Form Section -->
+      <!--
       <div class="row">
 	  <div class="card border-0 px-4 py-3 mb-3">
         <form>
@@ -368,9 +369,10 @@
           </div>
         </form>
 		</div>
+    -->
 
         <!-- Quick Links -->
-        <div class="quick-links">
+        <div class="quick-links mt-3 mb-3">
           <a href="#" class="mx-1 btn-buynow samewidth d-none">Raise A Service Ticket →</a>
           <a href="#"  data-bs-toggle="modal" data-bs-target="#modalExistingForm" class="mx-1 btn-buynow samewidth">Modernize Existing Elevator →</a>
           <a href="#"  data-bs-toggle="modal" data-bs-target="#amcModal" class="mx-1 btn-buynow samewidth">Renew Your AMC →</a>
@@ -2238,6 +2240,9 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 <textarea name="comments" id="contact_comments_mobile" class="form-control" placeholder="Comments*"></textarea>
 </div>
 </div>
+<div class="checkbox-terms text-end">
+  <input type="checkbox" required> I agree to the <a href="#">Terms & Conditions</a>
+</div>
 <div class="col-lg-6 col-12">
 <button class="w-100 btn-buynow1" type="submit"  id="contact_form_mobile-btn">Submit</button>
 </div>
@@ -2245,6 +2250,118 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 </form>
 </div>
 </section>
+
+
+<!-- Jouney Section -->
+
+<section class="journey-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-5">
+        <div class="journey-image-wrapper">
+          <img src="/assets/img/Jhonson.png" alt="Our Journey" class="img-fluid rounded-4 shadow-lg">
+        </div>
+      </div>
+
+      <div class="col-md-7 ps-md-5">
+        <div class="journey-content">
+          <h6 class="text-uppercase eon-navy fw-bold mb-3">Our Journey</h6>
+          <h2 class="display-6 fw-bold mb-4">Elevating Lives, One Floor at a Time</h2>
+          
+          <div class="quote-wrapper">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="journey-quote">
+              "Ten years ago, EON was nothing more than a blueprint and a stubborn belief that we could do things better. I remember the early days—the long nights, the hustle to win our very first client, and the weight of responsibility that comes with ensuring someone’s safety.<br>
+
+We started from scratch, with no shortcuts, just a relentless focus on precision and a promise to treat every building like it was our own. Today, as I look at how far we’ve come, my greatest pride isn't in the number of elevators we've installed, but in the trust we’ve earned and the team that stood by me to build this dream from the ground up."
+            </p>
+            <h5 class="quote-author">— Jhonson Lewis</h5>
+          </div>
+          
+          <p class="mt-4 text-muted">
+            From our first installation to managing hundreds of AMCs across the region, our focus has always been on precision engineering and human-centric design.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.journey-section {
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-image-wrapper {
+  position: relative;
+  padding: 10px;
+}
+
+.journey-image-wrapper img {
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+.journey-image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+/* Floating Badge on Image */
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  background: #ff4677; /* Matching your SATTVA tag color */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.experience-badge .years {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Quote Styling */
+.quote-wrapper {
+  position: relative;
+  padding-left: 30px;
+  border-left: 4px solid var(--color-navy, #001f3f);
+  margin: 30px 0;
+}
+
+.journey-quote {
+  font-size: 20px;
+  font-style: italic;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.quote-author {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-navy, #001f3f);
+}
+
+.eon-navy {
+  color: #001f3f; /* Adjust to match your specific navy hex */
+  letter-spacing: 2px;
+}
+</style>
 
 
 		<!-- Start Find An Agent Area -->
@@ -2511,6 +2628,110 @@ $actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP
 						</div>
 					</div>
 				</div>
+
+        <div class="row">
+					
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-team">
+							<div class="team-single-img">
+								<img src="assets/img/team/7.png" alt="Image">
+
+								<div class="team-img">
+									<img src="assets/img/team/team-shape.png" alt="Image">
+								</div>
+							</div>
+
+							<div class="team-content">
+								<h3>Team member</h3>
+								<span>Member post</span>
+
+								<ul>
+								<li>
+										<a href="#">
+											<i class="bx bxl-linkedin"></i>
+										</a>
+									</li>									
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-team">
+							<div class="team-single-img">
+								<img src="assets/img/team/7.png" alt="Image">
+
+								<div class="team-img">
+									<img src="assets/img/team/team-shape.png" alt="Image">
+								</div>
+							</div>
+
+							<div class="team-content">
+								<h3>Team member</h3>
+								<span>Member Post</span>
+
+								<ul>
+								<li>
+										<a href="#">
+											<i class="bx bxl-linkedin"></i>
+										</a>
+									</li>									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-team">
+							<div class="team-single-img">
+								<img src="assets/img/team/7.png" alt="Image">
+
+								<div class="team-img">
+									<img src="assets/img/team/team-shape.png" alt="Image">
+								</div>
+							</div>
+
+							<div class="team-content">
+								<h3>Team members</h3>
+								<span>Member Post</span>
+								
+								<ul>
+								<li>
+										<a href="#">
+											<i class="bx bxl-linkedin"></i>
+										</a>
+									</li>									
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-3 col-sm-6">
+						<div class="single-team">
+							<div class="team-single-img">
+								<img src="assets/img/team/10.png" alt="Image">
+
+								<div class="team-img">
+									<img src="assets/img/team/team-shape.png" alt="Image">
+								</div>
+							</div>
+
+							<div class="team-content">
+								<h3>Team Member</h3>
+								<span>Member Post</span>
+
+								<ul>
+								<li>
+										<a href="#">
+											<i class="bx bxl-linkedin"></i>
+										</a>
+									</li>									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+        
 			</div>
 		</section>
 		<!-- End Team Area -->
