@@ -82,12 +82,19 @@
 .viewrecommendationimage{
 	cursor:pointer;
 }
-#villalift_recommendations_div{
-	height: 25rem;
+
+
+
+.villalift_recommendations_div_inside{
+height: 25rem;
     overflow-y: auto;
     overflow-x: hidden;
 }
-
+.apartmentlift_recommendations_div_inside{
+height: 25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 
   #villalift_Preferred_Lift_Speed_anim_div {
     position: relative;
@@ -4893,8 +4900,20 @@ Magadi Main Road, Bengaluru - 560091.</p>
 										</div>
 										
 										
+										 
+							
 										
-										 <div class="row">
+										
+									  
+										
+										
+										 <div class="text-center mt-3">
+												
+							
+											</div> 
+										
+									  
+								  <div class="row mt-auto">
 							   <div class="col-12 col-lg-12">
 								  <div class="d-flex justify-content-between mt-4">
 									 <button type="button" class="btn btn-outline-secondary villaPrevBtn" onclick="villaPrevBtn_Fun('villalift_recommendations_div','villalift_shape_of_shaft_div')">Back</button>
@@ -4902,19 +4921,6 @@ Magadi Main Road, Bengaluru - 560091.</p>
 								  </div>
 							   </div>
 							</div>
-							
-							
-										
-										
-									  
-										
-										
-											<div class="text-center mt-3">
-												
-											</div>
-										
-									  
-								  
 								
 								</div>
 							  
@@ -4931,6 +4937,8 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							  
 							  
 							</div>
+							
+										
 						  </div>
 
 
@@ -6671,11 +6679,7 @@ $(document).ready(function () {
 .viewrecommendationimage{
 	cursor:pointer;
 }
-#apartmentlift_recommendations_div{
-	height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
+
 
 
   #apartmentlift_Preferred_Lift_Speed_anim_div {
@@ -8661,14 +8665,7 @@ $(document).ready(function () {
 										
 										
 										
-										 <div class="row">
-							   <div class="col-12 col-lg-12">
-								  <div class="d-flex justify-content-between mt-4">
-									 <button type="button" class="btn btn-outline-secondary apartmentPrevBtn" onclick="apartmentPrevBtn_Fun('apartmentlift_recommendations_div','apartmentlift_shape_of_shaft_div')">Back</button>
-									 <button type="button" class="btn btn-primary apartmentNextBtn" id="apartmentlift_recommendations_div_next_btn" onclick="apartmentNextBtnForm_Fun()">Next</button>
-								  </div>
-							   </div>
-							</div>
+										
 							
 							
 										
@@ -8681,7 +8678,15 @@ $(document).ready(function () {
 											</div>
 										
 									  
-								  
+								  <div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary apartmentPrevBtn" onclick="apartmentPrevBtn_Fun('apartmentlift_recommendations_div','apartmentlift_shape_of_shaft_div')">Back</button>
+									 <button type="button" class="btn btn-primary apartmentNextBtn" id="apartmentlift_recommendations_div_next_btn" onclick="apartmentNextBtnForm_Fun()">Next</button>
+								  </div>
+							   </div>
+							   
+							</div>
 								
 								</div>
 							  
