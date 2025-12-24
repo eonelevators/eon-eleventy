@@ -5960,6 +5960,26 @@ villaLiftModal.addEventListener('show.bs.modal', function () {
     document.getElementById("villalift_Preferred_Lift_Speed_anim_div").style.display="none";
 	document.getElementById("villalift_images_for_questions").style.display="none";
 	
+	
+	$("#villaLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#villaLiftFormSidebar>li[data-entity="villalift_number_of_floors_div"]').addClass('active');
+	
+	$(".villaLiftFormSteps").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+		$(this).css({"display":"none"})
+	});
+	document.getElementById("villalift_number_of_floors_div").style.display="block";
+	$("#villalift_number_of_floors_div").addClass('active')
+	
+	
+	
+	
 });
 </script>
   <script>
@@ -8988,6 +9008,8 @@ $(document).ready(function () {
 	
 
 
+
+
 </script>
 
 
@@ -9002,6 +9024,27 @@ apartmentLiftModal.addEventListener('show.bs.modal', function () {
 	$('input[name="apartmentlift_recommendations"]').prop('checked', false);
     document.getElementById("apartmentlift_Preferred_Lift_Speed_anim_div").style.display="none";
 	document.getElementById("apartmentlift_images_for_questions").style.display="none";
+	
+	
+	$("#apartmentLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#apartmentLiftFormSidebar>li[data-entity="apartmentlift_number_of_floors_div"]').addClass('active');
+	
+	$(".apartmentLiftFormSteps").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+		$(this).css({"display":"none"})
+	});
+	document.getElementById("apartmentlift_number_of_floors_div").style.display="block";
+	$("#apartmentlift_number_of_floors_div").addClass('active')
+	
+	
+	
+	
 	
 });
 </script>
@@ -9478,8 +9521,16 @@ function apartmentNextBtn_Fun(current_div,next_div){
 				apartmentlift_number_of_floors_value == "G+17" || 
 				apartmentlift_number_of_floors_value == "G+18" || 
 				apartmentlift_number_of_floors_value == "G+19" || 
-				apartmentlift_number_of_floors_value == "G+20" || 
-				apartmentlift_number_of_floors_value == "G+21" || 
+				apartmentlift_number_of_floors_value == "G+20"){
+					recommendations_lifts_arr.push('Evora Metro');
+					
+					$("input[name='apartmentlift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+			
+					$("#apartmentlift_Evora_div").css({"display":"block"})
+				}
+				
+				
+				else if(apartmentlift_number_of_floors_value=="G+21" || 
 				apartmentlift_number_of_floors_value == "G+22" || 
 				apartmentlift_number_of_floors_value == "G+23" || 
 				apartmentlift_number_of_floors_value == "G+24" || 
@@ -9489,9 +9540,9 @@ function apartmentNextBtn_Fun(current_div,next_div){
 				apartmentlift_number_of_floors_value == "G+28" || 
 				apartmentlift_number_of_floors_value == "G+29" || 
 				apartmentlift_number_of_floors_value == "G+30"){
-					recommendations_lifts_arr.push('Evora Metro');
+					recommendations_lifts_arr.push('Evora Summit');
 					
-					$("input[name='apartmentlift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+					$("input[name='apartmentlift_recommendations[]'][value='Evora Summit']").prop("checked", true)
 			
 					$("#apartmentlift_Evora_div").css({"display":"block"})
 				}
@@ -9806,8 +9857,16 @@ function apartmentPrevBtn_Fun(current_div,prev_div){
 				apartmentlift_number_of_floors_value == "G+17" || 
 				apartmentlift_number_of_floors_value == "G+18" || 
 				apartmentlift_number_of_floors_value == "G+19" || 
-				apartmentlift_number_of_floors_value == "G+20" || 
-				apartmentlift_number_of_floors_value == "G+21" || 
+				apartmentlift_number_of_floors_value == "G+20"){
+					recommendations_lifts_arr.push('Evora Metro');
+					
+					$("input[name='apartmentlift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+			
+					$("#apartmentlift_Evora_div").css({"display":"block"})
+				}
+				
+				
+				else if(apartmentlift_number_of_floors_value=="G+21" || 
 				apartmentlift_number_of_floors_value == "G+22" || 
 				apartmentlift_number_of_floors_value == "G+23" || 
 				apartmentlift_number_of_floors_value == "G+24" || 
@@ -9817,9 +9876,9 @@ function apartmentPrevBtn_Fun(current_div,prev_div){
 				apartmentlift_number_of_floors_value == "G+28" || 
 				apartmentlift_number_of_floors_value == "G+29" || 
 				apartmentlift_number_of_floors_value == "G+30"){
-					recommendations_lifts_arr.push('Evora Metro');
+					recommendations_lifts_arr.push('Evora Summit');
 					
-					$("input[name='apartmentlift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+					$("input[name='apartmentlift_recommendations[]'][value='Evora Summit']").prop("checked", true)
 			
 					$("#apartmentlift_Evora_div").css({"display":"block"})
 				}
