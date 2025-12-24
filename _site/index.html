@@ -8971,6 +8971,8 @@ $(document).ready(function () {
 	
 
 
+
+
 </script>
 
 
@@ -8985,6 +8987,27 @@ apartmentLiftModal.addEventListener('show.bs.modal', function () {
 	$('input[name="apartmentlift_recommendations"]').prop('checked', false);
     document.getElementById("apartmentlift_Preferred_Lift_Speed_anim_div").style.display="none";
 	document.getElementById("apartmentlift_images_for_questions").style.display="none";
+	
+	
+	$("#apartmentLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#apartmentLiftFormSidebar>li[data-entity="apartmentlift_number_of_floors_div"]').addClass('active');
+	
+	$(".apartmentLiftFormSteps").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+		$(this).css({"display":"none"})
+	});
+	document.getElementById("apartmentlift_number_of_floors_div").style.display="block";
+	$("#apartmentlift_number_of_floors_div").addClass('active')
+	
+	
+	
+	
 	
 });
 </script>
