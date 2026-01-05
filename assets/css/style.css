@@ -1678,11 +1678,12 @@ display: block;
 /* Checkbox */
 .checkbox-terms {
   font-size: 14px;
+  color: #ffffff;
 }
 
 .checkbox-terms a {
   font-weight: 600;
-  color: #000;
+  color: #ffffff;
   text-decoration: none;
 }
 
