@@ -427,15 +427,24 @@
 
 
   <!-- Hero -->
-<section class="section-hero d-flex align-items-center text-center">
-  <div class="overlay"></div>
-  <div class="container position-relative">
-    <h1>EON Plexus</h1>
-    <p>Residential Multi-Opening Elevators for Luxury Villas</p>
-    <p>Solving complex access challenges in modern multi-storey villas with intelligent multi-entrance design, compact engineering, and residential-first aesthetics.</p>
-    <a href="#overview" class="btn-dwd">Discover More</a>
-  </div>
-</section>
+{% for section in plexus.sections %}
+  
+  {% if section.__component == "sections.banner" %}
+  <section class="section-hero d-flex align-items-center text-center" 
+           style="background-image: url('http://localhost:1337{{ section.image.data.attributes.url }}');">
+    <div class="overlay"></div>
+    <div class="container position-relative">
+      <h1>{{ section.heading }}</h1>
+      <p><strong>{{ section.subheading }}</strong></p>
+      <p>{{ section.hero_description }}</p>
+      <a href="{{ section.cta_link | default('#overview') }}" class="btn-dwd">
+        {{ section.cta_text | default('Discover More') }}
+      </a>
+    </div>
+  </section>
+  {% endif %}
+
+{% endfor %}
 
  <!-- ================== OVERVIEW ================== -->
 <!-- Overview -->
