@@ -6864,6 +6864,7 @@ $(document).ready(function () {
 						  
 						  
 							<h5 class="mb-3">Q1. How many floors is the Elevator required for?</h5>
+							
 							<div class="row g-3 apartmentlift_number_of_floors_div_inside">
 							
 							
@@ -9309,9 +9310,33 @@ function apartmentNextBtn_Fun(current_div,next_div){
 		$("#apartmentlift_Plexus_div").css({"display":"none"})
 		
 		
+		
+		
+		
 		var apartmentlift_number_of_floors_value = $('input[name="apartmentlift_number_of_floors"]:checked').val();
 		var apartmentlift_number_of_passengers_value = $('input[name="apartmentlift_number_of_passengers"]:checked').val();
-		if(apartmentlift_number_of_floors_value=="G+1"){
+		
+		var apartmentlift_number_of_openings_value = $('input[name="apartmentlift_number_of_openings"]:checked').val();
+		var apartmentlift_shape_of_shaft_value = $('input[name="apartmentlift_shape_of_shaft"]:checked').val();
+		
+		
+		if((apartmentlift_number_of_floors_value=="G+1" || apartmentlift_number_of_floors_value=="G+2" || apartmentlift_number_of_floors_value=="G+3" || apartmentlift_number_of_floors_value=="G+4") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Nest');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		else if((apartmentlift_number_of_floors_value=="G+5" || apartmentlift_number_of_floors_value=="G+6" || apartmentlift_number_of_floors_value=="G+7") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Metro');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		else if((apartmentlift_number_of_floors_value=="G+8" || apartmentlift_number_of_floors_value=="G+9" || apartmentlift_number_of_floors_value=="G+10") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Summit');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		
+		else if(apartmentlift_number_of_floors_value=="G+1"){
 			recommendations_lifts_arr.push('Axira Nest');
 			recommendations_lifts_arr.push('Aeris Nest');
 			recommendations_lifts_arr.push('Plexus Nest');
@@ -9647,7 +9672,28 @@ function apartmentPrevBtn_Fun(current_div,prev_div){
 		
 		var apartmentlift_number_of_floors_value = $('input[name="apartmentlift_number_of_floors"]:checked').val();
 		var apartmentlift_number_of_passengers_value = $('input[name="apartmentlift_number_of_passengers"]:checked').val();
-		if(apartmentlift_number_of_floors_value=="G+1"){
+		
+		var apartmentlift_number_of_openings_value = $('input[name="apartmentlift_number_of_openings"]:checked').val();
+		var apartmentlift_shape_of_shaft_value = $('input[name="apartmentlift_shape_of_shaft"]:checked').val();
+		
+		
+		if((apartmentlift_number_of_floors_value=="G+1" || apartmentlift_number_of_floors_value=="G+2" || apartmentlift_number_of_floors_value=="G+3" || apartmentlift_number_of_floors_value=="G+4") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Nest');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		else if((apartmentlift_number_of_floors_value=="G+5" || apartmentlift_number_of_floors_value=="G+6" || apartmentlift_number_of_floors_value=="G+7") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Metro');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		else if((apartmentlift_number_of_floors_value=="G+8" || apartmentlift_number_of_floors_value=="G+9" || apartmentlift_number_of_floors_value=="G+10") || apartmentlift_number_of_openings_value=="1 Front + 2 Side" || apartmentlift_shape_of_shaft_value=="Narrow"){
+			recommendations_lifts_arr.push('Plexus Summit');
+			$("input[name='apartmentlift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
+			$("#apartmentlift_Plexus_div").css({"display":"block"})
+		}
+		
+		else if(apartmentlift_number_of_floors_value=="G+1"){
 			recommendations_lifts_arr.push('Axira Nest');
 			recommendations_lifts_arr.push('Aeris Nest');
 			recommendations_lifts_arr.push('Plexus Nest');
