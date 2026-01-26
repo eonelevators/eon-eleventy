@@ -965,6 +965,28 @@ legend {
 }
 
 
+#officeLiftModal .modal-content .form-control { 
+  color: #fff; 
+  
+}
+
+#officeLiftModal .modal-content .form-control::-webkit-input-placeholder {
+  color: #e1e1e1;
+}
+
+#officeLiftModal .modal-content .form-control:-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#officeLiftModal .modal-content .form-control::-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#officeLiftModal .modal-content .form-control::placeholder {
+  color: #e1e1e1;
+}
+
+
 .modal-content .form-control { 
   color: #000; 
 }
@@ -8702,5 +8724,22 @@ font-size: 1.2rem;
 }
 
 .apartmentPrevBtn:hover {
+  color: #1fdf9f;
+}  
+
+
+
+.officePrevBtn {
+  background: #ff4677;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.officePrevBtn:hover {
   color: #1fdf9f;
 }  

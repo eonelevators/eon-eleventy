@@ -1,9 +1,0 @@
-[
-  { "name": "G+3", "value": ["1 Front + 2 Side"] },
-  { "name": "G+4", "value": ["1 Front","1 Front + 2 Side","1 Front + 1 Rear"] },
-  { "name": "G+5", "value": ["1 Front + 2 Side"] },
-  { "name": "G+7", "value": ["1 Front","1 Front + 2 Side","1 Front + 1 Rear"] },
-  { "name": "G+10", "value": ["1 Front","1 Front + 2 Side","1 Front + 1 Rear"] },
-  { "name": "G+20", "value": ["1 Front"] },
-  { "name": "G+30", "value": ["1 Front"] }
-]  

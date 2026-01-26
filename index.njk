@@ -2207,11 +2207,6 @@ through a pragmatic approach ensuring quality remains the core concern of our bu
 
 <form  method="post" role="form" class="php-email-form" id="contact_form_mobile_general_eon"  autocomplete="off">
 <input type="hidden" name="type_elevator" id="type_elevator_contact_mobile" value="">
-<input type="hidden" name="page_name" value="<?php echo basename($_SERVER['PHP_SELF'])?>">
-<?php
-$actual_link = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-?>
-<input type="hidden" name="page_url" value="<?php echo $actual_link?>">
 <input type="hidden" name="desktop_mobile_contact_form" id="desktop_mobile_contact_form_mobile">
 <div class="row justify-content-center text-align-center">
 <div class="col-lg-6 col-12">
@@ -4997,8 +4992,8 @@ Magadi Main Road, Bengaluru - 560091.</p>
 							
 							
 							<input type="hidden" name="desktop_mobile_villalift_form" id="desktop_mobile_villalift_form">
-							<input type="hidden" name="page_url" id="page_url">
-							<input type="hidden" name="page_name" id="page_name">
+							<input type="hidden" name="page_url" id="villalift_page_url">
+							<input type="hidden" name="page_name" id="villalift_page_name">
 							<input type="hidden" name="elevator_for" value="villa">
 							
 							
@@ -6321,94 +6316,64 @@ $(document).ready(function () {
             }
         }
     }).on('success.form.bv', function (e) {
+		e.preventDefault(); // stop normal submit
 
-        e.preventDefault(); // ✅ STOP normal form submit
+		let desktop_mobile = document.body.offsetWidth < 768 ? "mobile" : "desktop";
+		document.getElementById("desktop_mobile_villalift_form").value = desktop_mobile;
+		document.getElementById("villalift_page_url").value = location.href;
+		document.getElementById("villalift_page_name").value = "index.html";
 
+		const form = document.getElementById("villaLiftForm");
+		const formData = new FormData(form);
 
+		const payload = {};
 
-
-							
-		let desktop_mobile="";
-		if (document.body.offsetWidth < 768) {
-			desktop_mobile="mobile";
+		formData.forEach((value, key) => {
+		if (key.endsWith("[]")) {
+			key = key.replace("[]", "");
+			payload[key] = payload[key] || [];
+			payload[key].push(value);
+		} else {
+			payload[key] = value;
 		}
-		else{
-			desktop_mobile="desktop";
-		}
-		//alert(location.href)
-		$("#desktop_mobile_villalift_form").val(desktop_mobile);
-		$("#page_url").val(location.href);
-		$("#page_name").val("index.html");
-	
-							
-        var form = $('#villaLiftForm')[0];
-        var formData = new FormData(form);
-
-		var payload = {};
-
-		formData.forEach(function (value, key) {
-
-			// handle array fields like villalift_recommendations[]
-			if (key.endsWith('[]')) {
-				key = key.replace('[]', '');
-				if (!payload[key]) payload[key] = [];
-				payload[key].push(value);
-			} else {
-				payload[key] = value;
-			}
 		});
 
-        $.ajax({
-			url: "http://localhost:1337/api/villa-lift-enquiries",
-			type: "POST",
-			contentType: "application/json",
-			data: JSON.stringify({
-				data: payload
-			}),
-			beforeSend: function () {
-				$('#villalift_submit_btn').html(
-					'Processing <i class="spinner-border spinner-border-sm"></i>'
-				);
-			},
-			success: function (response) {
+		document.getElementById("villalift_submit_btn").innerHTML =
+		'Processing <span class="spinner-border spinner-border-sm"></span>';
 
-				$('#villalift_submit_btn').html("Submit");
+		fetch("http://localhost:1337/api/villa-lift-enquiries", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({ data: payload })
+		})
+		.then(res => res.json())
+		.then(response => {
+		document.getElementById("villalift_submit_btn").innerHTML = "Submit";
 
-				if (response && response.data) {
-					Swal.fire({
-						title: '',
-						html: 'Thanks for submitting the details!',
-						icon: 'success',
-						confirmButtonColor: '#3085d6',
-						confirmButtonText: 'OK'
-					}).then(() => {
-						location.reload();
-					});
-				} else {
-					Swal.fire({
-						title: "Error",
-						text: "Unexpected response from server",
-						icon: "error"
-					});
-				}
-			},
-			error: function (xhr) {
-				$('#villalift_submit_btn').html("Submit");
+		if (response?.data) {
+			Swal.fire({
+			icon: "success",
+			text: "Thanks for submitting the details!",
+			confirmButtonText: "OK"
+			}).then(() => location.reload());
+		} else {
+			throw new Error("Unexpected response");
+		}
+		})
+		.catch(err => {
+		document.getElementById("villalift_submit_btn").innerHTML = "Submit";
+		console.error(err);
 
-				console.error(xhr.responseText);
-
-				Swal.fire({
-					title: "Error",
-					text: "Failed to submit form",
-					icon: "error"
-				});
-			}
+		Swal.fire({
+			icon: "error",
+			text: "Failed to submit form"
+		});
 		});
 
 
-
-
-    });
+	 });
 
 });
 
@@ -6559,7 +6524,45 @@ $(document).ready(function () {
 						  
 							<h5 class="mb-3">Q1. How many floors is the Elevator required for?</h5>
 							
-							<div class="row g-3 apartmentlift_number_of_floors_div_inside">
+							
+
+							<select id="apartmentlift_floor_select" class="form-select">
+								<option value="">-- Select Floors --</option>
+								<option value="G+1">G+1</option>
+								<option value="G+2">G+2</option>
+								<option value="G+3">G+3</option>
+								<option value="G+4">G+4</option>
+								<option value="G+5">G+5</option>
+								<option value="G+6">G+6</option>
+								<option value="G+7">G+7</option>
+								<option value="G+8">G+8</option>
+								<option value="G+9">G+9</option>
+								<option value="G+10">G+10</option>
+								<option value="G+11">G+11</option>
+								<option value="G+12">G+12</option>
+								<option value="G+13">G+13</option>
+								<option value="G+14">G+14</option>
+								<option value="G+15">G+15</option>
+								<option value="G+16">G+16</option>
+								<option value="G+17">G+17</option>
+								<option value="G+18">G+18</option>
+								<option value="G+19">G+19</option>
+								<option value="G+20">G+20</option>
+								<option value="G+21">G+21</option>
+								<option value="G+22">G+22</option>
+								<option value="G+23">G+23</option>
+								<option value="G+24">G+24</option>
+								<option value="G+25">G+25</option>
+								<option value="G+26">G+26</option>
+								<option value="G+27">G+27</option>
+								<option value="G+28">G+28</option>
+								<option value="G+29">G+29</option>
+								<option value="G+30">G+30</option>
+							</select>
+
+							
+
+							<div class="row g-3 apartmentlift_number_of_floors_div_inside" style="display:none;">
 							
 							
 								 <div class="col-3 col-lg-3">
@@ -8476,8 +8479,8 @@ $(document).ready(function () {
 							
 							
 							<input type="hidden" name="desktop_mobile_apartmentlift_form" id="desktop_mobile_apartmentlift_form">
-							<input type="hidden" name="page_url" id="page_url">
-							<input type="hidden" name="page_name" id="page_name">
+							<input type="hidden" name="page_url" id="apartmentlift_page_url">
+							<input type="hidden" name="page_name" id="apartmentlift_page_name">
 							<input type="hidden" name="elevator_for" value="apartment">
 							
 							
@@ -8892,22 +8895,34 @@ function apartment_set_image_fun(actual_radio_button_name){
 }
 
 		
-function getCheckedRadioValueFromParent(actual_radio_button_name) {
-  actual_div=actual_radio_button_name+"_div"
-  actual_div_inside=actual_radio_button_name+"_div_inside"
-  
-  
-  $("#" + actual_div + " ." + actual_div_inside + ":hidden")
-    .find('input[type="radio"][name="' + actual_radio_button_name + '"]:checked')
-    .prop('checked', false);  // if the hidden div radio buttons checked by force it will become false
+function getCheckedRadioValueFromParent_apartmentlift(actual_radio_button_name) {
+
+	if(actual_radio_button_name=="apartmentlift_number_of_floors"){ 
+		// this is special case since apartmentlift_number_of_floors radio set is already under hidden div only (apartmentlift_number_of_floors_div_inside is hidden) wantedly I did because of converting this to dropdown G+1 to G+30
+		actual_div=actual_radio_button_name+"_div"
+		actual_div_inside=actual_radio_button_name+"_div_inside"
+			
+		return $("#"+actual_div+"  ."+actual_div_inside+":hidden")
+			.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+			.val() || "";
+  }
+  else{
+	actual_div=actual_radio_button_name+"_div"
+	actual_div_inside=actual_radio_button_name+"_div_inside"
 	
 	
-  return $("#"+actual_div+"  ."+actual_div_inside+":visible")
-    .find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
-    .val() || "";
+	$("#" + actual_div + " ." + actual_div_inside + ":hidden")
+		.find('input[type="radio"][name="' + actual_radio_button_name + '"]:checked')
+		.prop('checked', false);  // if the hidden div radio buttons checked by force it will become false
+		
+		
+	return $("#"+actual_div+"  ."+actual_div_inside+":visible")
+		.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+		.val() || "";
+  }
 }
 		
-function getCheckedRadioCountFromParent(next_radio_button_name) {
+function getCheckedRadioCountFromParent_apartmentlift(next_radio_button_name) {
   next_div=next_radio_button_name+"_div"
   next_div_inside=next_radio_button_name+"_div_inside"
   
@@ -8917,7 +8932,7 @@ function getCheckedRadioCountFromParent(next_radio_button_name) {
 }
 var apartmentlift_steps_arr=['apartmentlift_number_of_floors_div','apartmentlift_number_of_passengers_div','apartmentlift_number_of_openings_div','apartmentlift_operating_speed_values_div','apartmentlift_shape_of_shaft_div','apartmentlift_recommendations_div','apartmentlift_your_contact_details_div'];
 
-function mobileProgressFun(prev_next_div){
+function mobileProgressFun_apartmentlift(prev_next_div){
 	var apartmentMobileProgress_index = apartmentlift_steps_arr.indexOf(prev_next_div);
 	const apartmentMobileProgress = document.getElementById("apartmentMobileProgress");
 	if (apartmentMobileProgress){ 
@@ -8926,7 +8941,7 @@ function mobileProgressFun(prev_next_div){
 }
 
 function apartmentNextBtn_Fun(current_div,next_div){
-	mobileProgressFun(next_div);
+	mobileProgressFun_apartmentlift(next_div);
 	$("#"+current_div).css({"display":"none"})
 	$("#"+next_div).css({"display":"block"})
 	$("#apartmentLiftFormSidebar li").each(function(){
@@ -8938,7 +8953,7 @@ function apartmentNextBtn_Fun(current_div,next_div){
 	
 	next_radio_button_name=next_div.replace("_div","")
 	
-	count=getCheckedRadioCountFromParent(next_radio_button_name)
+	count=getCheckedRadioCountFromParent_apartmentlift(next_radio_button_name)
 	
 	if(count==0){
 		$("#"+next_div+"_next_btn").attr({"disabled":true})
@@ -8961,7 +8976,7 @@ function apartmentNextBtn_Fun(current_div,next_div){
 		$("#apartmentlift_questions_div").addClass("col-md-8")
 	}
 	
-	value=getCheckedRadioValueFromParent(next_radio_button_name)
+	value=getCheckedRadioValueFromParent_apartmentlift(next_radio_button_name)
 	if(value!=""){
 		apartment_set_image_fun(next_radio_button_name)
 	}
@@ -9408,7 +9423,7 @@ function apartmentNextBtn_Fun(current_div,next_div){
 
 
 function apartmentPrevBtn_Fun(current_div,prev_div){
-	mobileProgressFun(prev_div);
+	mobileProgressFun_apartmentlift(prev_div);
 	$("#"+current_div).css({"display":"none"})
 	$("#"+prev_div).css({"display":"block"})
 	$("#apartmentLiftFormSidebar li").each(function(){
@@ -9420,7 +9435,7 @@ function apartmentPrevBtn_Fun(current_div,prev_div){
 	
 	prev_radio_button_name=prev_div.replace("_div","")
 	
-	value=getCheckedRadioValueFromParent(prev_radio_button_name)
+	value=getCheckedRadioValueFromParent_apartmentlift(prev_radio_button_name)
 	if(value!=""){
 		apartment_set_image_fun(prev_radio_button_name)
 	}
@@ -9894,6 +9909,27 @@ function apartmentPrevBtn_Fun(current_div,prev_div){
 	
 }
 
+
+
+
+document.getElementById('apartmentlift_floor_select')
+  .addEventListener('change', function () {
+
+    const val = this.value;
+    if (!val) return;
+
+    const radio = document.querySelector(
+      `.apartmentlift_floor-radio[value="${val}"]`
+    );
+
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+});
+
+
+
 document.querySelectorAll(".apartmentlift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
   
@@ -9920,109 +9956,6 @@ document.querySelectorAll(".apartmentlift_floor-radio").forEach(radio => {
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	// Hide all speed groups
-	document
-	  .querySelectorAll(".apartmentlift_operating_speed_values-group")
-	  .forEach(g => (g.style.display = "none"));
-
-	// Selected floor (ex: "G+6")
-	
-	const selected_floor_for_operating_speed_values = this.dataset.floor;
-
-	// Find matching speed group (comma-separated data-floor)
-	document
-	  .querySelectorAll(".apartmentlift_operating_speed_values-group")
-	  .forEach(group => {
-		const floors = group.dataset.floor
-		  ?.split(",")
-		  .map(f => f.trim());
-
-		if (floors && floors.includes(selected_floor_for_operating_speed_values)) {
-		
-		  group.style.display = "flex"; // keep Bootstrap row styling
-		}
-	  });
-
-
-	// ---------- SPEED LOGIC (CLEAN & MAINTAINABLE) ----------
-
-	const speedConfig = [
-	  {
-		floors: ["G+1", "G+2"],
-		labels: ["0", "0.3", "0.5", "0.7"],
-		max: 3
-	  },
-	  {
-		floors: ["G+3", "G+4"],
-		labels: ["0", "0.5", "0.7"],
-		max: 2
-	  },
-	  {
-		floors: ["G+5", "G+6", "G+7"],
-		labels: ["0", "0.5", "0.7", "1.0", "1.25"],
-		max: 4
-	  },
-	  {
-		floors: ["G+8", "G+9", "G+10"],
-		labels: ["0", "0.5", "0.7", "1.0", "1.5"],
-		max: 4
-	  },
-	  {
-		floors: ["G+11","G+12","G+13","G+14","G+15","G+16","G+17"],
-		labels: ["0", "1.25", "1.5"],
-		max: 2
-	  },
-	  {
-		floors: ["G+18", "G+19"],
-		labels: ["0", "1.25", "1.5", "1.75"],
-		max: 3
-	  },
-	  {
-		floors: [
-		  "G+20","G+21","G+22","G+23","G+24",
-		  "G+25","G+26","G+27","G+28","G+29","G+30"
-		],
-		labels: ["0", "1.5", "1.75", "2", "2.5"],
-		max: 4
-	  }
-	];
-
-	// Apply config
-	const config = speedConfig.find(c => c.floors.includes(selected_floor_for_operating_speed_values));
-
-	if (config) {
-	  $("#apartmentlift_speed_simulation_range_div").html(
-		config.labels.map(v => `<span class="small">${v}</span>`).join("")
-	  );
-
-	  $("#apartmentlift_speedSlider").attr({
-		max: config.max,
-		step: 1
-	  });
-	}
-	
-	/*
-			the above is for this ex implemented
-			$("#apartmentlift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
-			$("#apartmentlift_speedSlider").attr({"max":"4","step":"1"})
-	*/
-
-	
-	
-	
-	
-	
-	
-	
-
-
 
 	
 	
@@ -10357,7 +10290,7 @@ $(document).ready(function(){
 });
 
 function apartmentNextBtnForm_Fun(){
-	mobileProgressFun("apartmentlift_your_contact_details_div");
+	mobileProgressFun_apartmentlift("apartmentlift_your_contact_details_div");
 
 	$("#apartmentLiftFormSidebar li").each(function(){
 		if($(this).hasClass("active")){
@@ -10370,7 +10303,7 @@ function apartmentNextBtnForm_Fun(){
 	$("#apartmentlift_recommendations_div").css({"display":"none"})
 	$("#apartmentlift_your_contact_details_div").css({"display":"block"})
 }
-/*
+
 $(document).ready(function () {
 
     $('#apartmentLiftForm').bootstrapValidator({
@@ -10421,65 +10354,69 @@ $(document).ready(function () {
             }
         }
     }).on('success.form.bv', function (e) {
+		
+		e.preventDefault(); // stop normal submit
 
-        e.preventDefault(); // ✅ STOP normal form submit
+		let desktop_mobile = document.body.offsetWidth < 768 ? "mobile" : "desktop";
+		document.getElementById("desktop_mobile_apartmentlift_form").value = desktop_mobile;
+		document.getElementById("apartmentlift_page_url").value = location.href;
+		document.getElementById("apartmentlift_page_name").value = "index.html";
 
+		const form = document.getElementById("apartmentLiftForm");
+		const formData = new FormData(form);
 
+		const payload = {};
 
-
-							
-		let desktop_mobile="";
-		if (document.body.offsetWidth < 768) {
-			desktop_mobile="mobile";
+		formData.forEach((value, key) => {
+		if (key.endsWith("[]")) {
+			key = key.replace("[]", "");
+			payload[key] = payload[key] || [];
+			payload[key].push(value);
+		} else {
+			payload[key] = value;
 		}
-		else{
-			desktop_mobile="desktop";
+		});
+
+		document.getElementById("apartmentlift_submit_btn").innerHTML =
+		'Processing <span class="spinner-border spinner-border-sm"></span>';
+
+		fetch("http://localhost:1337/api/apartment-lift-enquiries", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({ data: payload })
+		})
+		.then(res => res.json())
+		.then(response => {
+		document.getElementById("apartmentlift_submit_btn").innerHTML = "Submit";
+
+		if (response?.data) {
+			Swal.fire({
+			icon: "success",
+			text: "Thanks for submitting the details!",
+			confirmButtonText: "OK"
+			}).then(() => location.reload());
+		} else {
+			throw new Error("Unexpected response");
 		}
-		//alert(location.href)
-		$("#desktop_mobile_apartmentlift_form").val(desktop_mobile);
-		$("#page_url").val(location.href);
-		$("#page_name").val("index.html");
-	
-							
-        var form = $('#apartmentLiftForm')[0];
-        var formData = new FormData(form);
+		})
+		.catch(err => {
+		document.getElementById("apartmentlift_submit_btn").innerHTML = "Submit";
+		console.error(err);
 
-        $.ajax({
-            url: "action/apartmentlift_connect_with_us_form_action.php",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            beforeSend: function () {
-                $('#apartmentlift_submit_btn').html('Processing <i class="spinner-border spinner-border-sm"></i>');
-            },
-            success: function (data) {
-                $('#apartmentlift_submit_btn').html("Submit");
+		Swal.fire({
+			icon: "error",
+			text: "Failed to submit form"
+		});
+		});
 
-                if (data==true) {
-                    Swal.fire({
-                        title: '',
-                        html: 'Thanks for submitting the details!',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    Swal.fire({
-                        title: "Error",
-                        text: "An unexpected error occurred",
-                        icon: "error"
-                    });
-                }
-            }
-        });
 
-    });
+	 
+	});
 
 });
-*/
+
 
 </script>
 
@@ -10625,6 +10562,13 @@ $(document).ready(function () {
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
+
+							
+						  
+
+
+
+
 						  <div class="form-step officeLiftFormSteps active" id="officelift_number_of_floors_div">
 						  
 						  <p class="mt-4">
@@ -10633,8 +10577,51 @@ $(document).ready(function () {
 						  
 						  
 							<h5 class="mb-3">Q1. How many floors is the Elevator required for?</h5>
+
+
+
+
 							
-							<div class="row g-3 officelift_number_of_floors_div_inside">
+
+							<select id="officelift_floor_select" class="form-select">
+								<option value="">-- Select Floors --</option>
+								<option value="G+1">G+1</option>
+								<option value="G+2">G+2</option>
+								<option value="G+3">G+3</option>
+								<option value="G+4">G+4</option>
+								<option value="G+5">G+5</option>
+								<option value="G+6">G+6</option>
+								<option value="G+7">G+7</option>
+								<option value="G+8">G+8</option>
+								<option value="G+9">G+9</option>
+								<option value="G+10">G+10</option>
+								<option value="G+11">G+11</option>
+								<option value="G+12">G+12</option>
+								<option value="G+13">G+13</option>
+								<option value="G+14">G+14</option>
+								<option value="G+15">G+15</option>
+								<option value="G+16">G+16</option>
+								<option value="G+17">G+17</option>
+								<option value="G+18">G+18</option>
+								<option value="G+19">G+19</option>
+								<option value="G+20">G+20</option>
+								<option value="G+21">G+21</option>
+								<option value="G+22">G+22</option>
+								<option value="G+23">G+23</option>
+								<option value="G+24">G+24</option>
+								<option value="G+25">G+25</option>
+								<option value="G+26">G+26</option>
+								<option value="G+27">G+27</option>
+								<option value="G+28">G+28</option>
+								<option value="G+29">G+29</option>
+								<option value="G+30">G+30</option>
+							</select>
+
+							
+							
+
+							
+							<div class="row g-3 officelift_number_of_floors_div_inside" style="display:none">
 							
 							
 								 <div class="col-3 col-lg-3">
@@ -11865,7 +11852,7 @@ $(document).ready(function () {
 							
 							  
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+1,G+2" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+1,G+2" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
@@ -11900,7 +11887,7 @@ $(document).ready(function () {
 								
 								
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+3,G+4" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+3,G+4" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -11926,7 +11913,7 @@ $(document).ready(function () {
 								</div>
 							  
 							  
-							  <div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+5,G+6,G+7" style="display:none; margin:0;">
+							  <div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+5" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -11958,20 +11945,97 @@ $(document).ready(function () {
 									</div>
 									
 									
+									
+									
+								  
+								</div>
+
+
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+6,G+7" data-passengers="4,6,8" style="display:none; margin:0;">
+								  
+									
+									
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.25 m/s">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.5 m/s">
 										<div class="card-wrap">
-										  <div class="label-text">1.25 m/s</div>
+										  <div class="label-text">0.5 m/s</div>
 										</div>
 									  </label>
 									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.0 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.0 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+
+
+								
+								
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+6,G+7" data-passengers="10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.0 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.0 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
 									
 								  
 								</div>
 							  
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+8,G+9,G+10" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+8,G+9,G+10" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -12017,7 +12081,7 @@ $(document).ready(function () {
 								
 								
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+11,G+12,G+13,G+14,G+15,G+16,G+17" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+11,G+12,G+13,G+14,G+15,G+16,G+17" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -12047,7 +12111,7 @@ $(document).ready(function () {
 								
 								
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+18,G+19" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+18,G+19" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -12086,7 +12150,7 @@ $(document).ready(function () {
 								
 								
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" style="display:none; margin:0;">
+								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
 								  
 									
 									
@@ -12140,50 +12204,6 @@ $(document).ready(function () {
 								
 								
 								
-								<div class="officelift_operating_speed_values-group row officelift_operating_speed_values_div_inside" data-floor="splcase" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">0.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-									
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="0.7 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">0.7 m/s</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.0 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.0 m/s</div>
-										</div>
-									  </label>
-									</div>
-									
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_operating_speed_values" value="1.5 m/s">
-										<div class="card-wrap">
-										  <div class="label-text">1.5 m/s</div>
-										</div>
-									  </label>
-									</div>
-									
-									
-									
-									
-								  
-								</div>
-								
 							  
 								
 							  
@@ -12211,16 +12231,7 @@ $(document).ready(function () {
 							<div id="shapes-options" class="row g-3 mb-4 mt-3">
 							
 							  
-								<div class="officelift_shapes-group row officelift_shape_of_shaft_div_inside" data-floor="G+1,G+2,G+3,G+4,G+5,G+6,G+7,G+8,G+9,G+10" data-passengers="4,6,8,10" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_shape_of_shaft" value="Narrow">
-										<div class="card-wrap">
-										  <div class="label-text">Narrow</div>
-										</div>
-									  </label>
-									</div>
+								<div class="officelift_shapes-group row officelift_shape_of_shaft_div_inside">
 								  
 									<div class="col-6 col-lg-6 mb-3">
 									  <label class="option-card">
@@ -12244,53 +12255,6 @@ $(document).ready(function () {
 								
 								
 							  
-								<div class="officelift_shapes-group row officelift_shape_of_shaft_div_inside" data-floor="G+1,G+2,G+3,G+4,G+5,G+6,G+7,G+8,G+9,G+10" data-passengers="13,15,18,20,22,25,27,30" style="display:none; margin:0;">
-								  
-									
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_shape_of_shaft" value="Square">
-										<div class="card-wrap">
-										  <div class="label-text">Square</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_shape_of_shaft" value="Rectangular">
-										<div class="card-wrap">
-										  <div class="label-text">Rectangular</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
-								
-								
-								
-								<div class="officelift_shapes-group row officelift_shape_of_shaft_div_inside" data-floor="G+11,G+12,G+13,G+14,G+15,G+16,G+17,G+18,G+19,G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_shape_of_shaft" value="Square">
-										<div class="card-wrap">
-										  <div class="label-text">Square</div>
-										</div>
-									  </label>
-									</div>
-								  
-									<div class="col-6 col-lg-6 mb-3">
-									  <label class="option-card">
-										<input class="option-input" type="radio" name="officelift_shape_of_shaft" value="Rectangular">
-										<div class="card-wrap">
-										  <div class="label-text">Rectangular</div>
-										</div>
-									  </label>
-									</div>
-								  
-								</div>
 								
 								
 								
@@ -12503,8 +12467,8 @@ $(document).ready(function () {
 							
 							
 							<input type="hidden" name="desktop_mobile_officelift_form" id="desktop_mobile_officelift_form">
-							<input type="hidden" name="page_url" id="page_url">
-							<input type="hidden" name="page_name" id="page_name">
+							<input type="hidden" name="page_url" id="officelift_page_url">
+							<input type="hidden" name="page_name" id="officelift_page_name">
 							<input type="hidden" name="elevator_for" value="office">
 							
 							
@@ -12609,6 +12573,7 @@ $(document).ready(function () {
 		    img_src="assets/img/officelift_images_for_questions/officelift_number_of_floors/"+officelift_number_of_floors_value+"/"+img;
 			$("#officelift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
 		});
+		//alert(officelift_number_of_floors_value)
 	});
 	$(document).on("change", 'input[name="officelift_number_of_passengers"]', function () {
 		$("#officelift_images_for_questions").css({"display":""})
@@ -12919,22 +12884,32 @@ function office_set_image_fun(actual_radio_button_name){
 }
 
 		
-function getCheckedRadioValueFromParent(actual_radio_button_name) {
-  actual_div=actual_radio_button_name+"_div"
-  actual_div_inside=actual_radio_button_name+"_div_inside"
-  
-  
-  $("#" + actual_div + " ." + actual_div_inside + ":hidden")
-    .find('input[type="radio"][name="' + actual_radio_button_name + '"]:checked')
-    .prop('checked', false);  // if the hidden div radio buttons checked by force it will become false
+function getCheckedRadioValueFromParent_officelift(actual_radio_button_name) {
+  if(actual_radio_button_name=="officelift_number_of_floors"){ // this is special case since officelift_number_of_floors radio set is already under hidden div only (officelift_number_of_floors_div_inside is hidden) wantedly I did because of converting this to dropdown G+1 to G+30
+	actual_div=actual_radio_button_name+"_div"
+	actual_div_inside=actual_radio_button_name+"_div_inside"
+		
+	return $("#"+actual_div+"  ."+actual_div_inside+":hidden")
+		.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+		.val() || "";
+  }
+  else{
+	actual_div=actual_radio_button_name+"_div"
+	actual_div_inside=actual_radio_button_name+"_div_inside"
 	
 	
-  return $("#"+actual_div+"  ."+actual_div_inside+":visible")
-    .find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
-    .val() || "";
+	$("#" + actual_div + " ." + actual_div_inside + ":hidden")
+		.find('input[type="radio"][name="' + actual_radio_button_name + '"]:checked')
+		.prop('checked', false);  // if the hidden div radio buttons checked by force it will become false
+		
+		
+	return $("#"+actual_div+"  ."+actual_div_inside+":visible")
+		.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+		.val() || "";
+  }
 }
 		
-function getCheckedRadioCountFromParent(next_radio_button_name) {
+function getCheckedRadioCountFromParent_officelift(next_radio_button_name) {
   next_div=next_radio_button_name+"_div"
   next_div_inside=next_radio_button_name+"_div_inside"
   
@@ -12944,7 +12919,7 @@ function getCheckedRadioCountFromParent(next_radio_button_name) {
 }
 var officelift_steps_arr=['officelift_number_of_floors_div','officelift_number_of_passengers_div','officelift_number_of_openings_div','officelift_operating_speed_values_div','officelift_shape_of_shaft_div','officelift_recommendations_div','officelift_your_contact_details_div'];
 
-function mobileProgressFun(prev_next_div){
+function mobileProgressFun_officelift(prev_next_div){
 	var officeMobileProgress_index = officelift_steps_arr.indexOf(prev_next_div);
 	const officeMobileProgress = document.getElementById("officeMobileProgress");
 	if (officeMobileProgress){ 
@@ -12953,7 +12928,7 @@ function mobileProgressFun(prev_next_div){
 }
 
 function officeNextBtn_Fun(current_div,next_div){
-	mobileProgressFun(next_div);
+	mobileProgressFun_officelift(next_div);
 	$("#"+current_div).css({"display":"none"})
 	$("#"+next_div).css({"display":"block"})
 	$("#officeLiftFormSidebar li").each(function(){
@@ -12965,7 +12940,7 @@ function officeNextBtn_Fun(current_div,next_div){
 	
 	next_radio_button_name=next_div.replace("_div","")
 	
-	count=getCheckedRadioCountFromParent(next_radio_button_name)
+	count=getCheckedRadioCountFromParent_officelift(next_radio_button_name)
 	
 	if(count==0){
 		$("#"+next_div+"_next_btn").attr({"disabled":true})
@@ -12988,7 +12963,7 @@ function officeNextBtn_Fun(current_div,next_div){
 		$("#officelift_questions_div").addClass("col-md-8")
 	}
 	
-	value=getCheckedRadioValueFromParent(next_radio_button_name)
+	value=getCheckedRadioValueFromParent_officelift(next_radio_button_name)
 	if(value!=""){
 		office_set_image_fun(next_radio_button_name)
 	}
@@ -13038,109 +13013,68 @@ function officeNextBtn_Fun(current_div,next_div){
 		var officelift_shape_of_shaft_value = $('input[name="officelift_shape_of_shaft"]:checked').val();
 		
 		
-		if((officelift_number_of_floors_value=="G+1" || officelift_number_of_floors_value=="G+2" || officelift_number_of_floors_value=="G+3" || officelift_number_of_floors_value=="G+4") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Nest');
-			$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		else if((officelift_number_of_floors_value=="G+5" || officelift_number_of_floors_value=="G+6" || officelift_number_of_floors_value=="G+7") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Metro');
-			$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		else if((officelift_number_of_floors_value=="G+8" || officelift_number_of_floors_value=="G+9" || officelift_number_of_floors_value=="G+10") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Summit');
-			$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		
-		
-		else if(officelift_number_of_floors_value=="G+1"){
-			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){ //If Front + rear is selected then only suggest Evora and Axira
-				recommendations_lifts_arr.push('Axira Nest');
-				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-				$("#officelift_Axira_div").css({"display":"block"})
-			}
-			else{
-				recommendations_lifts_arr.push('Axira Nest');
-				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
-				
-				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
-				
-				$("#officelift_Axira_div").css({"display":"block"})
-				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
-			}
-		}
-		else if(officelift_number_of_floors_value=="G+2" && officelift_number_of_passengers_value=="4"){
+		if(officelift_number_of_floors_value=="G+1"){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Nest');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Nest');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
-		else if(officelift_number_of_floors_value=="G+2" && officelift_number_of_passengers_value=="6"){
+		else if(officelift_number_of_floors_value=="G+2"){
+			recommendations_lifts_arr.push('Aeris Nest');
 			
-			recommendations_lifts_arr.push('Axira Nest');
+			$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
 			
-			$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-			
-			$("#officelift_Axira_div").css({"display":"block"})
+			$("#officelift_Aeris_div").css({"display":"block"})
 		}
 		else if(officelift_number_of_floors_value=="G+3"){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+4" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6")){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+4" && officelift_number_of_passengers_value=="8"){
@@ -13155,8 +13089,10 @@ function officeNextBtn_Fun(current_div,next_div){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
@@ -13164,25 +13100,24 @@ function officeNextBtn_Fun(current_div,next_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+6" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6" || officelift_number_of_passengers_value=="8")){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
@@ -13190,17 +13125,14 @@ function officeNextBtn_Fun(current_div,next_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+6" && officelift_number_of_passengers_value=="10"){
@@ -13225,17 +13157,14 @@ function officeNextBtn_Fun(current_div,next_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+7" && officelift_number_of_passengers_value=="10"){
@@ -13271,17 +13200,14 @@ function officeNextBtn_Fun(current_div,next_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+8" && (officelift_number_of_passengers_value=="13" || officelift_number_of_passengers_value=="15")){
@@ -13292,7 +13218,7 @@ function officeNextBtn_Fun(current_div,next_div){
 			$("#officelift_Axira_div").css({"display":"block"})
 		}
 		else if(officelift_number_of_floors_value=="G+9" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6" || officelift_number_of_passengers_value=="8" || officelift_number_of_passengers_value=="10")){
-		    if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
+			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				
@@ -13306,17 +13232,14 @@ function officeNextBtn_Fun(current_div,next_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+9" && officelift_number_of_passengers_value=="13"){
@@ -13346,24 +13269,19 @@ function officeNextBtn_Fun(current_div,next_div){
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
-				
 			}
 			else{
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
-				
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+10" && officelift_number_of_passengers_value=="13"){
@@ -13435,7 +13353,7 @@ function officeNextBtn_Fun(current_div,next_div){
 
 
 function officePrevBtn_Fun(current_div,prev_div){
-	mobileProgressFun(prev_div);
+	mobileProgressFun_officelift(prev_div);
 	$("#"+current_div).css({"display":"none"})
 	$("#"+prev_div).css({"display":"block"})
 	$("#officeLiftFormSidebar li").each(function(){
@@ -13447,7 +13365,8 @@ function officePrevBtn_Fun(current_div,prev_div){
 	
 	prev_radio_button_name=prev_div.replace("_div","")
 	
-	value=getCheckedRadioValueFromParent(prev_radio_button_name)
+	
+	value=getCheckedRadioValueFromParent_officelift(prev_radio_button_name)
 	if(value!=""){
 		office_set_image_fun(prev_radio_button_name)
 	}
@@ -13498,109 +13417,68 @@ function officePrevBtn_Fun(current_div,prev_div){
 		var officelift_shape_of_shaft_value = $('input[name="officelift_shape_of_shaft"]:checked').val();
 		
 		
-		if((officelift_number_of_floors_value=="G+1" || officelift_number_of_floors_value=="G+2" || officelift_number_of_floors_value=="G+3" || officelift_number_of_floors_value=="G+4") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Nest');
-			$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		else if((officelift_number_of_floors_value=="G+5" || officelift_number_of_floors_value=="G+6" || officelift_number_of_floors_value=="G+7") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Metro');
-			$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		else if((officelift_number_of_floors_value=="G+8" || officelift_number_of_floors_value=="G+9" || officelift_number_of_floors_value=="G+10") && (officelift_number_of_openings_value=="1 Front + 2 Side" || officelift_shape_of_shaft_value=="Narrow")){
-			recommendations_lifts_arr.push('Plexus Summit');
-			$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
-			$("#officelift_Plexus_div").css({"display":"block"})
-		}
-		
-		
-		else if(officelift_number_of_floors_value=="G+1"){
-			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){ //If Front + rear is selected then only suggest Evora and Axira
-				recommendations_lifts_arr.push('Axira Nest');
-				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-				$("#officelift_Axira_div").css({"display":"block"})
-			}
-			else{
-				recommendations_lifts_arr.push('Axira Nest');
-				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
-				
-				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
-				
-				$("#officelift_Axira_div").css({"display":"block"})
-				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
-			}
-		}
-		else if(officelift_number_of_floors_value=="G+2" && officelift_number_of_passengers_value=="4"){
+		if(officelift_number_of_floors_value=="G+1"){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Nest');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Nest');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
-		else if(officelift_number_of_floors_value=="G+2" && officelift_number_of_passengers_value=="6"){
+		else if(officelift_number_of_floors_value=="G+2"){
+			recommendations_lifts_arr.push('Aeris Nest');
 			
-			recommendations_lifts_arr.push('Axira Nest');
+			$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
 			
-			$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
-			
-			$("#officelift_Axira_div").css({"display":"block"})
+			$("#officelift_Aeris_div").css({"display":"block"})
 		}
 		else if(officelift_number_of_floors_value=="G+3"){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+4" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6")){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
 			else{
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Nest');
-				recommendations_lifts_arr.push('Plexus Nest');
 				
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Nest']").prop("checked", true)
 				
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+4" && officelift_number_of_passengers_value=="8"){
@@ -13615,8 +13493,10 @@ function officePrevBtn_Fun(current_div,prev_div){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
@@ -13624,25 +13504,24 @@ function officePrevBtn_Fun(current_div,prev_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+6" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6" || officelift_number_of_passengers_value=="8")){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
+				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
+				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 			}
@@ -13650,17 +13529,14 @@ function officePrevBtn_Fun(current_div,prev_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Metro');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Metro']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+6" && officelift_number_of_passengers_value=="10"){
@@ -13685,17 +13561,14 @@ function officePrevBtn_Fun(current_div,prev_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Metro');
-				recommendations_lifts_arr.push('Plexus Metro');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Metro']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Metro']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+7" && officelift_number_of_passengers_value=="10"){
@@ -13731,17 +13604,14 @@ function officePrevBtn_Fun(current_div,prev_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+8" && (officelift_number_of_passengers_value=="13" || officelift_number_of_passengers_value=="15")){
@@ -13752,7 +13622,7 @@ function officePrevBtn_Fun(current_div,prev_div){
 			$("#officelift_Axira_div").css({"display":"block"})
 		}
 		else if(officelift_number_of_floors_value=="G+9" && (officelift_number_of_passengers_value=="4" || officelift_number_of_passengers_value=="6" || officelift_number_of_passengers_value=="8" || officelift_number_of_passengers_value=="10")){
-		    if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
+			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				
@@ -13766,17 +13636,14 @@ function officePrevBtn_Fun(current_div,prev_div){
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+9" && officelift_number_of_passengers_value=="13"){
@@ -13806,24 +13673,19 @@ function officePrevBtn_Fun(current_div,prev_div){
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
-				
 			}
 			else{
 				recommendations_lifts_arr.push('Evora Nest');
 				recommendations_lifts_arr.push('Axira Summit');
 				recommendations_lifts_arr.push('Aeris Summit');
-				recommendations_lifts_arr.push('Plexus Summit');
 				
 				$("input[name='officelift_recommendations[]'][value='Evora Nest']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Axira Summit']").prop("checked", true)
 				$("input[name='officelift_recommendations[]'][value='Aeris Summit']").prop("checked", true)
-				$("input[name='officelift_recommendations[]'][value='Plexus Summit']").prop("checked", true)
-				
 				
 				$("#officelift_Evora_div").css({"display":"block"})
 				$("#officelift_Axira_div").css({"display":"block"})
 				$("#officelift_Aeris_div").css({"display":"block"})
-				$("#officelift_Plexus_div").css({"display":"block"})
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+10" && officelift_number_of_passengers_value=="13"){
@@ -13878,27 +13740,14 @@ function officePrevBtn_Fun(current_div,prev_div){
 			
 					$("#officelift_Evora_div").css({"display":"block"})
 				}
+				if(recommendations_lifts_arr.length==1){
+					$("#officelift_recommendations_lift_shortinfo_div").html("Product recommended is <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
+				if(recommendations_lifts_arr.length>1){
+					$("#officelift_recommendations_lift_shortinfo_div").html("Products recommended are <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
 		
-		
-		
-		
-		
-		///////////////////
-		
-		
-		
-
-		if(recommendations_lifts_arr.length==1){
-			$("#officelift_recommendations_lift_shortinfo_div").html("Product recommended is <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
 		}
-		if(recommendations_lifts_arr.length>1){
-			$("#officelift_recommendations_lift_shortinfo_div").html("Products recommended are <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
-		}
-		
-		
-		
-
-	}
 	
 	
 	
@@ -13920,6 +13769,29 @@ function officePrevBtn_Fun(current_div,prev_div){
 	
 	
 }
+
+
+
+document.getElementById('officelift_floor_select')
+  .addEventListener('change', function () {
+
+    const val = this.value;
+    if (!val) return;
+
+    const radio = document.querySelector(
+      `.officelift_floor-radio[value="${val}"]`
+    );
+
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+});
+
+							
+						
+
+
 
 document.querySelectorAll(".officelift_floor-radio").forEach(radio => {
   radio.addEventListener("change", function() {
@@ -13943,117 +13815,9 @@ document.querySelectorAll(".officelift_floor-radio").forEach(radio => {
 	  if (floors_for_passengers && floors_for_passengers.includes(selected_floor_for_passengers)) {
 		group.style.display = "flex"; // keep Bootstrap row styling
 	  }
-	})
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// Hide all speed groups
-	document
-	  .querySelectorAll(".officelift_operating_speed_values-group")
-	  .forEach(g => (g.style.display = "none"));
-
-	// Selected floor (ex: "G+6")
-	
-	const selected_floor_for_operating_speed_values = this.dataset.floor;
-
-	// Find matching speed group (comma-separated data-floor)
-	document
-	  .querySelectorAll(".officelift_operating_speed_values-group")
-	  .forEach(group => {
-		const floors = group.dataset.floor
-		  ?.split(",")
-		  .map(f => f.trim());
-
-		if (floors && floors.includes(selected_floor_for_operating_speed_values)) {
-		
-		  group.style.display = "flex"; // keep Bootstrap row styling
-		}
-	  });
-
-
-	// ---------- SPEED LOGIC (CLEAN & MAINTAINABLE) ----------
-
-	const speedConfig = [
-	  {
-		floors: ["G+1", "G+2"],
-		labels: ["0", "0.3", "0.5", "0.7"],
-		max: 3
-	  },
-	  {
-		floors: ["G+3", "G+4"],
-		labels: ["0", "0.5", "0.7"],
-		max: 2
-	  },
-	  {
-		floors: ["G+5", "G+6", "G+7"],
-		labels: ["0", "0.5", "0.7", "1.0", "1.25"],
-		max: 4
-	  },
-	  {
-		floors: ["G+8", "G+9", "G+10"],
-		labels: ["0", "0.5", "0.7", "1.0", "1.5"],
-		max: 4
-	  },
-	  {
-		floors: ["G+11","G+12","G+13","G+14","G+15","G+16","G+17"],
-		labels: ["0", "1.25", "1.5"],
-		max: 2
-	  },
-	  {
-		floors: ["G+18", "G+19"],
-		labels: ["0", "1.25", "1.5", "1.75"],
-		max: 3
-	  },
-	  {
-		floors: [
-		  "G+20","G+21","G+22","G+23","G+24",
-		  "G+25","G+26","G+27","G+28","G+29","G+30"
-		],
-		labels: ["0", "1.5", "1.75", "2", "2.5"],
-		max: 4
-	  }
-	];
-
-	// Apply config
-	const config = speedConfig.find(c => c.floors.includes(selected_floor_for_operating_speed_values));
-
-	if (config) {
-	  $("#officelift_speed_simulation_range_div").html(
-		config.labels.map(v => `<span class="small">${v}</span>`).join("")
-	  );
-
-	  $("#officelift_speedSlider").attr({
-		max: config.max,
-		step: 1
-	  });
-	}
-	
-	/*
-			the above is for this ex implemented
-			$("#officelift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
-			$("#officelift_speedSlider").attr({"max":"4","step":"1"})
-	*/
-
-	
-	
-	
-	
-	
-	
+	})	
 	
 
-
-
-	
-	
-	
   });
 });
 
@@ -14067,92 +13831,39 @@ document.querySelectorAll(".officelift_passengers-radio").forEach(radio => {
 	
 	
 	
-	// for shapes selection we need both floor and passengers
-	// Hide all shapes groups first
+	// for officelift_operating_speed_values selection we need both floor and passengers
+	// Hide all officelift_operating_speed_values groups first
 	document
-	  .querySelectorAll(".officelift_shapes-group")
+	  .querySelectorAll(".officelift_operating_speed_values-group")
 	  .forEach(g => (g.style.display = "none"));
 
 	// Selected values
-	const selected_floor_for_shapes_value = officelift_number_of_floors;
-	const selected_passenger_for_shapes_value = officelift_number_of_passengers;
+	const selected_floor_for_operating_speed_values = officelift_number_of_floors;
+	const selected_passengers_for_operating_speed_values = officelift_number_of_passengers;
 
 	// Single loop — both conditions together
-	document.querySelectorAll(".officelift_shapes-group").forEach(group => {
+	document.querySelectorAll(".officelift_operating_speed_values-group").forEach(group => {
 
-	  const floors_for_shapes = group.dataset.floor
+	  const floors_for_speed = group.dataset.floor
 		?.split(",")
 		.map(f => f.trim());
 
-	  const passengers_for_shapes = group.dataset.passengers
+	  const passengers_for_speed = group.dataset.passengers
 		?.split(",")
 		.map(p => p.trim());
 
 	  // ✅ SHOW only if BOTH match
 	  if (
-		floors_for_shapes &&
-		floors_for_shapes.includes(selected_floor_for_shapes_value) &&
-		passengers_for_shapes &&
-		passengers_for_shapes.includes(selected_passenger_for_shapes_value)
+		floors_for_speed &&
+		floors_for_speed.includes(selected_floor_for_operating_speed_values) &&
+		passengers_for_speed &&
+		passengers_for_speed.includes(selected_passengers_for_operating_speed_values)
 	  ) {
 		group.style.display = "flex"; // keep Bootstrap row styling
 	  }
 
 	});
-
-
-
 	
-	
-	
-	if((officelift_number_of_floors=="G+6" || officelift_number_of_floors=="G+7") && parseInt(officelift_number_of_passengers)>8){
-		
-		// Hide all officelift_operating_speed_values groups
-		document.querySelectorAll(".officelift_operating_speed_values-group").forEach(g => g.style.display = "none");
-
-		// Show only the group matching selected floor
-		const selected = this.dataset.floor;
-		const group = document.querySelector('.officelift_operating_speed_values-group[data-floor="splcase"]');
-		if(group){
-			group.style.display = "flex"; // keep Bootstrap row styling
-		
-		
-			$("#officelift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
-			$("#officelift_speedSlider").attr({"max":"4","step":"1"})
-		}
-		
-		
-	}
-	else{
-		
-		
-		
-		
-	
-	// Hide all speed groups
-	document
-	  .querySelectorAll(".officelift_operating_speed_values-group")
-	  .forEach(g => (g.style.display = "none"));
-
-	// Selected floor (ex: "G+6")
-	const selected_floor_for_operating_speed_values =
-  document.querySelector('input[name="officelift_number_of_floors"]:checked')?.value;
-
-	// Find matching speed group (comma-separated data-floor)
-	document
-	  .querySelectorAll(".officelift_operating_speed_values-group")
-	  .forEach(group => {
-		const floors = group.dataset.floor
-		  ?.split(",")
-		  .map(f => f.trim());
-
-		if (floors && floors.includes(selected_floor_for_operating_speed_values)) {
-		
-		  group.style.display = "flex"; // keep Bootstrap row styling
-		}
-	  });
-
-
 	// ---------- SPEED LOGIC (CLEAN & MAINTAINABLE) ----------
 
 	const speedConfig = [
@@ -14168,7 +13879,7 @@ document.querySelectorAll(".officelift_passengers-radio").forEach(radio => {
 	  },
 	  {
 		floors: ["G+5", "G+6", "G+7"],
-		labels: ["0", "0.5", "0.7", "1.0", "1.25"],
+		labels: ["0", "0.5", "0.7", "1.0"],
 		max: 4
 	  },
 	  {
@@ -14219,7 +13930,18 @@ document.querySelectorAll(".officelift_passengers-radio").forEach(radio => {
 
 
 
+	
+
+	// this is one special case
+	
+	if((officelift_number_of_floors=="G+6" || officelift_number_of_floors=="G+7") && parseInt(officelift_number_of_passengers)>8){
+		
+		$("#officelift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
+		$("#officelift_speedSlider").attr({"max":"4","step":"1"})
+		
+		
 	}
+	
     
   });
 });
@@ -14231,15 +13953,6 @@ document.querySelectorAll(".officelift_passengers-radio").forEach(radio => {
 
 $(document).ready(function(){
 		//officelift_number_of_floors_div starts
-		$("input[name='officelift_number_of_floors']").change(function(){
-			if ($('input[name="officelift_number_of_floors"]:checked').length > 0) {
-				$("#officelift_number_of_floors_div_next_btn").attr({"disabled":false})
-			}
-			else{
-				$("#officelift_number_of_floors_div_next_btn").attr({"disabled":true})
-			}
-		});
-		
 		$("input[name='officelift_number_of_floors']").change(function(){
 			if ($('input[name="officelift_number_of_floors"]:checked').length > 0) {
 				$("#officelift_number_of_floors_div_next_btn").attr({"disabled":false})
@@ -14261,15 +13974,6 @@ $(document).ready(function(){
 				$("#officelift_number_of_passengers_div_next_btn").attr({"disabled":true})
 			}
 		});
-
-		$("input[name='officelift_number_of_passengers']").change(function(){
-			if ($('input[name="officelift_number_of_passengers"]:checked').length > 0) {
-				$("#officelift_number_of_passengers_div_next_btn").attr({"disabled":false})
-			}
-			else{
-				$("#officelift_number_of_passengers_div_next_btn").attr({"disabled":true})
-			}
-		});
 		//officelift_number_of_passengers_div ends
 		
 				
@@ -14283,14 +13987,6 @@ $(document).ready(function(){
 			}
 		});
 
-		$("input[name='officelift_number_of_openings']").change(function(){
-			if ($('input[name="officelift_number_of_openings"]:checked').length > 0) {
-				$("#officelift_number_of_openings_div_next_btn").attr({"disabled":false})
-			}
-			else{
-				$("#officelift_number_of_openings_div_next_btn").attr({"disabled":true})
-			}
-		});
 		//officelift_number_of_openings_div ends
 		
 				
@@ -14305,27 +14001,10 @@ $(document).ready(function(){
 			}
 		});
 
-		$("input[name='officelift_operating_speed_values']").change(function(){
-			if ($('input[name="officelift_operating_speed_values"]:checked').length > 0) {
-				$("#officelift_operating_speed_values_div_next_btn").attr({"disabled":false})
-			}
-			else{
-				$("#officelift_operating_speed_values_div_next_btn").attr({"disabled":true})
-			}
-		});
 		//officelift_operating_speed_values_div ends
 		
 		
 		//officelift_shape_of_shaft_div starts
-		$("input[name='officelift_shape_of_shaft']").change(function(){
-			if ($('input[name="officelift_shape_of_shaft"]:checked').length > 0) {
-				$("#officelift_shape_of_shaft_div_next_btn").attr({"disabled":false})
-			}
-			else{
-				$("#officelift_shape_of_shaft_div_next_btn").attr({"disabled":true})
-			}
-		});
-
 		$("input[name='officelift_shape_of_shaft']").change(function(){
 			if ($('input[name="officelift_shape_of_shaft"]:checked').length > 0) {
 				$("#officelift_shape_of_shaft_div_next_btn").attr({"disabled":false})
@@ -14346,7 +14025,7 @@ $(document).ready(function(){
 });
 
 function officeNextBtnForm_Fun(){
-	mobileProgressFun("officelift_your_contact_details_div");
+	mobileProgressFun_officelift("officelift_your_contact_details_div");
 
 	$("#officeLiftFormSidebar li").each(function(){
 		if($(this).hasClass("active")){
@@ -14359,7 +14038,7 @@ function officeNextBtnForm_Fun(){
 	$("#officelift_recommendations_div").css({"display":"none"})
 	$("#officelift_your_contact_details_div").css({"display":"block"})
 }
-/*
+
 $(document).ready(function () {
 
     $('#officeLiftForm').bootstrapValidator({
@@ -14410,65 +14089,69 @@ $(document).ready(function () {
             }
         }
     }).on('success.form.bv', function (e) {
+		
+		e.preventDefault(); // stop normal submit
 
-        e.preventDefault(); // ✅ STOP normal form submit
+		let desktop_mobile = document.body.offsetWidth < 768 ? "mobile" : "desktop";
+		document.getElementById("desktop_mobile_officelift_form").value = desktop_mobile;
+		document.getElementById("officelift_page_url").value = location.href;
+		document.getElementById("officelift_page_name").value = "index.html";
 
+		const form = document.getElementById("officeLiftForm");
+		const formData = new FormData(form);
 
+		const payload = {};
 
-
-							
-		let desktop_mobile="";
-		if (document.body.offsetWidth < 768) {
-			desktop_mobile="mobile";
+		formData.forEach((value, key) => {
+		if (key.endsWith("[]")) {
+			key = key.replace("[]", "");
+			payload[key] = payload[key] || [];
+			payload[key].push(value);
+		} else {
+			payload[key] = value;
 		}
-		else{
-			desktop_mobile="desktop";
+		});
+
+		document.getElementById("officelift_submit_btn").innerHTML =
+		'Processing <span class="spinner-border spinner-border-sm"></span>';
+
+		fetch("http://localhost:1337/api/office-lift-enquiries", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({ data: payload })
+		})
+		.then(res => res.json())
+		.then(response => {
+		document.getElementById("officelift_submit_btn").innerHTML = "Submit";
+
+		if (response?.data) {
+			Swal.fire({
+			icon: "success",
+			text: "Thanks for submitting the details!",
+			confirmButtonText: "OK"
+			}).then(() => location.reload());
+		} else {
+			throw new Error("Unexpected response");
 		}
-		//alert(location.href)
-		$("#desktop_mobile_officelift_form").val(desktop_mobile);
-		$("#page_url").val(location.href);
-		$("#page_name").val("index.html");
-	
-							
-        var form = $('#officeLiftForm')[0];
-        var formData = new FormData(form);
+		})
+		.catch(err => {
+		document.getElementById("officelift_submit_btn").innerHTML = "Submit";
+		console.error(err);
 
-        $.ajax({
-            url: "action/officelift_connect_with_us_form_action.php",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            beforeSend: function () {
-                $('#officelift_submit_btn').html('Processing <i class="spinner-border spinner-border-sm"></i>');
-            },
-            success: function (data) {
-                $('#officelift_submit_btn').html("Submit");
+		Swal.fire({
+			icon: "error",
+			text: "Failed to submit form"
+		});
+		});
 
-                if (data==true) {
-                    Swal.fire({
-                        title: '',
-                        html: 'Thanks for submitting the details!',
-                        icon: 'success',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'OK'
-                    }).then(() => {
-                        location.reload();
-                    });
-                } else {
-                    Swal.fire({
-                        title: "Error",
-                        text: "An unexpected error occurred",
-                        icon: "error"
-                    });
-                }
-            }
-        });
 
-    });
+	 
+	});
 
 });
-*/
+
 
 </script>
 

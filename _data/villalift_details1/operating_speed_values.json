@@ -1,9 +1,0 @@
-[
-  { "name": "G+3", "value": ["0.3 m/s"] },
-  { "name": "G+4", "value": ["0.5 m/s","1.0 m/s"] },
-  { "name": "G+5", "value": ["0.5 m/s"] },
-  { "name": "G+7", "value": ["1.0 m/s","1.5 m/s"] },
-  { "name": "G+10", "value": ["1.0 m/s","1.5 m/s","2.0 m/s"] },
-  { "name": "G+20", "value": ["1.5 m/s"] },
-  { "name": "G+30", "value": ["2.0 m/s"] }
-]  
