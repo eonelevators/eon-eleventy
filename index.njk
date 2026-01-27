@@ -13407,7 +13407,7 @@ function officePrevBtn_Fun(current_div,prev_div){
 		$("#officelift_Evora_div").css({"display":"none"})
 		$("#officelift_Axira_div").css({"display":"none"})
 		$("#officelift_Aeris_div").css({"display":"none"})
-		$("#officelift_Plexus_div").css({"display":"none"})
+		
 		
 		
 		var officelift_number_of_floors_value = $('input[name="officelift_number_of_floors"]:checked').val();
@@ -13437,10 +13437,13 @@ function officePrevBtn_Fun(current_div,prev_div){
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+2"){
+			recommendations_lifts_arr.push('Axira Nest');
 			recommendations_lifts_arr.push('Aeris Nest');
 			
+			$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
 			$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
 			
+			$("#officelift_Axira_div").css({"display":"block"})
 			$("#officelift_Aeris_div").css({"display":"block"})
 		}
 		else if(officelift_number_of_floors_value=="G+3"){
