@@ -429,16 +429,16 @@
   <!-- Hero -->
 {% for section in plexus.sections %}
   
-  {% if section.__component == "sections.banner" %}
+  {% if section.__component == "section.banner" %}
   <section class="section-hero d-flex align-items-center text-center" 
-           style="background-image: url('http://localhost:1337{{ section.image.data.attributes.url }}');">
+           style="background-image: url('http://localhost:1337{{ section.image[0].url }}');">
     <div class="overlay"></div>
     <div class="container position-relative">
       <h1>{{ section.heading }}</h1>
       <p><strong>{{ section.subheading }}</strong></p>
       <p>{{ section.hero_description }}</p>
       <a href="{{ section.cta_link | default('#overview') }}" class="btn-dwd">
-        {{ section.cta_text | default('Discover More') }}
+        {{ section.cta_text | default('Discover More1') }}
       </a>
     </div>
   </section>
