@@ -12363,29 +12363,7 @@ $(document).ready(function () {
 											
 										
 										  
-										<div id="officelift_Plexus_div" class="recommendations">
-										  
-											  <h5 class="mt-2">Plexus</h5> 
-											  
-											  
-												<h5>1. Technical Summary</h5>
-												<p>
-													<strong>EON Plexus</strong> is our elite, high-performance elevator system engineered for high-rise capability. It features a powerful <strong>Gearless PMSM motor</strong> supporting high speed and heavy-duty capacities.
-												</p>
-												
-												<h5>2. Technical Recommendation</h5>
-												<p>
-													We recommend Plexus as the definitive solution for <strong>high-traffic, high-rise developments</strong>. Its advanced <strong>CAN-Bus Microprocessor</strong> and optional <strong>Destination Control System (DCS)</strong> optimise passenger flow during peak hours. This system is technically essential for buildings requiring <strong>rapid vertical transit</strong> and superior ride stability at high velocities.
-												</p>
-												
-												
-												<h5>3. Executive Summary</h5>
-												<p>
-													Plexus delivers maximum operational efficiency for premium assets. Its <strong>multiple openings</strong> allow for greater floor access and reduce loading and unloading times, ensuring a VIP user experience while significantly lowering long-term building operating costs with provisions for either a belt or rope version.
-												</p>
-												
-										</div>
-											
+										
 										
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Evora Nest">
@@ -12394,7 +12372,7 @@ $(document).ready(function () {
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Axira Nest">
 										  
-										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Plexus Nest">
+										  
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Evora Metro">
 										  
@@ -12402,7 +12380,7 @@ $(document).ready(function () {
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Axira Metro">
 										  
-										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Plexus Metro">
+										  
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Evora Summit">
 										  
@@ -12410,7 +12388,7 @@ $(document).ready(function () {
 										  
 										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Axira Summit">
 										  
-										  <input class="d-none" type="checkbox" name="officelift_recommendations[]" value="Plexus Summit">
+										
 										  
 										  
 										  
@@ -13003,7 +12981,7 @@ function officeNextBtn_Fun(current_div,next_div){
 		$("#officelift_Evora_div").css({"display":"none"})
 		$("#officelift_Axira_div").css({"display":"none"})
 		$("#officelift_Aeris_div").css({"display":"none"})
-		$("#officelift_Plexus_div").css({"display":"none"})
+		
 		
 		
 		var officelift_number_of_floors_value = $('input[name="officelift_number_of_floors"]:checked').val();
@@ -13033,11 +13011,23 @@ function officeNextBtn_Fun(current_div,next_div){
 			}
 		}
 		else if(officelift_number_of_floors_value=="G+2"){
-			recommendations_lifts_arr.push('Aeris Nest');
-			
-			$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
-			
-			$("#officelift_Aeris_div").css({"display":"block"})
+			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
+				recommendations_lifts_arr.push('Axira Nest');
+				
+				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
+				
+				$("#officelift_Axira_div").css({"display":"block"})
+			}
+			else{
+				recommendations_lifts_arr.push('Axira Nest');
+				recommendations_lifts_arr.push('Aeris Nest');
+				
+				$("input[name='officelift_recommendations[]'][value='Axira Nest']").prop("checked", true)
+				$("input[name='officelift_recommendations[]'][value='Aeris Nest']").prop("checked", true)
+				
+				$("#officelift_Axira_div").css({"display":"block"})
+				$("#officelift_Aeris_div").css({"display":"block"})
+			}
 		}
 		else if(officelift_number_of_floors_value=="G+3"){
 			if(officelift_number_of_openings_value=="1 Front + 1 Rear"){
