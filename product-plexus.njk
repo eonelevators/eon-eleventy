@@ -436,7 +436,7 @@
     <div class="container position-relative">
       <h1>{{ section.heading }}</h1>
       <p><strong>{{ section.subheading }}</strong></p>
-      <p>{{ section.hero_description }}</p>
+      <p>{{ section.banner_description }}</p>
       <a href="{{ section.cta_link | default('#overview') }}" class="btn-dwd">
         {{ section.cta_text | default('Discover More1') }}
       </a>
@@ -448,116 +448,115 @@
 
  <!-- ================== OVERVIEW ================== -->
 <!-- Overview -->
-<!-- Overview -->
-<section id="overview" class="section-overview py-5" style="background:#fff;">
+{% for section in plexus.sections %}
+  {% if section.__component == "section.overview" %}
+<section id="overview" class="section-overview py-5">
   <div class="container">
-    <h2 class="section-title text-center fw-bold mb-4">Overview</h2>
-    <p class="text-center mb-5 text-muted">
-      EON Plexus elevators are designed for luxury villas with complex layouts, tight shaft spaces, and multi-level travel requirements. Built exclusively for residential use, they deliver flexible multi-side access, compact installation, and refined design without compromising performance or comfort.
-    </p>
-    <h2 class="section-title text-center fw-bold mb-4">Key Challenges Solved</h2>
-    <div class="row g-4">
-      
-      <!-- Evolution of Spatial Layouts -->
-      <div class="col-md-4">
-        <div class="info-card p-4 text-center shadow-lg rounded-3 hover-up">
-          <div class="icon-circle bg-gradient-safety mx-auto mb-3">
-            <i class="bi bi-arrows-expand fs-2 text-white"></i>
-          </div>
-          <h5 class="fw-bold text-dark">Evolution of Spatial Layouts </h5>
-          <p class="text-muted">Supports multi-side openings to adapt to non-aligned villa layouts.</p>
-        </div>
-      </div>
+    <h2 class="section-title text-center fw-bold mb-4">
+      {{ section.heading1 }}
+    </h2>
 
-      <!-- Narrow Shaft Compatibility -->
+    <p class="text-center mb-5 text-muted">
+      {{ section.description }}
+    </p>
+
+    <h2 class="section-title text-center fw-bold mb-4">
+      {{ section.heading2 }}
+    </h2>
+
+    <div class="row g-4">
+      {% for card in section.challenges %}
       <div class="col-md-4">
         <div class="info-card p-4 text-center shadow-lg rounded-3 hover-up">
           <div class="icon-circle bg-gradient-energy mx-auto mb-3">
-            <i class="bi bi-distribute-vertical fs-2 text-white"></i>
+            <i class="{{ card.icon }} fs-2 text-white"></i>
           </div>
-          <h5 class="fw-bold text-dark">Narrow Shaft Compatibility</h5>
-          <p class="text-muted">Designed to fit compact shafts as small as 1450 mm, preserving valuable living space.</p>
+          <h5 class="fw-bold text-dark">
+            {{ card.title }}
+          </h5>
+          <p class="text-muted">
+            {{ card.short_description }}
+          </p>
         </div>
       </div>
-
-      <!-- Residential Aesthetics -->
-      <div class="col-md-4">
-        <div class="info-card p-4 text-center shadow-lg rounded-3 hover-up">
-          <div class="icon-circle bg-gradient-compact mx-auto mb-3">
-            <i class="bi bi-house-heart fs-2 text-white"></i>
-          </div>
-          <h5 class="fw-bold text-dark">Residential Aesthetics</h5>
-          <p class="text-muted">Avoids the “office elevator” look with home-focused design language.</p>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
+
   </div>
 </section>
+  {% endif %}
+{% endfor %}
 
 <!-- ================= Plexus Elevator Intro ================= -->
-<section class="section-traction-hero py-5" style="background:#f2f7fd">
+{% set infoIndex = 0 %}
+
+{% for section in plexus.sections %}
+{% if section.__component == "section.information" %}
+
+{% set isDark = infoIndex is odd %}
+
+<section class="section-traction-hero py-5 {% if isDark %}text-white{% endif %}"
+         style="background: {% if isDark %}#212529{% else %}#f2f7fd{% endif %};">
   <div class="container">
     <div class="row align-items-center">
-      
-      <!-- Left: Text -->
+
+      {% if not isDark %}
+      <!-- LIGHT: TEXT LEFT / IMAGE RIGHT -->
       <div class="col-md-7">
-        <h2 class="fw-bold">The Ideal Residential Multi-Opening Elevator</h2>
-        <p class="pt-4 text-muted">
-          EON Plexus elevators redefine vertical mobility in luxury villas with complex floor plans and multi-level living. Designed to fit narrow shafts, adapt to shifting layouts, and reach extended heights, Plexus combines residential-focused engineering with refined aesthetics. Ideal for private homes where flexibility, space efficiency, and style matter as much as performance.
-        </p>
+        <h2 class="fw-bold">{{ section.title }}</h2>
+        <p class="pt-4 text-muted">{{ section.description }}</p>
+
         <ul class="list-unstyled mt-3">
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Multi-entrance versatility — 3-side access (Front + Left + Right) for shifting floor plans.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Compact residential footprint — fits shafts down to 1450 mm, preserving living space.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Residential-focused aesthetics — integrates seamlessly with luxury interiors.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Extended travel height — supports up to 30 m for multi-storey villas.</li>
-          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Purpose-built for villas — bridges the gap between home lifts and commercial solutions.</li>
+          {% for item in section.icon_info_list %}
+          <li class="mb-2">
+            <i class="{{ item.icon }} text-primary me-2"></i>
+            {{ item.info }}
+          </li>
+          {% endfor %}
         </ul>
       </div>
-      
-      <!-- Right: Image -->
+
       <div class="col-md-5 text-center">
-        <img src="../assets/img/MRL-display-u.jpg" 
-             class="img-fluid rounded shadow-lg w-75" 
-             alt="Traction MRL Elevator" 
-             title="EON Traction MRL Elevator">
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<!-- ================= Traction MRL Elevator Performance ================= -->
-<section class="section-traction-performance py-5 bg-dark text-white">
-  <div class="container">
-    <div class="row align-items-center">
-      
-      <!-- Left: Image -->
-      <div class="col-md-6 text-center mb-4 mb-md-0">
-        <img src="../assets/img/x200homelifts.png" 
-             class="img-fluid rounded shadow-lg w-75" 
-             alt="Traction Elevator Motor" 
-             title="EON Gearless Traction Motor">
+        <img src="http://localhost:1337{{ section.image.url }}"
+             class="img-fluid rounded shadow-lg w-75">
       </div>
 
-      <!-- Right: Content -->
-      <div class="col-md-6">
-        <h2 class="fw-bold mb-3 text-white">Performance & Technology You Can Trust</h2>
-        <p class="text-white-50 mb-3">
-          EON Plexus elevators are engineered for reliable operation in luxury villas where standard lifts often fail. Its design ensures flexible integration into complex floor plans, tight shafts, and multi-level buildings, delivering consistent performance tailored for residential use.
-        </p>
-        <ul class="list-unstyled">
-          <li class="mb-2"><i class="bi bi-door-closed-fill text-warning me-2"></i>Smart door control: Custom access for residents and services—better privacy, smoother flow.</li>
-          <li class="mb-2"><i class="bi bi-speedometer2 text-warning me-2"></i>Advanced safety systems: Multi-layer protection for safe, reliable rides.</li>
-          <li class="mb-2"><i class="bi bi-building text-warning me-2"></i>Scalable residential performance: Built for villas—up to 10 passengers, 1.0 m/s speed.</li>
+      {% else %}
+      <!-- DARK: IMAGE LEFT / TEXT RIGHT -->
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="http://localhost:1337{{ section.image.url }}"
+             class="img-fluid rounded shadow-lg w-75">
+      </div>
+
+      <div class="col-md-7">
+        <h2 class="fw-bold text-white">{{ section.title }}</h2>
+        <p class="pt-4 text-white-50">{{ section.description }}</p>
+
+        <ul class="list-unstyled mt-3">
+          {% for item in section.icon_info_list %}
+          <li class="mb-2">
+            <i class="{{ item.icon }} text-warning me-2"></i>
+            {{ item.info }}
+          </li>
+          {% endfor %}
         </ul>
       </div>
+      {% endif %}
 
     </div>
   </div>
 </section>
+
+{% set infoIndex = infoIndex + 1 %}
+{% endif %}
+{% endfor %}
+
+
+
 <!-- ================= Key Features ================= -->
-<!-- ================= Key Features ================= -->
+{% for section in plexus.sections %}
+{% if section.__component == "section.key-features" %}
+
 <style>
 .section-keyfeatures{
 background: url('/assets/img/x200-hydralic-lifts.webp') no-repeat center center fixed; 
@@ -567,121 +566,63 @@ color: #fff;
 </style>
 <section class="section-keyfeatures py-5">
   <div class="container">
-    <h2 class="text-center fw-bold text-white mb-5">Key Features</h2>
+    <h2 class="text-center fw-bold text-white mb-5">{{ section.title }}</h2>
     <div class="row g-4">
-
-      <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-arrows-expand fs-2 icon-gradient"></i>
+{% for item in section.feature %}
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 50 }}">
+    <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
+      <div class="icon-circle-subtle mx-auto mb-3">
+        <i class="{{ item.icon }} fs-2 icon-gradient"></i>
+      </div>
+      <h5 class="fw-bold text-dark">{{ item.title }}</h5>
+      <p class="text-muted">{{ item.description }}</p>
     </div>
-    <h5 class="fw-bold text-dark">Multi-Side Openings</h5>
-    <p class="text-muted">Designed to support three-side access for complex villa layouts.</p>
   </div>
-</div>
-
-<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-arrows-collapse-vertical fs-2 icon-gradient"></i>
-    </div>
-    <h5 class="fw-bold text-dark">Compact Shaft Compatibility</h5>
-    <p class="text-muted">Fits narrow, non-standard residential shafts with ease.</p>
-  </div>
-</div>
-
-<div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-house-heart fs-2 icon-gradient"></i>
-    </div>
-    <h5 class="fw-bold text-dark">Residential Design Language</h5>
-    <p class="text-muted">Warm, elegant interiors that feel residential and refined, never industrial.</p>
-  </div>
-</div>
-
-<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-building-up fs-2 icon-gradient"></i>
-    </div>
-    <h5 class="fw-bold text-dark">Extended Travel Height</h5>
-    <p class="text-muted">Supports tall villas beyond the limitations of hydraulic lifts.</p>
-  </div>
-</div>
-
-<div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-wind fs-2 icon-gradient"></i>
-    </div>
-    <h5 class="fw-bold text-dark">Quiet & Smooth Operation</h5>
-    <p class="text-muted">Ideal for bedrooms, living areas, and private spaces.</p>
-  </div>
-</div>
-
-<div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-  <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
-    <div class="icon-circle-subtle mx-auto mb-3">
-      <i class="bi bi-grid-1x2-fill fs-2 icon-gradient"></i>
-    </div>
-    <h5 class="fw-bold text-dark">Flexible Configurations</h5>
-    <p class="text-muted">Available as Nest, Metro, and Summit to suit different villa scales.</p>
-  </div>
-</div>
+{% endfor %}
 
     </div>
   </div>
 </section>
+{% endif %}
+{% endfor %}
 <!-- ================== SMART FEATURES ================== -->
+{% for section in plexus.sections %}
+{% if section.__component == "section.smart-feature" %}
 <section class="section-smart py-5" style="background: #f9f9f9;">
   <div class="container">
-    <h2 class="text-center mb-5 fw-bold">Smart Features</h2>
+    <h2 class="text-center mb-5 fw-bold">
+      {{ section.title }}
+    </h2>
+
     <div class="row g-4 text-center justify-content-center">
-      
-      <div class="col-md-3">
-        <div class="info-card p-4 rounded shadow-sm h-100" style="transition: transform 0.3s, box-shadow 0.3s; background: #fff;">
-          <i class="bi bi-cloud-arrow-up-fill fs-3 mb-3" 
-             style="background: linear-gradient(135deg, #6a11cb, #2575fc); 
-                    -webkit-background-clip: text; 
-                    -webkit-text-fill-color: transparent;"></i>
-          <h6 class="fw-semibold">IoT Monitoring</h6>
-          <p class="text-muted">Real-time tracking of component health and performance</p>
-        </div>
-      </div>
 
+      {% for item in section.feature %}
       <div class="col-md-3">
-        <div class="info-card p-4 rounded shadow-sm h-100" style="transition: transform 0.3s, box-shadow 0.3s; background: #fff;">
-          <i class="bi bi-hand-index-thumb-fill fs-3 mb-3" 
-             style="background: linear-gradient(135deg, #ff6a00, #ee0979); 
-                    -webkit-background-clip: text; 
-                    -webkit-text-fill-color: transparent;"></i>
-          <h6 class="fw-semibold">Touchless Control</h6>
-          <p class="text-muted">Hygienic, contact-free operation for added convenience.</p>
-        </div>
-      </div>
+        <div class="info-card p-4 rounded shadow-sm h-100"
+             style="transition: transform 0.3s, box-shadow 0.3s; background: #fff;">
 
-      <div class="col-md-3">
-        <div class="info-card p-4 rounded shadow-sm h-100" style="transition: transform 0.3s, box-shadow 0.3s; background: #fff;">
-          <i class="bi bi-lock-fill fs-3 mb-3" 
-             style="background: linear-gradient(135deg, #ff512f, #dd2476); 
-                    -webkit-background-clip: text; 
+          <i class="{{ item.icon }} fs-3 mb-3"
+             style="background: linear-gradient(135deg,  #ff6a00, #ee0979);
+                    -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;"></i>
-          <h6 class="fw-semibold">Smart Access</h6>
-          <p class="text-muted">Secure entry with biometric authentication and access cards.</p>
-        </div>
-      </div>
 
-      <div class="col-md-3 d-none">
-        <div class="info-card p-4 rounded shadow-sm h-100" style="background: #fff;">
-          <i class="bi bi-battery-charging fs-3 mb-3"></i>
-          <h6 class="fw-semibold">Energy Recovery</h6>
+          <h6 class="fw-semibold">
+            {{ item.title }}
+          </h6>
+
+          <p class="text-muted">
+            {{ item.description }}
+          </p>
+
         </div>
       </div>
+      {% endfor %}
 
     </div>
   </div>
 </section>
+{% endif %}
+{% endfor %}
 
 <style>
   .info-card:hover {
@@ -732,7 +673,7 @@ color: #fff;
   </div>
 </div>
 
-<!-- ===== Traction MRL Elevator Section 2: Safety ===== -->
+<!-- ===== Plexus Elevator Section 2: Safety ===== -->
 <div class="bg-theme py-5 d-none">
   <div class="container">
     <div class="row align-items-center">
@@ -1093,6 +1034,10 @@ padding:10px 15px;
     </div>
   </div>
 </section>
+
+<!-- ----- Plexus Brochure ------ -->
+{% for section in plexus.sections %}
+{% if section.__component == "section.product-assessment" %}
 <section class="brochure" style="background: #1a1a1a;">
   <div class="container py-5">
     <div class="row align-items-center">
@@ -1100,23 +1045,21 @@ padding:10px 15px;
       <!-- Text Column -->
       <div class="col-md-6 custom-column space">
         <h3 class="fw-bold mb-3 text-white">
-          Discover the EON Plexus – The Residential Multi-Opening Elevator
+          {{ section.title }}
         </h3>
         <p class="mb-4 text-white">
-          Luxury without limits. 
-          EON Plexus is engineered for premium villas with complex layouts—offering multi-side access, compact shaft fitment, residential aesthetics, and high-rise traction performance. 
-          Designed to adapt to your architecture, not the other way around.
+          {{ section.description }}
         </p>
         <h6>
           <a href="/contact-us/" class="btn btn-view-all" data-trigger-click="brochure-btn1" title="Book a Free Home Assessment">
-            Book a Free Home Assessment
+            {{ section.cta_text }}
           </a>
         </h6>
       </div>
       
       <!-- Image Column -->
       <div class="col-md-6 text-center custom-column">
-        <img src="../assets/img/x-200-plus.webp" 
+        <img src= "http://localhost:1337{{ section.image.url }}"
              alt="Traction MRL Elevator" 
              class="imgs lzl-ed lzl-cached" 
              title="Traction MRL Elevator" 
@@ -1127,6 +1070,8 @@ padding:10px 15px;
     </div>
   </div>
 </section>
+{% endif %}
+{% endfor %}
 
 <!-- ================== CATALOGUE CTA ================== -->
 
