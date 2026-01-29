@@ -39,3 +39,5 @@ testem.log
 Thumbs.db
 /angularSandBox-MVC-AzureDist-18-7-2020.7z
 package-lock.json
+package.json
+
