@@ -8743,3 +8743,11 @@ font-size: 1.2rem;
 .officePrevBtn:hover {
   color: #1fdf9f;
 }  
+
+
+.eon_img {
+  width: 140px;   
+  height: auto;   
+  display: block;
+
+}
