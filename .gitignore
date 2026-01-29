@@ -38,3 +38,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /angularSandBox-MVC-AzureDist-18-7-2020.7z
+package-lock.json
