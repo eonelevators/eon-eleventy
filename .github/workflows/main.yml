@@ -5,8 +5,9 @@ on:
     branches:
       - main
       
-#repository_dispatch:
-  #  types: [strapi-content-change]
+  repository_dispatch:
+    types: [strapi-content-change]
+    
 
 jobs:
   build:
