@@ -56,4 +56,4 @@ jobs:
         run: ssh -o StrictHostKeyChecking=no master_dgkexjvxex@142.93.214.65 "echo Connected!"
 
       - name: Deploy via rsync
-        run: rsync -avz --delete _site/ master_dgkexjvxex@142.93.214.65:/home/master/applications/gnmarchvjx/public_html/
+        run: rsync -avz --delete _site/ master_dgkexjvxex@142.93.214.65:/home/master/applications/gnmarchvjx/public_html/eon-eleventy/
