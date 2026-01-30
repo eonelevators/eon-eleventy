@@ -5,8 +5,8 @@ module.exports = function (eleventyConfig) {
   return {
     pathPrefix:
       process.env.ELEVENTY_ENV === "production"
-        ? "/eon-eleventy/"
-        : "/",
+        ? "/eon-eleventy-product/"
+        : "/eon-eleventy-client/",
     dir: {
       input: ".",
       output: "_site",
