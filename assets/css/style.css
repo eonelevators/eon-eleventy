@@ -987,6 +987,29 @@ legend {
 }
 
 
+
+#hospitalLiftModal .modal-content .form-control { 
+  color: #fff; 
+  
+}
+
+#hospitalLiftModal .modal-content .form-control::-webkit-input-placeholder {
+  color: #e1e1e1;
+}
+
+#hospitalLiftModal .modal-content .form-control:-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#hospitalLiftModal .modal-content .form-control::-ms-input-placeholder {
+  color: #e1e1e1;
+}
+
+#hospitalLiftModal .modal-content .form-control::placeholder {
+  color: #e1e1e1;
+}
+
+
 .modal-content .form-control { 
   color: #000; 
 }
@@ -1118,7 +1141,8 @@ legend {
 #mallPrevBtn,
 #hospitalPrevBtn,
 #warehousePrevBtn,
-#officePrevBtn {
+#officePrevBtn,
+#hospitalPrevBtn {
   background: #ff4677;
   border: none;
   border-radius: 25px;
@@ -1135,7 +1159,8 @@ legend {
 #mallPrevBtn:hover,
 #hospitalPrevBtn:hover,
 #warehousePrevBtn:hover,
-#officePrevBtn:hover {
+#officePrevBtn:hover,
+#hospitalPrevBtn:hover {
   color: #1fdf9f;
 }
 
@@ -8741,6 +8766,23 @@ font-size: 1.2rem;
 }
 
 .officePrevBtn:hover {
+  color: #1fdf9f;
+}  
+
+
+  
+.hospitalPrevBtn {
+  background: #ff4677;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-weight: 500;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.hospitalPrevBtn:hover {
   color: #1fdf9f;
 }  
 

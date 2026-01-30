@@ -47,7 +47,7 @@
 		<title>EON Elevators Pvt Ltd.	</title>
 		
 		
-		
+		 
 <style>
 .swal2-container {
   z-index: 200000000000000000 !important; /* higher than Bootstrap modal (1050) */
@@ -91,6 +91,16 @@ height: 25rem;
     overflow-x: hidden;
 }
 .apartmentlift_recommendations_div_inside{
+height: 25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.officelift_recommendations_div_inside{
+height: 25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.hospitallift_recommendations_div_inside{
 height: 25rem;
     overflow-y: auto;
     overflow-x: hidden;
@@ -361,11 +371,11 @@ height: 25rem;
               <div class="service-icon"><img src="assets/img/homepage/hotel.png" class="mt-1 img-fluid three-d-image w-65"></div>
               <span class="eon-navy">Offices</span>
             </a>
-            <a href="#"  data-bs-toggle="modal" data-bs-target="#villaLiftModal" class="service-box" data-value="Healthcare">
+            <a href="#"  data-bs-toggle="modal" data-bs-target="#hospitalLiftModal" class="service-box" data-value="Healthcare">
               <div class="service-icon"><img src="assets/img/homepage/hospital-building.png" class="mt-1 img-fluid three-d-image w-65"></div>
               <span class="eon-navy">Hospitals</span>
             </a>
-             <a href="#"  data-bs-toggle="modal" data-bs-target="#villaLiftModal" class="service-box" data-value="Industrial">
+             <a href="#"  data-bs-toggle="modal" data-bs-target="#" class="service-box" data-value="Industrial">
               <div class="service-tag">Heavy Duty</div>
               <div class="service-icon"><img src="assets/img/homepage/factory.png" class="mt-1 img-fluid three-d-image w-65"></div>
               <span class="eon-navy">Industrial</span>
@@ -13919,7 +13929,7 @@ document.querySelectorAll(".officelift_passengers-radio").forEach(radio => {
 	  {
 		floors: ["G+5", "G+6", "G+7"],
 		labels: ["0", "0.5", "0.7", "1.0"],
-		max: 4
+		max: 3
 	  },
 	  {
 		floors: ["G+8", "G+9", "G+10"],
@@ -14197,6 +14207,3617 @@ $(document).ready(function () {
 <!-- this is office related functionality ends -->
 <!--- office stuff ends -->
 
+
+
+
+<!--- hospital stuff starts -->
+<style>
+#hospitallift_images_for_questions{
+	padding-top:3.5rem;
+}
+#hospitallift_images_for_questions img{
+	padding:0.5rem;
+}
+.viewrecommendationimage{
+	cursor:pointer;
+}
+
+
+
+  #hospitallift_Preferred_Lift_Speed_anim_div {
+    position: relative;
+    width: 100%;
+    height: 400px; /* adjust as per modal height */
+    background: #0b1437;
+    overflow: hidden;
+  }
+  
+  
+  /* Background image from top line to bottom */
+  #hospitallift_backgroundArea {
+    position: absolute;
+    top: 100px; /* same as top line */
+    left: 0;
+    width: 100%;
+    bottom: 0; /* extend to bottom */
+    background-image: url('assets/img/room.png'); /* replace with your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    z-index: 1;
+  }
+  
+
+  .hospitallift_Preferred_Lift_Speed_controls {
+    /*position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;*/
+  }
+
+  .hospitallift_Preferred_Lift_Speed_controls button {
+    margin: 0 5px;
+    padding: 2px 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  #hospitallift_topLine_Preferred_Lift_Speed {
+    position: absolute;
+    top: 100px; /* horizontal line position */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: black;
+  }
+
+  #hospitallift_ball_Preferred_Lift_Speed {
+    width: 20px;
+    height: 30px;
+    background: #101b42;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0; /* start idle at bottom */
+    left: 50%;
+    transform: translateX(-50%);
+	z-index:100;
+  }
+  
+ 
+</style>
+
+
+<!-- Hospital / Duplex Lift Requirement Form Modal starts -->
+<div class="modal fade" id="hospitalLiftModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Close -->
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"></button>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+
+          <!-- Sidebar -->
+          <div class="col-md-3 d-none d-md-block bg-light p-4">
+            <h5 class="fw-bold mb-4">Steps</h5>
+            <ul class="list-unstyled step-sidebar mb-0" id="hospitalLiftFormSidebar">
+              <li class="mb-3 active" data-entity="hospitallift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
+              <li class="mb-3" data-entity="hospitallift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
+              <li class="mb-3" data-entity="hospitallift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
+             
+			  <li class="mb-3" data-entity="hospitallift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
+			  
+			  <li class="mb-3" data-entity="hospitallift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
+			   
+              <li class="mb-3" data-entity="hospitallift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
+              <li class="mb-3" data-entity="hospitallift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
+            </ul>
+          </div>
+
+          <!-- Mobile progress -->
+          <div class="col-12 d-md-none px-4 pt-4">
+            <div class="progress" style="height:8px;">
+              <div id="hospitalMobileProgress" class="progress-bar" style="width:14%;"></div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="col-md-9 p-4">
+            <div class="row">
+					<div class="col-md-8" id="hospitallift_questions_div">
+						<form id="hospitalLiftForm" method="post" class="mt-4 pt-2">
+
+						   
+						  <!-- STEP 1: Q1 (images) -->
+						  <div class="form-step hospitalLiftFormSteps active" id="hospitallift_number_of_floors_div">
+						  
+						  <p class="mt-4">
+						  Firstly, congrats on owning a Hospital! For us to recommend the right Elevator for your need, we would request you to answer 5 quick 'sizing' queries.
+						  </p>
+						  
+						  
+							<h5 class="mb-3">Q1. How many floors is the Elevator required for?</h5>
+							
+							
+
+							<select id="hospitallift_floor_select" class="form-select">
+								<option value="">-- Select Floors --</option>
+								<option value="G+1">G+1</option>
+								<option value="G+2">G+2</option>
+								<option value="G+3">G+3</option>
+								<option value="G+4">G+4</option>
+								<option value="G+5">G+5</option>
+								<option value="G+6">G+6</option>
+								<option value="G+7">G+7</option>
+								<option value="G+8">G+8</option>
+								<option value="G+9">G+9</option>
+								<option value="G+10">G+10</option>
+								<option value="G+11">G+11</option>
+								<option value="G+12">G+12</option>
+								<option value="G+13">G+13</option>
+								<option value="G+14">G+14</option>
+								<option value="G+15">G+15</option>
+								<option value="G+16">G+16</option>
+								<option value="G+17">G+17</option>
+								<option value="G+18">G+18</option>
+								<option value="G+19">G+19</option>
+								<option value="G+20">G+20</option>
+								<option value="G+21">G+21</option>
+								<option value="G+22">G+22</option>
+								<option value="G+23">G+23</option>
+								<option value="G+24">G+24</option>
+								<option value="G+25">G+25</option>
+								<option value="G+26">G+26</option>
+								<option value="G+27">G+27</option>
+								<option value="G+28">G+28</option>
+								<option value="G+29">G+29</option>
+								<option value="G+30">G+30</option>
+							</select>
+
+							
+
+							<div class="row g-3 hospitallift_number_of_floors_div_inside" style="display:none;">
+							
+							
+								 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+1" 
+										  data-floor="G+1">
+										<div class="card-wrap">
+										  <div class="label-text">G+1</div>
+										</div>
+									  </label>
+									</div>
+							
+								 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+2" 
+										  data-floor="G+2">
+										<div class="card-wrap">
+										  <div class="label-text">G+2</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+3" 
+										  data-floor="G+3">
+										<div class="card-wrap">
+										  <div class="label-text">G+3</div>
+										</div>
+									  </label>
+									</div>
+									
+									 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+4" 
+										  data-floor="G+4">
+										<div class="card-wrap">
+										  <div class="label-text">G+4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+5" 
+										  data-floor="G+5">
+										<div class="card-wrap">
+										  <div class="label-text">G+5</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									 <div class="col-3 col-lg-3">
+									  <label class="option-card">
+										<input 
+										  class="option-input hospitallift_floor-radio" 
+										  type="radio" 
+										  name="hospitallift_number_of_floors" 
+										  value="G+6" 
+										  data-floor="G+6">
+										<div class="card-wrap">
+										  <div class="label-text">G+6</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									
+									
+									<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+7" data-floor="G+7">
+    <div class="card-wrap"><div class="label-text">G+7</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+8" data-floor="G+8">
+    <div class="card-wrap"><div class="label-text">G+8</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+9" data-floor="G+9">
+    <div class="card-wrap"><div class="label-text">G+9</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+10" data-floor="G+10">
+    <div class="card-wrap"><div class="label-text">G+10</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+11" data-floor="G+11">
+    <div class="card-wrap"><div class="label-text">G+11</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+12" data-floor="G+12">
+    <div class="card-wrap"><div class="label-text">G+12</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+13" data-floor="G+13">
+    <div class="card-wrap"><div class="label-text">G+13</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+14" data-floor="G+14">
+    <div class="card-wrap"><div class="label-text">G+14</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+15" data-floor="G+15">
+    <div class="card-wrap"><div class="label-text">G+15</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+16" data-floor="G+16">
+    <div class="card-wrap"><div class="label-text">G+16</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+17" data-floor="G+17">
+    <div class="card-wrap"><div class="label-text">G+17</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+18" data-floor="G+18">
+    <div class="card-wrap"><div class="label-text">G+18</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+19" data-floor="G+19">
+    <div class="card-wrap"><div class="label-text">G+19</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+20" data-floor="G+20">
+    <div class="card-wrap"><div class="label-text">G+20</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+21" data-floor="G+21">
+    <div class="card-wrap"><div class="label-text">G+21</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+22" data-floor="G+22">
+    <div class="card-wrap"><div class="label-text">G+22</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+23" data-floor="G+23">
+    <div class="card-wrap"><div class="label-text">G+23</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+24" data-floor="G+24">
+    <div class="card-wrap"><div class="label-text">G+24</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+25" data-floor="G+25">
+    <div class="card-wrap"><div class="label-text">G+25</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+26" data-floor="G+26">
+    <div class="card-wrap"><div class="label-text">G+26</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+27" data-floor="G+27">
+    <div class="card-wrap"><div class="label-text">G+27</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+28" data-floor="G+28">
+    <div class="card-wrap"><div class="label-text">G+28</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+29" data-floor="G+29">
+    <div class="card-wrap"><div class="label-text">G+29</div></div>
+  </label>
+</div>
+
+<div class="col-3 col-lg-3">
+  <label class="option-card">
+    <input class="option-input hospitallift_floor-radio" type="radio"
+      name="hospitallift_number_of_floors" value="G+30" data-floor="G+30">
+    <div class="card-wrap"><div class="label-text">G+30</div></div>
+  </label>
+</div>
+
+
+
+
+							
+								
+							
+							
+							
+							</div>
+							
+							
+							<div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <div class="cursor-default opacity-0">Back</div>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_number_of_floors_div_next_btn" onclick="hospitalNextBtn_Fun('hospitallift_number_of_floors_div','hospitallift_number_of_passengers_div')" disabled>Next</button>
+								  </div>
+							   </div>
+							</div>
+						  
+						  
+						  
+						  
+						  
+						  
+						  </div>
+
+						  <!-- STEP 2: Q2 -->
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_number_of_passengers_div">
+							<h5 class="mb-3 mt-4">Q2. What would be the max passenger capacity for your Elevator?</h5>
+							<div id="passengers-options" class="row g-3 mb-4 mt-3">
+							
+							  
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+1,G+2" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+3,G+4" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+5" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="25" data-passengers="25">
+										<div class="card-wrap">
+										  <div class="label-text">25</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+6" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="25" data-passengers="25">
+										<div class="card-wrap">
+										  <div class="label-text">25</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="27" data-passengers="27">
+										<div class="card-wrap">
+										  <div class="label-text">27</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="30" data-passengers="30">
+										<div class="card-wrap">
+										  <div class="label-text">30</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+7,G+8" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+9,G+10" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+11,G+12" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+13,G+14" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+15,G+16" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+17,G+18,G+19,G+20" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+21,G+22,G+23,G+24" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="25" data-passengers="25">
+										<div class="card-wrap">
+										  <div class="label-text">25</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+25,G+26,G+27" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="25" data-passengers="25">
+										<div class="card-wrap">
+										  <div class="label-text">25</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="27" data-passengers="27">
+										<div class="card-wrap">
+										  <div class="label-text">27</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									
+								  
+								</div>
+								
+								
+								
+								<div class="hospitallift_passengers-group row hospitallift_number_of_passengers_div_inside" data-floor="G+28,G+29,G+30" style="display:none; margin:0;">
+								  
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="4" data-passengers="4">
+										<div class="card-wrap">
+										  <div class="label-text">4</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="6" data-passengers="6">
+										<div class="card-wrap">
+										  <div class="label-text">6</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="8" data-passengers="8">
+										<div class="card-wrap">
+										  <div class="label-text">8</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="10" data-passengers="10">
+										<div class="card-wrap">
+										  <div class="label-text">10</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="13" data-passengers="13">
+										<div class="card-wrap">
+										  <div class="label-text">13</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="15" data-passengers="15">
+										<div class="card-wrap">
+										  <div class="label-text">15</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="18" data-passengers="18">
+										<div class="card-wrap">
+										  <div class="label-text">18</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="20" data-passengers="20">
+										<div class="card-wrap">
+										  <div class="label-text">20</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="22" data-passengers="22">
+										<div class="card-wrap">
+										  <div class="label-text">22</div>
+										</div>
+									  </label>
+									</div>
+									
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="25" data-passengers="25">
+										<div class="card-wrap">
+										  <div class="label-text">25</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="27" data-passengers="27">
+										<div class="card-wrap">
+										  <div class="label-text">27</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-3 col-lg-3 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_passengers-radio" type="radio" name="hospitallift_number_of_passengers" value="30" data-passengers="30">
+										<div class="card-wrap">
+										  <div class="label-text">30</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+								
+								
+								
+								<div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_number_of_passengers_div','hospitallift_number_of_floors_div')">Back</button>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_number_of_passengers_div_next_btn" onclick="hospitalNextBtn_Fun('hospitallift_number_of_passengers_div','hospitallift_number_of_openings_div')" disabled>Next</button>
+								  </div>
+							   </div>
+							</div>
+							
+							  
+								
+							  
+							  
+							</div>
+						  </div>
+
+						  <!-- STEP 3: Q3 -->
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_number_of_openings_div">
+							<h5 class="mb-3 mt-4">Q3. How many openings you would prefer?</h5>
+							<div id="openings-options" class="row g-3 mb-4 mt-3">
+							
+							  
+								
+							  
+								<div class="hospitallift_openings-group row hospitallift_number_of_openings_div_inside" data-floor="G+1,G+2,G+3,G+4,G+5,G+6" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front" data-openings="1 Front">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 2 Side" data-openings="1 Front + 2 Side">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 2 Side</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 1 Rear" data-openings="1 Front + 1 Rear">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 1 Rear</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								<div class="hospitallift_openings-group row hospitallift_number_of_openings_div_inside" data-floor="G+7,G+8,G+9,G+10" data-passengers="4,6,8,10" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front" data-openings="1 Front">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 2 Side" data-openings="1 Front + 2 Side">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 2 Side</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 1 Rear" data-openings="1 Front + 1 Rear">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 1 Rear</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+
+								
+								<div class="hospitallift_openings-group row hospitallift_number_of_openings_div_inside" data-floor="G+7,G+8,G+9,G+10" data-passengers="13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front" data-openings="1 Front">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 1 Rear" data-openings="1 Front + 1 Rear">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 1 Rear</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+							  
+								<div class="hospitallift_openings-group row hospitallift_number_of_openings_div_inside" data-floor="G+11,G+12,G+13,G+14,G+15,G+16,G+17,G+18,G+19,G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front" data-openings="1 Front">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input hospitallift_openings-radio" type="radio" name="hospitallift_number_of_openings" value="1 Front + 1 Rear" data-openings="1 Front + 1 Rear">
+										<div class="card-wrap">
+										  <div class="label-text">1 Front + 1 Rear</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+								
+							  <div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_number_of_openings_div','hospitallift_number_of_passengers_div')">Back</button>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_number_of_openings_div_next_btn" onclick="hospitalNextBtn_Fun('hospitallift_number_of_openings_div','hospitallift_operating_speed_values_div')" disabled>Next</button>
+								  </div>
+							   </div>
+							</div>
+							  
+							  
+							  
+							</div>
+						  </div>
+
+						  <!-- STEP 4: Q4 -->
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_operating_speed_values_div">
+							<h5 class="mb-3 mt-4">Q4. Our Elevators can operate at 4 different speeds. The standard one is at 1m/s that normally is used in Hospitals. However please select the preferred speed.</h5>
+							<div id="hospitallift_operating_speed_values-options" class="row g-3 mb-4 mt-3">
+							
+							  
+								
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+1,G+2" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.3 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.3 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+								
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+3" data-passengers="4,6,8" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+3,G+4" data-passengers="10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+								
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+5,G+6,G+7" data-passengers="4,6,8" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.0 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.0 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+5,G+6,G+7" data-passengers="10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.0 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.0 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+8,G+9,G+10" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="0.7 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">0.7 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.0 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.0 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+11,G+12,G+13,G+14,G+15,G+16,G+17" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.25 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.25 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+							  <div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+18,G+19" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.25 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.25 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.75 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.75 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+
+								<div class="hospitallift_operating_speed_values-group row hospitallift_operating_speed_values_div_inside" data-floor="G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									
+									
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="1.75 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">1.75 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="2 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">2 m/s</div>
+										</div>
+									  </label>
+									</div>
+
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_operating_speed_values" value="2.5 m/s">
+										<div class="card-wrap">
+										  <div class="label-text">2.5 m/s</div>
+										</div>
+									  </label>
+									</div>
+									
+								  
+								</div>
+							  
+								
+								
+							   <div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_operating_speed_values_div','hospitallift_number_of_openings_div')">Back</button>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_operating_speed_values_div_next_btn" onclick="hospitalNextBtn_Fun('hospitallift_operating_speed_values_div','hospitallift_shape_of_shaft_div')" disabled>Next</button>
+								  </div>
+							   </div>
+							</div>
+							
+							  
+							  
+							</div>
+						  </div>
+						  
+						  
+						  
+						  
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_shape_of_shaft_div">
+							<h5 class="mb-3 mt-4">Q5. Please select the shape of your shaft?</h5>
+							<div id="shapes-options" class="row g-3 mb-4 mt-3">
+							
+							  
+								<div class="hospitallift_shapes-group row hospitallift_shape_of_shaft_div_inside" data-floor="G+1,G+2,G+3,G+4,G+5,G+6" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_shape_of_shaft" value="Narrow">
+										<div class="card-wrap">
+										  <div class="label-text">Narrow</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_shape_of_shaft" value="Square">
+										<div class="card-wrap">
+										  <div class="label-text">Square</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_shape_of_shaft" value="Rectangular">
+										<div class="card-wrap">
+										  <div class="label-text">Rectangular</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+							  
+								<div class="hospitallift_shapes-group row hospitallift_shape_of_shaft_div_inside" data-floor="G+7,G+8,G+9,G+10,G+11,G+12,G+13,G+14,G+15,G+16,G+17,G+18,G+19,G+20,G+21,G+22,G+23,G+24,G+25,G+26,G+27,G+28,G+29,G+30" data-passengers="4,6,8,10,13,15,18,20,22,25,27,30" style="display:none; margin:0;">
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_shape_of_shaft" value="Square">
+										<div class="card-wrap">
+										  <div class="label-text">Square</div>
+										</div>
+									  </label>
+									</div>
+								  
+									<div class="col-6 col-lg-6 mb-3">
+									  <label class="option-card">
+										<input class="option-input" type="radio" name="hospitallift_shape_of_shaft" value="Rectangular">
+										<div class="card-wrap">
+										  <div class="label-text">Rectangular</div>
+										</div>
+									  </label>
+									</div>
+								  
+								</div>
+								
+								
+								
+								
+								
+								
+								
+								
+							  <div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_shape_of_shaft_div','hospitallift_operating_speed_values_div')">Back</button>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_shape_of_shaft_div_next_btn" onclick="hospitalNextBtn_Fun('hospitallift_shape_of_shaft_div','hospitallift_recommendations_div')" disabled>Next</button>
+								  </div>
+							   </div>
+							</div>
+							  
+							  
+							  
+							</div>
+						  </div>
+
+						  <!-- STEP 5: Q5 -->
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_recommendations_div">
+							<h5 class="mb-3 mt-4">Our Recommendation</h5>
+							<div id="hospitallift_recommendations-options" class="row g-3 mb-4 mt-3">
+							
+							  
+								<div class="hospitallift_recommendations-group row">
+								  
+							
+									
+										
+										<div class="label-text hospitallift_recommendations_div_inside">
+										
+										<p id="hospitallift_recommendations_lift_shortinfo_div"></p>
+										  
+										  
+										  
+										  <div id="hospitallift_Aegis_div" class="recommendations">
+										  
+											  <h5 class="mt-2">Aegis</h5>  
+											  
+											  
+												<h5>1. Technical Summary</h5>
+												<p>
+													The EON Aegis is a versatile powerhouse designed for low-rise applications. Capable of handling loads from <strong>204 kg to 2040 kg,</strong> it features a Machine Room-Less design that requires only a <strong>300mm</strong> pit and minimal overhead, delivering maximum capacity with a minimal footprint.
+												</p>
+												
+												<h5>2. Technical Recommendation</h5>
+												<p>
+													The EON <strong>Aegis</strong> is a versatile powerhouse designed for low-rise applications. Capable of handling loads from <strong>204 kg to 2040 kg,</strong> it features a Machine Room-Less design that requires only a 300mm pit and minimal overhead, delivering maximum capacity with a minimal footprint.
+												</p>
+												
+												
+												<h5>3. Executive Summary</h5>
+												<p>
+													The <strong>Aegis</strong> is the smart financial choice, offering <strong>20–25%</strong> lower initial costs compared to heavy-duty traction systems. With rapid installation in as little as 7 days, it combines industrial durability with residential comfort, ensuring faster project completion and excellent value.
+												</p>
+												
+										</div>	
+										
+										
+										
+										  <div id="hospitallift_Evora_div" class="recommendations">
+										  
+											  <h5 class="mt-2">Evora</h5> 
+											  
+											  
+												<h5>1. Technical Summary</h5>
+												<p>
+													The <strong>EON Evora</strong> is the definitive "Standard MRL" (Machine Room-Less) solution, designed as the robust workhorse for mid-rise infrastructure. Powered by a highly efficient <strong>Gearless PMSM motor</strong>, it combines proven steel rope mechanics with modern energy efficiency. It supports travel heights up to <strong>90m</strong> with smooth, consistent speeds of up to <strong>2.5 m/s</strong>.
+												</p>
+												
+												<h5>2. Technical Recommendation</h5>
+												<p>
+													We recommend the Evora for <strong>mainstream residential and commercial projects</strong> where reliability and budget balance are paramount. It is the ideal technical fit for buildings with standard civil dimensions, offering a <strong>maintenance-friendly architecture</strong> that utilizes universally accessible components to ensure maximum uptime and ease of service.
+												</p>
+												
+												
+												<h5>3. Executive Summary</h5>
+												<p>
+													The Evora delivers the <strong>best price-to-performance ratio</strong> in its class. It drives down Operating Expenses (OpEx) with energy-saving technology that consumes up to <strong>40% less power</strong> than traditional geared systems. For developers, it represents a low-risk, high-durability investment designed for "install-and-forget" reliability.
+												</p>
+												
+										</div>
+										
+										
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Aegis Nest">
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Aegis Metro">
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Aegis Summit">
+										  
+										  
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Evora Nest">
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Evora Metro">
+										  <input class="d-none" type="checkbox" name="hospitallift_recommendations[]" value="Evora Summit">
+										  
+										  
+										  
+										  
+										</div>
+										
+										
+										
+										
+							
+							
+										
+										
+									  
+										
+										
+											<div class="text-center mt-3">
+												
+											</div>
+										
+									  
+								  <div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_recommendations_div','hospitallift_shape_of_shaft_div')">Back</button>
+									 <button type="button" class="btn btn-primary hospitalNextBtn" id="hospitallift_recommendations_div_next_btn" onclick="hospitalNextBtnForm_Fun()">Next</button>
+								  </div>
+							   </div>
+							   
+							</div>
+								
+								</div>
+							  
+								
+							  
+								
+							  
+								
+							  
+								
+							  
+							
+							  
+							  
+							  
+							</div>
+						  </div>
+
+
+						
+						  <!-- STEP 7: Contact -->
+						  <div class="form-step hospitalLiftFormSteps" id="hospitallift_your_contact_details_div">
+							<h5 class="mb-3 mt-4">Your Contact Details</h5>
+							<div class="row g-3">
+							
+							
+							<input type="hidden" name="desktop_mobile_hospitallift_form" id="desktop_mobile_hospitallift_form">
+							<input type="hidden" name="page_url" id="hospitallift_page_url">
+							<input type="hidden" name="page_name" id="hospitallift_page_name">
+							<input type="hidden" name="elevator_for" value="hospital">
+							
+							
+							
+							  <div class="col-md-6"><input type="text" class="form-control" name="name" placeholder="Full Name" required></div>
+							  <div class="col-md-6"><input type="email" class="form-control" name="email" placeholder="Email" required></div>
+							  <div class="col-md-6"><input type="tel" class="form-control" name="mobile" placeholder="Mobile" required></div>
+							  <div class="col-12"><textarea class="form-control" name="comments" rows="3" placeholder="Comments (optional)"></textarea></div>
+							</div>
+							
+							
+							<div class="row">
+							   <div class="col-12 col-lg-12">
+								  <div class="d-flex justify-content-between mt-4">
+									 <button type="button" class="btn btn-outline-secondary hospitalPrevBtn" onclick="hospitalPrevBtn_Fun('hospitallift_your_contact_details_div','hospitallift_recommendations_div')">Back</button>
+									 <button type="submit" class="btn btn-primary hospitalNextBtn" id="hospitallift_submit_btn">Submit</button>
+								  </div>
+							   </div>
+							</div>
+							
+							
+						  </div>
+						  
+						  
+						   
+
+						  <!-- Navigation Buttons -->
+						  
+
+						</form>
+					</div>
+					<div class="col-md-4" id="hospitallift_image_or_speed_simulation_div">
+						
+						<div id="hospitallift_images_for_questions">
+						</div>
+						<div id="hospitallift_Preferred_Lift_Speed_anim_div">
+							<div class="hospitallift_Preferred_Lift_Speed_controls text-center px-2">
+								  <p class="mb-1 text-white">Speed Simulation: <span id="hospitallift_speedValue">0</span> m/s</p>
+
+								  <!-- Slider -->
+								  <input 
+									type="range" 
+									class="form-range" 
+									min="0" 
+									max="6" 
+									step="1" 
+									value="0" 
+									id="hospitallift_speedSlider"
+									oninput="hospitallift_updateSpeed(this.value)">
+
+								  <!-- Labels below slider -->
+								  <div class="d-flex justify-content-between mt-1 px-1 text-white" id="hospitallift_speed_simulation_range_div">
+									<span class="small">0</span>
+									<span class="small">0.3</span>
+									<span class="small">0.5</span>
+									<span class="small">0.7</span>
+									<span class="small">1.0</span>
+								  </div>
+								</div>
+							
+							<!-- Background image below the line -->
+							<div id="hospitallift_backgroundArea"></div>
+  
+  
+							<div id="hospitallift_topLine_Preferred_Lift_Speed"></div>
+							<div id="hospitallift_ball_Preferred_Lift_Speed"></div>
+						  </div>
+						  
+					</div>	
+				</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hospital / Duplex Lift Requirement Form Modal ends -->
+
+
+
+
+
+<!-- this is hospital related functionality starts -->
+
+
+
+
+<script>
+
+
+
+  
+	hospitallift_number_of_floors_prev="";
+	$(document).on("change", 'input[name="hospitallift_number_of_floors"]', function () {
+	    $("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+		var images = ["1.png"];
+		$("#hospitallift_images_for_questions").html("");
+		$.each(images, function(i, img){
+		    img_src="assets/img/hospitallift_images_for_questions/hospitallift_number_of_floors/"+hospitallift_number_of_floors_value+"/"+img;
+			$("#hospitallift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		});
+	});
+	$(document).on("change", 'input[name="hospitallift_number_of_passengers"]', function () {
+		$("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var hospitallift_number_of_passengers_value = $('input[name="hospitallift_number_of_passengers"]:checked').val();
+		var images = ["1.png"];
+		$("#hospitallift_images_for_questions").html("");
+		$.each(images, function(i, img){
+		   img_src="assets/img/hospitallift_images_for_questions/hospitallift_number_of_passengers/"+hospitallift_number_of_passengers_value+"/"+img;
+			$("#hospitallift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		});
+	});
+	$(document).on("change", 'input[name="hospitallift_number_of_openings"]', function () {
+		$("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+		var hospitallift_number_of_openings_value = $('input[name="hospitallift_number_of_openings"]:checked').val();
+		var images = ["1.png"];
+		$("#hospitallift_images_for_questions").html("");
+		$.each(images, function(i, img){
+		   img_src="assets/img/hospitallift_images_for_questions/hospitallift_number_of_openings/"+hospitallift_number_of_openings_value+"/"+img;
+			$("#hospitallift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		});
+	});
+	
+	function getSpeedMap_hospitallift(hospitallift_number_of_floors_value) {
+	
+		const speedConfig_for_slider_dot_placement = [
+		  {
+			floors: ["G+1", "G+2"],
+			labels: ["0", "0.3", "0.5", "0.7"]
+		  },
+		  {
+			floors: ["G+3", "G+4"],
+			labels: ["0", "0.5", "0.7"]
+		  },
+		  {
+			floors: ["G+5", "G+6", "G+7"],
+			labels: ["0", "0.5", "0.7", "1.0", "1.25"]
+		  },
+		  {
+			floors: ["G+8", "G+9", "G+10"],
+			labels: ["0", "0.5", "0.7", "1.0", "1.5"]
+		  },
+		  {
+			floors: ["G+11","G+12","G+13","G+14","G+15","G+16","G+17"],
+			labels: ["0", "1.25", "1.5"]
+		  },
+		  {
+			floors: ["G+18", "G+19"],
+			labels: ["0", "1.25", "1.5", "1.75"]
+		  },
+		  {
+			floors: [
+			  "G+20","G+21","G+22","G+23","G+24",
+			  "G+25","G+26","G+27","G+28","G+29","G+30"
+			],
+			labels: ["0", "1.5", "1.75", "2", "2.5"]
+		  }
+		];
+		
+		
+		  const config = speedConfig_for_slider_dot_placement.find(item =>
+			item.floors.includes(hospitallift_number_of_floors_value)
+		  );
+
+		  if (!config) return {};
+
+		  const speedMap_temp = {};
+		  config.labels.forEach((label, index) => {
+			speedMap_temp[index] = label;
+		  });
+
+		  return speedMap_temp;
+		}
+
+
+	$(document).on("change", 'input[name="hospitallift_operating_speed_values"]', function () {
+	    $("#hospitallift_images_for_questions").css({"display":"none"})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":""})
+		var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+		var hospitallift_number_of_passengers_value = $('input[name="hospitallift_number_of_passengers"]:checked').val();
+		var hospitallift_operating_speed_values_value = $('input[name="hospitallift_operating_speed_values"]:checked').val();
+		hospitallift_operating_speed_values_value_number=hospitallift_operating_speed_values_value.replace("m/s","");
+		hospitallift_operating_speed_values_value_number=hospitallift_operating_speed_values_value_number.trim();
+		
+		
+	
+		
+		
+	if((hospitallift_number_of_floors_value=="G+6" || hospitallift_number_of_floors_value=="G+7")	 && parseInt(hospitallift_number_of_passengers_value)>8){
+		speedMap_temp={
+			  0: "0",
+			  1: "0.5",
+			  2: "0.7",
+			  3: "1.0",
+			  4: "1.5"
+			};
+	}
+	else{
+		speedMap_temp = getSpeedMap_hospitallift(hospitallift_number_of_floors_value);
+	}
+	/*
+		the above is for 
+		const hospitallift_number_of_floors_value = "G+3";
+		const speedMap_temp = getSpeedMap_hospitallift(hospitallift_number_of_floors_value);
+		{
+			  0: "0",
+			  1: "0.5",
+			  2: "0.7"
+			}
+
+	*/
+	
+		
+  for(x in speedMap_temp){
+	if(speedMap_temp[x]==hospitallift_operating_speed_values_value_number){
+		document.getElementById("hospitallift_speedSlider").value=x;
+		hospitallift_updateSpeed(x);
+	}
+  }
+	
+  
+		
+									
+		$("#hospitallift_images_for_questions").html("");
+	});
+	
+	
+	
+	$(document).on("change", 'input[name="hospitallift_shape_of_shaft"]', function () {
+		$("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		var hospitallift_shape_of_shaft_value = $('input[name="hospitallift_shape_of_shaft"]:checked').val();
+		var images = ["1.png"];
+		$("#hospitallift_images_for_questions").html("");
+		$.each(images, function(i, img){
+		   img_src="assets/img/hospitallift_images_for_questions/hospitallift_shape_of_shaft/"+hospitallift_shape_of_shaft_value+"/"+img;
+			$("#hospitallift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+		});
+	});
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+</script>
+
+
+ <script>
+var hospitalLiftModal = document.getElementById('hospitalLiftModal');
+hospitalLiftModal.addEventListener('show.bs.modal', function () {
+	$('input[name="hospitallift_number_of_floors"]').prop('checked', false);
+    $('input[name="hospitallift_number_of_passengers"]').prop('checked', false);
+	$('input[name="hospitallift_number_of_openings"]').prop('checked', false);
+	$('input[name="hospitallift_operating_speed_values"]').prop('checked', false);
+	$('input[name="hospitallift_shape_of_shaft"]').prop('checked', false);
+	$('input[name="hospitallift_recommendations"]').prop('checked', false);
+    document.getElementById("hospitallift_Preferred_Lift_Speed_anim_div").style.display="none";
+	document.getElementById("hospitallift_images_for_questions").style.display="none";
+	
+	
+	$("#hospitalLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#hospitalLiftFormSidebar>li[data-entity="hospitallift_number_of_floors_div"]').addClass('active');
+	
+	$(".hospitalLiftFormSteps").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+		$(this).css({"display":"none"})
+	});
+	document.getElementById("hospitallift_number_of_floors_div").style.display="block";
+	$("#hospitallift_number_of_floors_div").addClass('active')
+	
+	
+	
+	
+	
+});
+</script>
+  <script>
+	// ball and topline animations for Preferred_Lift_Speed starts
+    const hospitallift_ball = document.getElementById("hospitallift_ball_Preferred_Lift_Speed");
+  const hospitallift_topLine = document.getElementById("hospitallift_topLine_Preferred_Lift_Speed");
+  const hospitallift_anim_container = document.getElementById("hospitallift_Preferred_Lift_Speed_anim_div");
+
+  let hospitallift_speed = 0;
+  let hospitallift_pos = 0;
+  let hospitallift_direction = 1;
+  let hospitallift_animating = false;
+
+  const hospitallift_ballSize = 50;
+  let hospitallift_floorPx = 0;
+  let hospitallift_topPx = 0;
+
+  function hospitallift_calculateBoundaries() {
+    hospitallift_floorPx = 0;
+    hospitallift_topPx = hospitallift_anim_container.offsetHeight+20 - (hospitallift_topLine.offsetTop + hospitallift_ballSize);
+  }
+
+  function hospitallift_animate() {
+    if (!hospitallift_animating) return;
+
+    hospitallift_pos += hospitallift_direction * (hospitallift_speed * 0.5);
+
+    if (hospitallift_pos >= hospitallift_topPx) {
+      hospitallift_pos = hospitallift_topPx;
+      hospitallift_direction = -1;
+    } else if (hospitallift_pos <= hospitallift_floorPx) {
+      hospitallift_pos = hospitallift_floorPx;
+      hospitallift_direction = 1;
+    }
+
+    hospitallift_ball.style.bottom = hospitallift_pos + "px";
+    requestAnimationFrame(hospitallift_animate);
+  }
+
+  function hospitallift_setSpeed(newSpeed,obj) {
+	//if(newSpeed==0){
+	if(0){
+		$("#hospitallift_ball_Preferred_Lift_Speed").css({"bottom":"0px"})
+	}
+	else{
+		$(".hospitallift_Preferred_Lift_Speed_controls_btn").each(function(){
+			if($(this).hasClass("btn-success")){
+				$(this).removeClass("btn-success")
+			}
+			if($(this).hasClass("btn-primary")){
+				$(this).removeClass("btn-primary")
+			}
+		});
+		$(".hospitallift_Preferred_Lift_Speed_controls_btn").each(function(){
+			$(this).addClass("btn-primary")
+		});
+		$(obj).removeClass("btn-primary")
+		$(obj).addClass("btn-success")
+		hospitallift_calculateBoundaries();
+		hospitallift_speed = newSpeed;
+
+		// reset to bottom when button is clicked
+		hospitallift_pos = hospitallift_floorPx;
+		hospitallift_ball.style.bottom = hospitallift_pos + "px";
+		hospitallift_direction = 1;
+
+		if (!hospitallift_animating) {
+		  hospitallift_animating = true;
+		  hospitallift_animate();
+		}
+	}
+  }
+  
+ 
+	// hospitallift_ball and hospitallift_topLine animations for Preferred_Lift_Speed ends
+ 
+ 
+  
+  
+ 
+	//alert(JSON.stringify(hospitallift_speedMap))
+ 							
+ function hospitallift_updateSpeed(value) {
+  var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+  hospitallift_speedMap = getSpeedMap_hospitallift(hospitallift_number_of_floors_value);
+  /*
+		the above is for 
+		const hospitallift_number_of_floors_value = "G+3";
+		const speedMap_temp = getSpeedMap_hospitallift(hospitallift_number_of_floors_value);
+		{
+			  0: "0",
+			  1: "0.5",
+			  2: "0.7"
+			}
+
+	*/
+	
+	
+    document.getElementById('hospitallift_speedValue').innerText = hospitallift_speedMap[value];
+	hospitallift_setSpeed(Number(value), null) // call your original function
+  }
+  
+  
+  
+  
+
+
+
+function hospital_set_image_fun(actual_radio_button_name){
+	$("#hospitallift_images_for_questions").css({"display":""})
+	$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+	var hospitallift_value = $('input[name="'+actual_radio_button_name+'"]:checked').val();
+	var images = ["1.png"];
+	$("#hospitallift_images_for_questions").html("");
+	$.each(images, function(i, img){
+	   img_src="assets/img/hospitallift_images_for_questions/"+actual_radio_button_name+"/"+hospitallift_value+"/"+img;
+		$("#hospitallift_images_for_questions").append("<img src='"+img_src+"' class='img-fluid'>");
+	});
+}
+
+		
+function getCheckedRadioValueFromParent_hospitallift(actual_radio_button_name) {
+
+	if(actual_radio_button_name=="hospitallift_number_of_floors"){ 
+		// this is special case since hospitallift_number_of_floors radio set is already under hidden div only (hospitallift_number_of_floors_div_inside is hidden) wantedly I did because of converting this to dropdown G+1 to G+30
+		actual_div=actual_radio_button_name+"_div"
+		actual_div_inside=actual_radio_button_name+"_div_inside"
+			
+		return $("#"+actual_div+"  ."+actual_div_inside+":hidden")
+			.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+			.val() || "";
+  }
+  else{
+	actual_div=actual_radio_button_name+"_div"
+	actual_div_inside=actual_radio_button_name+"_div_inside"
+	
+	
+	$("#" + actual_div + " ." + actual_div_inside + ":hidden")
+		.find('input[type="radio"][name="' + actual_radio_button_name + '"]:checked')
+		.prop('checked', false);  // if the hidden div radio buttons checked by force it will become false
+		
+		
+	return $("#"+actual_div+"  ."+actual_div_inside+":visible")
+		.find('input[type="radio"][name="'+actual_radio_button_name+'"]:checked')
+		.val() || "";
+  }
+}
+		
+function getCheckedRadioCountFromParent_hospitallift(next_radio_button_name) {
+  next_div=next_radio_button_name+"_div"
+  next_div_inside=next_radio_button_name+"_div_inside"
+  
+  return $("#"+next_div+"  ."+next_div_inside+":visible")
+    .find('input[type="radio"][name="'+next_radio_button_name+'"]:checked')
+    .length;
+}
+var hospitallift_steps_arr=['hospitallift_number_of_floors_div','hospitallift_number_of_passengers_div','hospitallift_number_of_openings_div','hospitallift_operating_speed_values_div','hospitallift_shape_of_shaft_div','hospitallift_recommendations_div','hospitallift_your_contact_details_div'];
+
+function mobileProgressFun_hospitallift(prev_next_div){
+	var hospitalMobileProgress_index = hospitallift_steps_arr.indexOf(prev_next_div);
+	const hospitalMobileProgress = document.getElementById("hospitalMobileProgress");
+	if (hospitalMobileProgress){ 
+		hospitalMobileProgress.style.width = ((hospitalMobileProgress_index + 1) / hospitallift_steps_arr.length * 100) + '%';
+	}
+}
+
+function hospitalNextBtn_Fun(current_div,next_div){
+	mobileProgressFun_hospitallift(next_div);
+	$("#"+current_div).css({"display":"none"})
+	$("#"+next_div).css({"display":"block"})
+	$("#hospitalLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#hospitalLiftFormSidebar>li[data-entity="'+next_div+'"]').addClass('active');
+	
+	next_radio_button_name=next_div.replace("_div","")
+	
+	count=getCheckedRadioCountFromParent_hospitallift(next_radio_button_name)
+	
+	if(count==0){
+		$("#"+next_div+"_next_btn").attr({"disabled":true})
+	}
+	else{
+		$("#"+next_div+"_next_btn").attr({"disabled":false})
+	}
+	
+	if(next_div=="hospitallift_recommendations_div"){
+		$("#"+next_div+"_next_btn").attr({"disabled":false}) // override for spl case
+	}
+	if(next_div=="hospitallift_recommendations_div" || next_div=="hospitallift_your_contact_details_div"){
+		$("#hospitallift_image_or_speed_simulation_div").css({"display":"none"})
+		$("#hospitallift_questions_div").removeClass("col-md-8")
+		$("#hospitallift_questions_div").addClass("col-md-12")
+	}
+	else{
+		$("#hospitallift_image_or_speed_simulation_div").css({"display":"block"})
+		$("#hospitallift_questions_div").removeClass("col-md-12")
+		$("#hospitallift_questions_div").addClass("col-md-8")
+	}
+	
+	value=getCheckedRadioValueFromParent_hospitallift(next_radio_button_name)
+	if(value!=""){
+		hospital_set_image_fun(next_radio_button_name)
+	}
+	else{
+		if(next_radio_button_name=="hospitallift_operating_speed_values"){
+			$("#hospitallift_images_for_questions").css({"display":"none"})
+			$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":""})
+			$("#hospitallift_images_for_questions").html("");
+			
+			$("#hospitallift_speedSlider").val(0).trigger("input");
+			hospitallift_updateSpeed(0)
+		}
+		else{
+			$("#hospitallift_images_for_questions").css({"display":""})
+			$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+			$("#hospitallift_images_for_questions").html("");
+		}
+	}
+	
+	
+	if(next_radio_button_name=="hospitallift_operating_speed_values"){
+		$("#hospitallift_images_for_questions").css({"display":"none"})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":""})
+		$("#hospitallift_images_for_questions").html("");
+		
+		$("#hospitallift_speedSlider").val(0).trigger("input");
+		hospitallift_updateSpeed(0)
+	}
+	if(next_radio_button_name=="hospitallift_recommendations"){
+		$("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		$("#hospitallift_images_for_questions").html("");
+		
+		///////////////////
+		recommendations_lifts_arr=[];
+		
+		$("#hospitallift_Evora_div").css({"display":"none"})
+		$("#hospitallift_Aegis_div").css({"display":"none"})
+		
+		
+		var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+		var hospitallift_number_of_passengers_value = $('input[name="hospitallift_number_of_passengers"]:checked').val();
+		
+		var hospitallift_number_of_openings_value = $('input[name="hospitallift_number_of_openings"]:checked').val();
+		var hospitallift_shape_of_shaft_value = $('input[name="hospitallift_shape_of_shaft"]:checked').val();
+		
+		
+		if(hospitallift_number_of_floors_value=="G+1" || hospitallift_number_of_floors_value=="G+2"){
+			recommendations_lifts_arr.push('Aegis Nest');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Nest']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+3" || hospitallift_number_of_floors_value=="G+4"){
+			recommendations_lifts_arr.push('Aegis Metro');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Metro']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+5" && (hospitallift_number_of_passengers_value=="4" || hospitallift_number_of_passengers_value=="6" || hospitallift_number_of_passengers_value=="8")){
+			if(hospitallift_number_of_openings_value=="1 Front + 2 Side" || hospitallift_shape_of_shaft_value=="Narrow"){
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+			else{
+				recommendations_lifts_arr.push('Evora Nest');
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Evora_div").css({"display":"block"})
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+		}
+		else if(hospitallift_number_of_floors_value=="G+5" && (hospitallift_number_of_passengers_value=="10" || hospitallift_number_of_passengers_value=="13" || hospitallift_number_of_passengers_value=="15" || hospitallift_number_of_passengers_value=="18" || hospitallift_number_of_passengers_value=="20" || hospitallift_number_of_passengers_value=="22" || hospitallift_number_of_passengers_value=="25")){
+			recommendations_lifts_arr.push('Aegis Summit');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+6" && (hospitallift_number_of_passengers_value=="4" || hospitallift_number_of_passengers_value=="6" || hospitallift_number_of_passengers_value=="8")){
+			if(hospitallift_number_of_openings_value=="1 Front + 2 Side" || hospitallift_shape_of_shaft_value=="Narrow"){
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+			else{
+				recommendations_lifts_arr.push('Evora Nest');
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Evora_div").css({"display":"block"})
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+		}
+		else if(hospitallift_number_of_floors_value=="G+6" && (hospitallift_number_of_passengers_value=="10" || hospitallift_number_of_passengers_value=="13" || hospitallift_number_of_passengers_value=="15" || hospitallift_number_of_passengers_value=="18" || hospitallift_number_of_passengers_value=="20" || hospitallift_number_of_passengers_value=="22" || hospitallift_number_of_passengers_value=="25" || hospitallift_number_of_passengers_value=="27" || hospitallift_number_of_passengers_value=="30")){
+			recommendations_lifts_arr.push('Aegis Summit');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+7" || hospitallift_number_of_floors_value=="G+8" || hospitallift_number_of_floors_value=="G+9" || hospitallift_number_of_floors_value=="G+10"){
+			recommendations_lifts_arr.push('Evora Nest');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+			
+			$("#hospitallift_Evora_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+11" || 
+				hospitallift_number_of_floors_value == "G+12" || 
+				hospitallift_number_of_floors_value == "G+13" || 
+				hospitallift_number_of_floors_value == "G+14" || 
+				hospitallift_number_of_floors_value == "G+15" || 
+				hospitallift_number_of_floors_value == "G+16" || 
+				hospitallift_number_of_floors_value == "G+17" || 
+				hospitallift_number_of_floors_value == "G+18" || 
+				hospitallift_number_of_floors_value == "G+19" || 
+				hospitallift_number_of_floors_value == "G+20"){
+			recommendations_lifts_arr.push('Evora Metro');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+			
+			$("#hospitallift_Evora_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+21" || 
+				hospitallift_number_of_floors_value == "G+22" || 
+				hospitallift_number_of_floors_value == "G+23" || 
+				hospitallift_number_of_floors_value == "G+24" || 
+				hospitallift_number_of_floors_value == "G+25" || 
+				hospitallift_number_of_floors_value == "G+26" || 
+				hospitallift_number_of_floors_value == "G+27" || 
+				hospitallift_number_of_floors_value == "G+28" || 
+				hospitallift_number_of_floors_value == "G+29" || 
+				hospitallift_number_of_floors_value == "G+30"){
+					recommendations_lifts_arr.push('Evora Summit');
+					
+					$("input[name='hospitallift_recommendations[]'][value='Evora Summit']").prop("checked", true)
+			
+					$("#hospitallift_Evora_div").css({"display":"block"})
+				}
+				if(recommendations_lifts_arr.length==1){
+					$("#hospitallift_recommendations_lift_shortinfo_div").html("Product recommended is <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
+				if(recommendations_lifts_arr.length>1){
+					$("#hospitallift_recommendations_lift_shortinfo_div").html("Products recommended are <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
+		
+		}
+		
+
+	}
+	
+	
+
+
+
+function hospitalPrevBtn_Fun(current_div,prev_div){
+	mobileProgressFun_hospitallift(prev_div);
+	$("#"+current_div).css({"display":"none"})
+	$("#"+prev_div).css({"display":"block"})
+	$("#hospitalLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#hospitalLiftFormSidebar>li[data-entity="'+prev_div+'"]').addClass('active');
+	
+	prev_radio_button_name=prev_div.replace("_div","")
+	
+	value=getCheckedRadioValueFromParent_hospitallift(prev_radio_button_name)
+	if(value!=""){
+		hospital_set_image_fun(prev_radio_button_name)
+	}
+	else{
+		if(next_radio_button_name=="hospitallift_operating_speed_values"){
+			$("#hospitallift_images_for_questions").css({"display":"none"})
+			$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":""})
+			$("#hospitallift_images_for_questions").html("");
+			
+			$("#hospitallift_speedSlider").val(0).trigger("input");
+			hospitallift_updateSpeed(0)
+		}
+		else{
+			$("#hospitallift_images_for_questions").css({"display":""})
+			$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+			$("#hospitallift_images_for_questions").html("");
+		}
+	}
+	
+	
+	if(prev_radio_button_name=="hospitallift_operating_speed_values"){
+		$("#hospitallift_images_for_questions").css({"display":"none"})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":""})
+		$("#hospitallift_images_for_questions").html("");
+		
+		$("#hospitallift_speedSlider").val(0).trigger("input");
+		hospitallift_updateSpeed(0)
+		
+	}
+	if(prev_radio_button_name=="hospitallift_recommendations"){
+		$("#hospitallift_images_for_questions").css({"display":""})
+		$("#hospitallift_Preferred_Lift_Speed_anim_div").css({"display":"none"})
+		$("#hospitallift_images_for_questions").html("");
+		
+		///////////////////
+		recommendations_lifts_arr=[];
+		
+		$("#hospitallift_Evora_div").css({"display":"none"})
+		$("#hospitallift_Aegis_div").css({"display":"none"})
+		
+		
+		var hospitallift_number_of_floors_value = $('input[name="hospitallift_number_of_floors"]:checked').val();
+		var hospitallift_number_of_passengers_value = $('input[name="hospitallift_number_of_passengers"]:checked').val();
+		
+		var hospitallift_number_of_openings_value = $('input[name="hospitallift_number_of_openings"]:checked').val();
+		var hospitallift_shape_of_shaft_value = $('input[name="hospitallift_shape_of_shaft"]:checked').val();
+		
+		
+		if(hospitallift_number_of_floors_value=="G+1" || hospitallift_number_of_floors_value=="G+2"){
+			recommendations_lifts_arr.push('Aegis Nest');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Nest']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+3" || hospitallift_number_of_floors_value=="G+4"){
+			recommendations_lifts_arr.push('Aegis Metro');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Metro']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+5" && (hospitallift_number_of_passengers_value=="4" || hospitallift_number_of_passengers_value=="6" || hospitallift_number_of_passengers_value=="8")){
+			if(hospitallift_number_of_openings_value=="1 Front + 2 Side" || hospitallift_shape_of_shaft_value=="Narrow"){
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+			else{
+				recommendations_lifts_arr.push('Evora Nest');
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Evora_div").css({"display":"block"})
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+		}
+		else if(hospitallift_number_of_floors_value=="G+5" && (hospitallift_number_of_passengers_value=="10" || hospitallift_number_of_passengers_value=="13" || hospitallift_number_of_passengers_value=="15" || hospitallift_number_of_passengers_value=="18" || hospitallift_number_of_passengers_value=="20" || hospitallift_number_of_passengers_value=="22" || hospitallift_number_of_passengers_value=="25")){
+			recommendations_lifts_arr.push('Aegis Summit');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+6" && (hospitallift_number_of_passengers_value=="4" || hospitallift_number_of_passengers_value=="6" || hospitallift_number_of_passengers_value=="8")){
+			if(hospitallift_number_of_openings_value=="1 Front + 2 Side" || hospitallift_shape_of_shaft_value=="Narrow"){
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+			else{
+				recommendations_lifts_arr.push('Evora Nest');
+				recommendations_lifts_arr.push('Aegis Summit');
+				
+				$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+				$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+				
+				$("#hospitallift_Evora_div").css({"display":"block"})
+				$("#hospitallift_Aegis_div").css({"display":"block"})
+			}
+		}
+		else if(hospitallift_number_of_floors_value=="G+6" && (hospitallift_number_of_passengers_value=="10" || hospitallift_number_of_passengers_value=="13" || hospitallift_number_of_passengers_value=="15" || hospitallift_number_of_passengers_value=="18" || hospitallift_number_of_passengers_value=="20" || hospitallift_number_of_passengers_value=="22" || hospitallift_number_of_passengers_value=="25" || hospitallift_number_of_passengers_value=="27" || hospitallift_number_of_passengers_value=="30")){
+			recommendations_lifts_arr.push('Aegis Summit');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Aegis Summit']").prop("checked", true)
+			
+			$("#hospitallift_Aegis_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+7" || hospitallift_number_of_floors_value=="G+8" || hospitallift_number_of_floors_value=="G+9" || hospitallift_number_of_floors_value=="G+10"){
+			recommendations_lifts_arr.push('Evora Nest');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Evora Nest']").prop("checked", true)
+			
+			$("#hospitallift_Evora_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+11" || 
+				hospitallift_number_of_floors_value == "G+12" || 
+				hospitallift_number_of_floors_value == "G+13" || 
+				hospitallift_number_of_floors_value == "G+14" || 
+				hospitallift_number_of_floors_value == "G+15" || 
+				hospitallift_number_of_floors_value == "G+16" || 
+				hospitallift_number_of_floors_value == "G+17" || 
+				hospitallift_number_of_floors_value == "G+18" || 
+				hospitallift_number_of_floors_value == "G+19" || 
+				hospitallift_number_of_floors_value == "G+20"){
+			recommendations_lifts_arr.push('Evora Metro');
+			
+			$("input[name='hospitallift_recommendations[]'][value='Evora Metro']").prop("checked", true)
+			
+			$("#hospitallift_Evora_div").css({"display":"block"})
+		}
+		else if(hospitallift_number_of_floors_value=="G+21" || 
+				hospitallift_number_of_floors_value == "G+22" || 
+				hospitallift_number_of_floors_value == "G+23" || 
+				hospitallift_number_of_floors_value == "G+24" || 
+				hospitallift_number_of_floors_value == "G+25" || 
+				hospitallift_number_of_floors_value == "G+26" || 
+				hospitallift_number_of_floors_value == "G+27" || 
+				hospitallift_number_of_floors_value == "G+28" || 
+				hospitallift_number_of_floors_value == "G+29" || 
+				hospitallift_number_of_floors_value == "G+30"){
+					recommendations_lifts_arr.push('Evora Summit');
+					
+					$("input[name='hospitallift_recommendations[]'][value='Evora Summit']").prop("checked", true)
+			
+					$("#hospitallift_Evora_div").css({"display":"block"})
+				}
+				if(recommendations_lifts_arr.length==1){
+					$("#hospitallift_recommendations_lift_shortinfo_div").html("Product recommended is <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
+				if(recommendations_lifts_arr.length>1){
+					$("#hospitallift_recommendations_lift_shortinfo_div").html("Products recommended are <strong>"+recommendations_lifts_arr.join(", ")+"</strong>. Below the complete details given")
+				}
+		
+		}
+	
+	
+	
+		if(prev_div=="hospitallift_recommendations_div"){
+			$("#"+prev_div+"_next_btn").attr({"disabled":false}) // override for spl case
+		}
+		if(prev_div=="hospitallift_recommendations_div"){
+			$("#hospitallift_image_or_speed_simulation_div").css({"display":"none"})
+			$("#hospitallift_questions_div").removeClass("col-md-8")
+			$("#hospitallift_questions_div").addClass("col-md-12")
+		}
+		else{
+			$("#hospitallift_image_or_speed_simulation_div").css({"display":"block"})
+			$("#hospitallift_questions_div").removeClass("col-md-12")
+			$("#hospitallift_questions_div").addClass("col-md-8")
+		}
+		
+	
+	
+	
+}
+
+
+
+
+document.getElementById('hospitallift_floor_select')
+  .addEventListener('change', function () {
+
+    const val = this.value;
+    if (!val) return;
+
+    const radio = document.querySelector(
+      `.hospitallift_floor-radio[value="${val}"]`
+    );
+
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+});
+
+
+
+document.querySelectorAll(".hospitallift_floor-radio").forEach(radio => {
+  radio.addEventListener("change", function() {
+  
+  
+  
+    // Hide all hospitallift_passengers-group
+	document
+	  .querySelectorAll(".hospitallift_passengers-group")
+	  .forEach(g => (g.style.display = "none"));
+
+	// Selected floor (ex: "G+3")
+	const selected_floor_for_passengers = this.dataset.floor;
+
+	// Find matching group where selected floor exists in data-openings
+	document.querySelectorAll(".hospitallift_passengers-group").forEach(group => {
+	  const floors_for_passengers = group.dataset.floor
+		?.split(",")
+		.map(f => f.trim());
+
+	  if (floors_for_passengers && floors_for_passengers.includes(selected_floor_for_passengers)) {
+		group.style.display = "flex"; // keep Bootstrap row styling
+	  }
+	})
+
+	
+	
+
+	
+	
+	
+  });
+});
+
+
+
+
+document.querySelectorAll(".hospitallift_passengers-radio").forEach(radio => {
+  radio.addEventListener("change", function() {
+    var hospitallift_number_of_floors = $('input[name="hospitallift_number_of_floors"]:checked').val();
+	var hospitallift_number_of_passengers = $('input[name="hospitallift_number_of_passengers"]:checked').val();
+	
+	
+	
+	
+	// for openings selection we need both floor and passengers
+	// Hide all openings groups first
+	document
+	  .querySelectorAll(".hospitallift_openings-group")
+	  .forEach(g => (g.style.display = "none"));
+
+	// Selected values
+	const selected_floor_for_openings_value = hospitallift_number_of_floors;
+	const selected_passengers_for_openings_value = hospitallift_number_of_passengers;
+
+	// Single loop — both conditions together
+	document.querySelectorAll(".hospitallift_openings-group").forEach(group => {
+
+	  const floors_for_openings = group.dataset.floor
+		?.split(",")
+		.map(f => f.trim());
+
+	  const passengers_for_openings = group.dataset.passengers
+		?.split(",")
+		.map(p => p.trim());
+
+	  // ✅ SHOW only if BOTH match
+	  if (
+		floors_for_openings &&
+		floors_for_openings.includes(selected_floor_for_openings_value) &&
+		passengers_for_openings &&
+		passengers_for_openings.includes(selected_passengers_for_openings_value)
+	  ) {
+		group.style.display = "flex"; // keep Bootstrap row styling
+	  }
+
+	});
+	
+	
+	
+	
+	
+	// for shapes selection we need both floor and passengers
+	// Hide all shapes groups first
+	document
+	  .querySelectorAll(".hospitallift_shapes-group")
+	  .forEach(g => (g.style.display = "none"));
+
+	// Selected values
+	const selected_floor_for_shapes_value = hospitallift_number_of_floors;
+	const selected_passenger_for_shapes_value = hospitallift_number_of_passengers;
+
+	// Single loop — both conditions together
+	document.querySelectorAll(".hospitallift_shapes-group").forEach(group => {
+
+	  const floors_for_shapes = group.dataset.floor
+		?.split(",")
+		.map(f => f.trim());
+
+	  const passengers_for_shapes = group.dataset.passengers
+		?.split(",")
+		.map(p => p.trim());
+
+	  // ✅ SHOW only if BOTH match
+	  if (
+		floors_for_shapes &&
+		floors_for_shapes.includes(selected_floor_for_shapes_value) &&
+		passengers_for_shapes &&
+		passengers_for_shapes.includes(selected_passenger_for_shapes_value)
+	  ) {
+		group.style.display = "flex"; // keep Bootstrap row styling
+	  }
+
+	});
+
+
+
+	
+	
+	
+	
+	// for hospitallift_operating_speed_values selection we need both floor and passengers
+	// Hide all hospitallift_operating_speed_values groups first
+	document
+	  .querySelectorAll(".hospitallift_operating_speed_values-group")
+	  .forEach(g => (g.style.display = "none"));
+
+	// Selected values
+	const selected_floor_for_operating_speed_values = hospitallift_number_of_floors;
+	const selected_passengers_for_operating_speed_values = hospitallift_number_of_passengers;
+
+	// Single loop — both conditions together
+	document.querySelectorAll(".hospitallift_operating_speed_values-group").forEach(group => {
+
+	  const floors_for_speed = group.dataset.floor
+		?.split(",")
+		.map(f => f.trim());
+
+	  const passengers_for_speed = group.dataset.passengers
+		?.split(",")
+		.map(p => p.trim());
+
+	  // ✅ SHOW only if BOTH match
+	  if (
+		floors_for_speed &&
+		floors_for_speed.includes(selected_floor_for_operating_speed_values) &&
+		passengers_for_speed &&
+		passengers_for_speed.includes(selected_passengers_for_operating_speed_values)
+	  ) {
+		group.style.display = "flex"; // keep Bootstrap row styling
+	  }
+
+	});
+	
+	// ---------- SPEED LOGIC (CLEAN & MAINTAINABLE) ----------
+
+	const speedConfig = [
+	  {
+		floors: ["G+1", "G+2"],
+		labels: ["0", "0.3", "0.5", "0.7"],
+		max: 3
+	  },
+	  {
+		floors: ["G+3", "G+4"],
+		labels: ["0", "0.5", "0.7"],
+		max: 2
+	  },
+	  {
+		floors: ["G+5", "G+6", "G+7"],
+		labels: ["0", "0.5", "0.7", "1.0"],
+		max: 3
+	  },
+	  {
+		floors: ["G+8", "G+9", "G+10"],
+		labels: ["0", "0.5", "0.7", "1.0", "1.5"],
+		max: 4
+	  },
+	  {
+		floors: ["G+11","G+12","G+13","G+14","G+15","G+16","G+17"],
+		labels: ["0", "1.25", "1.5"],
+		max: 2
+	  },
+	  {
+		floors: ["G+18", "G+19"],
+		labels: ["0", "1.25", "1.5", "1.75"],
+		max: 3
+	  },
+	  {
+		floors: [
+		  "G+20","G+21","G+22","G+23","G+24",
+		  "G+25","G+26","G+27","G+28","G+29","G+30"
+		],
+		labels: ["0", "1.5", "1.75", "2", "2.5"],
+		max: 4
+	  }
+	];
+
+	// Apply config
+	const config = speedConfig.find(c => c.floors.includes(selected_floor_for_operating_speed_values));
+
+	if (config) {
+	  $("#hospitallift_speed_simulation_range_div").html(
+		config.labels.map(v => `<span class="small">${v}</span>`).join("")
+	  );
+	  
+
+	  $("#hospitallift_speedSlider").attr({
+		max: config.max,
+		step: 1
+	  });
+	}
+	
+	/*
+			the above is for this ex implemented
+			$("#hospitallift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
+			$("#hospitallift_speedSlider").attr({"max":"4","step":"1"})
+	*/
+
+
+
+
+	
+
+	// this is one special case
+	
+	if((hospitallift_number_of_floors=="G+6" || hospitallift_number_of_floors=="G+7") && parseInt(hospitallift_number_of_passengers)>8){
+		
+		$("#hospitallift_speed_simulation_range_div").html("<span class='small'>0</span><span class='small'>0.5</span><span class='small'>0.7</span><span class='small'>1.0</span><span class='small'>1.5</span>")
+		$("#hospitallift_speedSlider").attr({"max":"4","step":"1"})
+		
+		
+	}
+	
+		
+		
+		
+
+
+
+
+	
+    
+  });
+});
+
+
+
+
+
+
+$(document).ready(function(){
+		//hospitallift_number_of_floors_div starts
+		$("input[name='hospitallift_number_of_floors']").change(function(){
+			if ($('input[name="hospitallift_number_of_floors"]:checked').length > 0) {
+				$("#hospitallift_number_of_floors_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_number_of_floors_div_next_btn").attr({"disabled":true})
+			}
+		});
+		//hospitallift_number_of_floors_div ends
+		
+		
+				
+		//hospitallift_number_of_passengers_div starts
+		$("input[name='hospitallift_number_of_passengers']").change(function(){
+			if ($('input[name="hospitallift_number_of_passengers"]:checked').length > 0) {
+				$("#hospitallift_number_of_passengers_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_number_of_passengers_div_next_btn").attr({"disabled":true})
+			}
+		});
+		//hospitallift_number_of_passengers_div ends
+		
+				
+		//hospitallift_number_of_openings_div starts
+		$("input[name='hospitallift_number_of_openings']").change(function(){
+			if ($('input[name="hospitallift_number_of_openings"]:checked').length > 0) {
+				$("#hospitallift_number_of_openings_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_number_of_openings_div_next_btn").attr({"disabled":true})
+			}
+		});
+
+		//hospitallift_number_of_openings_div ends
+		
+				
+				
+		//hospitallift_operating_speed_values_div starts
+		$("input[name='hospitallift_operating_speed_values']").change(function(){
+			if ($('input[name="hospitallift_operating_speed_values"]:checked').length > 0) {
+				$("#hospitallift_operating_speed_values_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_operating_speed_values_div_next_btn").attr({"disabled":true})
+			}
+		});
+		//hospitallift_operating_speed_values_div ends
+		
+		
+		//hospitallift_shape_of_shaft_div starts
+		$("input[name='hospitallift_shape_of_shaft']").change(function(){
+			if ($('input[name="hospitallift_shape_of_shaft"]:checked').length > 0) {
+				$("#hospitallift_shape_of_shaft_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_shape_of_shaft_div_next_btn").attr({"disabled":true})
+			}
+		});
+
+		$("input[name='hospitallift_shape_of_shaft']").change(function(){
+			if ($('input[name="hospitallift_shape_of_shaft"]:checked').length > 0) {
+				$("#hospitallift_shape_of_shaft_div_next_btn").attr({"disabled":false})
+			}
+			else{
+				$("#hospitallift_shape_of_shaft_div_next_btn").attr({"disabled":true})
+			}
+		});
+		//hospitallift_shape_of_shaft_div ends
+		
+				
+
+
+
+
+
+		
+});
+
+function hospitalNextBtnForm_Fun(){
+	mobileProgressFun_hospitallift("hospitallift_your_contact_details_div");
+
+	$("#hospitalLiftFormSidebar li").each(function(){
+		if($(this).hasClass("active")){
+			$(this).removeClass("active")
+		}
+	});
+	$('#hospitalLiftFormSidebar>li[data-entity="hospitallift_your_contact_details_div"]').addClass('active');
+
+
+	$("#hospitallift_recommendations_div").css({"display":"none"})
+	$("#hospitallift_your_contact_details_div").css({"display":"block"})
+}
+
+$(document).ready(function () {
+
+    $('#hospitalLiftForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: 'Name is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 30,
+                        message: 'Name must be 3 to 30 characters'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Email is required'
+                    },
+                    emailAddress: {
+                        message: 'Invalid email address'
+                    }
+                }
+            },
+            mobile: {
+                validators: {
+                    notEmpty: {
+                        message: 'Mobile number is required'
+                    },
+                    stringLength: {
+                        min: 10,
+                        max: 10,
+                        message: 'Mobile must be 10 digits'
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+$/,
+                        message: 'Only numbers allowed'
+                    }
+                }
+            }
+        }
+    }).on('success.form.bv', function (e) {
+		
+		e.preventDefault(); // stop normal submit
+
+		let desktop_mobile = document.body.offsetWidth < 768 ? "mobile" : "desktop";
+		document.getElementById("desktop_mobile_hospitallift_form").value = desktop_mobile;
+		document.getElementById("hospitallift_page_url").value = location.href;
+		document.getElementById("hospitallift_page_name").value = "index.html";
+
+		const form = document.getElementById("hospitalLiftForm");
+		const formData = new FormData(form);
+
+		const payload = {};
+
+		formData.forEach((value, key) => {
+		if (key.endsWith("[]")) {
+			key = key.replace("[]", "");
+			payload[key] = payload[key] || [];
+			payload[key].push(value);
+		} else {
+			payload[key] = value;
+		}
+		});
+
+		document.getElementById("hospitallift_submit_btn").innerHTML =
+		'Processing <span class="spinner-border spinner-border-sm"></span>';
+
+		fetch("http://localhost:1337/api/hospital-lift-enquiries", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({ data: payload })
+		})
+		.then(res => res.json())
+		.then(response => {
+		document.getElementById("hospitallift_submit_btn").innerHTML = "Submit";
+
+		if (response?.data) {
+			Swal.fire({
+			icon: "success",
+			text: "Thanks for submitting the details!",
+			confirmButtonText: "OK"
+			}).then(() => location.reload());
+		} else {
+			throw new Error("Unexpected response");
+		}
+		})
+		.catch(err => {
+		document.getElementById("hospitallift_submit_btn").innerHTML = "Submit";
+		console.error(err);
+
+		Swal.fire({
+			icon: "error",
+			text: "Failed to submit form"
+		});
+		});
+
+
+	 
+	});
+
+});
+
+
+</script>
+
+<!-- this is hospital related functionality ends -->
+<!--- hospital stuff ends -->
 
 
 
