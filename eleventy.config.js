@@ -3,10 +3,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
 
   return {
-    pathPrefix:
-      process.env.ELEVENTY_ENV === "production"
-        ? "/eon-eleventy-product/"
-        : "/eon-eleventy-client/",
     dir: {
       input: ".",
       output: "_site",

@@ -1,6 +1,3 @@
 module.exports = {
-  strapiUrl:
-    process.env.ELEVENTY_ENV === "production"
-      ? "http://voometstudio.com/eon-strapi"
-      : "http://voometstudio.com/eon-strapi",
+  strapiUrl:"http://voometstudio.com/eon-strapi",
 };
