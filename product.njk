@@ -532,14 +532,14 @@ permalink: "/products/{{ product.slug }}/"
       </div>
 
       <div class="col-md-5 text-center">
-        <img src="{{ section.image.url }}"
+        <img src="{{ site.strapiUrl }}{{ section.image.url }}"
              class="img-fluid rounded shadow-lg w-75">
       </div>
 
       {% else %}
       <!-- DARK: IMAGE LEFT / TEXT RIGHT -->
       <div class="col-md-5 text-center mb-4 mb-md-0">
-        <img src="{{ section.image.url }}"
+        <img src="{{ site.strapiUrl }}{{ section.image.url }}"
              class="img-fluid rounded shadow-lg w-75">
       </div>
 
@@ -1074,7 +1074,7 @@ padding:10px 15px;
       
       <!-- Image Column -->
       <div class="col-md-6 text-center custom-column">
-        <img src= "{{ section.image.url }}"
+        <img src= "{{ site.strapiUrl }}{{ section.image.url }}"
              alt="Traction MRL Elevator" 
              class="imgs lzl-ed lzl-cached" 
              title="Traction MRL Elevator" 

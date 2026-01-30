@@ -7,3 +7,6 @@ const fetch = require('node-fetch');
     console.log("✅ Final home data returned to Eleventy:", data);
     return data;
 };*/
+module.exports = {
+  strapiUrl: "https://api.voometstudio.com"
+};
