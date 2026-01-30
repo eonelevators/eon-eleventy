@@ -1,10 +1,15 @@
-module.exports = function(eleventyConfig) {
-	eleventyConfig.addPassthroughCopy("assets"); // 👈 Copies CSS to _site
+module.exports = function (eleventyConfig) {
+  // Copy assets directly to _site/assets
+  eleventyConfig.addPassthroughCopy("assets");
+
   return {
-	pathPrefix: "/eon-eleventy/",
+    pathPrefix:
+      process.env.ELEVENTY_ENV === "production"
+        ? "/eon-eleventy/"
+        : "/",
     dir: {
       input: ".",
-      output: "_site"
-    }
+      output: "_site",
+    },
   };
 };
