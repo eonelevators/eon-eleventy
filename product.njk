@@ -446,7 +446,7 @@ permalink: "/products/{{ product.slug }}/"
   
   {% if section.__component == "section.banner" %}
   <section class="section-hero d-flex align-items-center text-center" 
-           style="background-image: url('{{ section.image[0].url }}');">
+           style="background-image: url('{{ site.strapiUrl }}{{ section.image[0].url }}');">
     <div class="overlay"></div>
     <div class="container position-relative">
       <h1>{{ section.heading }}</h1>
