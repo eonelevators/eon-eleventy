@@ -389,7 +389,7 @@
         <div class="swiper-slide">
           <div class="card h-100 border-0 rounded-4 shadow-lg text-center overflow-hidden position-relative">
             <div class="card-gradient gradient-1 position-absolute top-0 start-0 w-100 h-100"></div>
-            <div class="card-body p-5 text-white position-relative">
+              <div class="card-body p-5 text-white position-relative d-flex flex-column justify-content-center">
               <i class="bi bi-puzzle-fill fs-2 mb-3"></i>
               <h5 class="fw-semibold mb-2">Innovators & Problem Solvers</h5>
               <p class="small">
@@ -403,7 +403,7 @@
         <div class="swiper-slide">
           <div class="card h-100 border-0 rounded-4 shadow-lg text-center overflow-hidden position-relative">
             <div class="card-gradient gradient-2 position-absolute top-0 start-0 w-100 h-100"></div>
-            <div class="card-body p-5 text-white position-relative">
+              <div class="card-body p-5 text-white position-relative d-flex flex-column justify-content-center">
               <i class="bi bi-check-circle-fill fs-2 mb-3"></i>
               <h5 class="fw-semibold mb-2">Ethical Professionals</h5>
               <p class="small">
@@ -417,7 +417,7 @@
         <div class="swiper-slide">
           <div class="card h-100 border-0 rounded-4 shadow-lg text-center overflow-hidden position-relative">
             <div class="card-gradient gradient-3 position-absolute top-0 start-0 w-100 h-100"></div>
-            <div class="card-body p-5 text-white position-relative">
+              <div class="card-body p-5 text-white position-relative d-flex flex-column justify-content-center">
               <i class="bi bi-star-fill fs-2 mb-3"></i>
               <h5 class="fw-semibold mb-2">Quality-Driven Experts</h5>
               <p class="small">
@@ -431,7 +431,7 @@
         <div class="swiper-slide">
           <div class="card h-100 border-0 rounded-4 shadow-lg text-center overflow-hidden position-relative">
             <div class="card-gradient gradient-4 position-absolute top-0 start-0 w-100 h-100"></div>
-            <div class="card-body p-5 text-white position-relative">
+              <div class="card-body p-5 text-white position-relative d-flex flex-column justify-content-center">
               <i class="bi bi-people-fill fs-2 mb-3"></i>
               <h5 class="fw-semibold mb-2">Client-First Mindset</h5>
               <p class="small">
@@ -445,7 +445,7 @@
         <div class="swiper-slide">
           <div class="card h-100 border-0 rounded-4 shadow-lg text-center overflow-hidden position-relative">
             <div class="card-gradient gradient-4 position-absolute top-0 start-0 w-100 h-100"></div>
-            <div class="card-body p-5 text-white position-relative">
+              <div class="card-body p-5 text-white position-relative d-flex flex-column justify-content-center">
               <i class="bi bi-trophy-fill fs-2 mb-3"></i>
               <h5 class="fw-semibold mb-2">Future Leaders</h5>
               <p class="small">
@@ -512,6 +512,18 @@
 .card-body {
   z-index: 1;
   position: relative;
+}
+.careers-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.careers-swiper .swiper-slide {
+  height: auto;
+}
+
+.careers-swiper .card {
+  height: 100%;
+  min-height: 280px; /* keeps visual consistency */
 }
 
 .swiper-button-prev,
