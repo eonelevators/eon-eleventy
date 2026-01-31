@@ -482,7 +482,7 @@ permalink: "/products/{{ product.slug }}/"
     <div class="row g-4">
       {% for card in section.challenges %}
       <div class="col-md-4">
-        <div class="info-card p-4 text-center shadow-lg rounded-3 hover-up">
+        <div class="info-card p-4 text-center shadow-lg rounded-3 hover-up h-100 d-flex flex-column justify-content-center">
           <div class="icon-circle bg-gradient-energy mx-auto mb-3">
             <i class="{{ card.icon }} fs-2 text-white"></i>
           </div>
@@ -578,6 +578,18 @@ background: url('/assets/img/x200-hydralic-lifts.webp') no-repeat center center 
 background-size: cover; 
 color: #fff;
 }
+
+.section-keyfeatures .row {
+  align-items: stretch;
+}
+
+.section-keyfeatures .info-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 </style>
 <section class="section-keyfeatures py-5">
   <div class="container">
@@ -585,7 +597,7 @@ color: #fff;
     <div class="row g-4">
 {% for item in section.feature %}
   <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 50 }}">
-    <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up">
+    <div class="info-card text-center p-4 shadow-lg rounded-3 hover-up d-flex flex-column justify-content-center">
       <div class="icon-circle-subtle mx-auto mb-3">
         <i class="{{ item.icon }} fs-2 icon-gradient"></i>
       </div>
@@ -613,7 +625,7 @@ color: #fff;
 
       {% for item in section.feature %}
       <div class="col-md-3">
-        <div class="info-card p-4 rounded shadow-sm h-100"
+        <div class="info-card p-4 rounded shadow-sm h-100 d-flex flex-column justify-content-center"
              style="transition: transform 0.3s, box-shadow 0.3s; background: #fff;">
 
           <i class="{{ item.icon }} fs-3 mb-3"
