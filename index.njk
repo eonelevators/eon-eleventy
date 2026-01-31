@@ -85,26 +85,114 @@
 
 
 
-.villalift_recommendations_div_inside{
-height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+.villalift_recommendations_div_inside {
+  height: 17rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: #c1c1c1 transparent;  /* Firefox */
 }
-.apartmentlift_recommendations_div_inside{
-height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+
+/* Chrome, Edge, Safari */
+.villalift_recommendations_div_inside::-webkit-scrollbar {
+  width: 6px;
 }
-.officelift_recommendations_div_inside{
-height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+
+.villalift_recommendations_div_inside::-webkit-scrollbar-track {
+  background: transparent;
 }
-.hospitallift_recommendations_div_inside{
-height: 25rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+
+.villalift_recommendations_div_inside::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
 }
+
+.villalift_recommendations_div_inside::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+.apartmentlift_recommendations_div_inside {
+  height: 17rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: #c1c1c1 transparent;  /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.apartmentlift_recommendations_div_inside::-webkit-scrollbar {
+  width: 6px;
+}
+
+.apartmentlift_recommendations_div_inside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.apartmentlift_recommendations_div_inside::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+.apartmentlift_recommendations_div_inside::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+
+.officelift_recommendations_div_inside {
+  height: 17rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: #c1c1c1 transparent;  /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.officelift_recommendations_div_inside::-webkit-scrollbar {
+  width: 6px;
+}
+
+.officelift_recommendations_div_inside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.officelift_recommendations_div_inside::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+.officelift_recommendations_div_inside::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+
+.hospitallift_recommendations_div_inside {
+  height: 17rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;                 /* Firefox */
+  scrollbar-color: #c1c1c1 transparent;  /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.hospitallift_recommendations_div_inside::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hospitallift_recommendations_div_inside::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hospitallift_recommendations_div_inside::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+.hospitallift_recommendations_div_inside::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
 
   #villalift_Preferred_Lift_Speed_anim_div {
     position: relative;
@@ -4169,18 +4257,18 @@ We meet multiple international safety standards and include redundant braking, o
 
           <!-- Sidebar -->
           <div class="col-md-3 d-none d-md-block bg-light p-4">
-            <h5 class="fw-bold mb-4">Steps</h5>
-            <ul class="list-unstyled step-sidebar mb-0" id="villaLiftFormSidebar">
-              <li class="mb-3 active" data-entity="villalift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
-              <li class="mb-3" data-entity="villalift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
-              <li class="mb-3" data-entity="villalift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
+            
+            <ul class="list-unstyled step-sidebar mb-0 mt-4" id="villaLiftFormSidebar">
+              <li class="mb-0 active" data-entity="villalift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
+              <li class="mb-0" data-entity="villalift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
+              <li class="mb-0" data-entity="villalift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
              
-			  <li class="mb-3" data-entity="villalift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
+			  <li class="mb-0" data-entity="villalift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
 			  
-			  <li class="mb-3" data-entity="villalift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
+			  <li class="mb-0" data-entity="villalift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
 			   
-              <li class="mb-3" data-entity="villalift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
-              <li class="mb-3" data-entity="villalift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
+              <li class="mb-0" data-entity="villalift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
+              <li class="mb-0" data-entity="villalift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
             </ul>
           </div>
 
@@ -4195,7 +4283,7 @@ We meet multiple international safety standards and include redundant braking, o
           <div class="col-md-9 p-4">
             <div class="row">
 					<div class="col-md-8" id="villalift_questions_div">
-						<form id="villaLiftForm" method="post" class="mt-4 pt-2">
+						<form id="villaLiftForm" method="post" class="mt-1 pt-2">
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
@@ -6474,18 +6562,17 @@ $(document).ready(function () {
 
           <!-- Sidebar -->
           <div class="col-md-3 d-none d-md-block bg-light p-4">
-            <h5 class="fw-bold mb-4">Steps</h5>
-            <ul class="list-unstyled step-sidebar mb-0" id="apartmentLiftFormSidebar">
-              <li class="mb-3 active" data-entity="apartmentlift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
-              <li class="mb-3" data-entity="apartmentlift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
-              <li class="mb-3" data-entity="apartmentlift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
+            <ul class="list-unstyled step-sidebar mb-0 mt-4" id="apartmentLiftFormSidebar">
+              <li class="mb-0 active" data-entity="apartmentlift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
+              <li class="mb-0" data-entity="apartmentlift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
+              <li class="mb-0" data-entity="apartmentlift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
              
-			  <li class="mb-3" data-entity="apartmentlift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
+			  <li class="mb-0" data-entity="apartmentlift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
 			  
-			  <li class="mb-3" data-entity="apartmentlift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
+			  <li class="mb-0" data-entity="apartmentlift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
 			   
-              <li class="mb-3" data-entity="apartmentlift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
-              <li class="mb-3" data-entity="apartmentlift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
+              <li class="mb-0" data-entity="apartmentlift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
+              <li class="mb-0" data-entity="apartmentlift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
             </ul>
           </div>
 
@@ -6500,7 +6587,7 @@ $(document).ready(function () {
           <div class="col-md-9 p-4">
             <div class="row">
 					<div class="col-md-8" id="apartmentlift_questions_div">
-						<form id="apartmentLiftForm" method="post" class="mt-4 pt-2">
+						<form id="apartmentLiftForm" method="post" class="mt-1 pt-2">
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
@@ -10521,18 +10608,17 @@ $(document).ready(function () {
 
           <!-- Sidebar -->
           <div class="col-md-3 d-none d-md-block bg-light p-4">
-            <h5 class="fw-bold mb-4">Steps</h5>
-            <ul class="list-unstyled step-sidebar mb-0" id="officeLiftFormSidebar">
-              <li class="mb-3 active" data-entity="officelift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
-              <li class="mb-3" data-entity="officelift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
-              <li class="mb-3" data-entity="officelift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
+            <ul class="list-unstyled step-sidebar mb-0 mt-4" id="officeLiftFormSidebar">
+              <li class="mb-0 active" data-entity="officelift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
+              <li class="mb-0" data-entity="officelift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
+              <li class="mb-0" data-entity="officelift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
              
-			  <li class="mb-3" data-entity="officelift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
+			  <li class="mb-0" data-entity="officelift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
 			  
-			  <li class="mb-3" data-entity="officelift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
+			  <li class="mb-0" data-entity="officelift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
 			   
-              <li class="mb-3" data-entity="officelift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
-              <li class="mb-3" data-entity="officelift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
+              <li class="mb-0" data-entity="officelift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
+              <li class="mb-0" data-entity="officelift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
             </ul>
           </div>
 
@@ -10547,7 +10633,7 @@ $(document).ready(function () {
           <div class="col-md-9 p-4">
             <div class="row">
 					<div class="col-md-8" id="officelift_questions_div">
-						<form id="officeLiftForm" method="post" class="mt-4 pt-2">
+						<form id="officeLiftForm" method="post" class="mt-1 pt-2">
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
@@ -14243,18 +14329,17 @@ $(document).ready(function () {
 
           <!-- Sidebar -->
           <div class="col-md-3 d-none d-md-block bg-light p-4">
-            <h5 class="fw-bold mb-4">Steps</h5>
-            <ul class="list-unstyled step-sidebar mb-0" id="hospitalLiftFormSidebar">
-              <li class="mb-3 active" data-entity="hospitallift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
-              <li class="mb-3" data-entity="hospitallift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
-              <li class="mb-3" data-entity="hospitallift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
+            <ul class="list-unstyled step-sidebar mb-0 mt-4" id="hospitalLiftFormSidebar">
+              <li class="mb-0 active" data-entity="hospitallift_number_of_floors_div"><i class="bi bi-house-door mx-2"></i>No of Floors</li>
+              <li class="mb-0" data-entity="hospitallift_number_of_passengers_div"><i class="bi bi-building-up mx-2"></i>Passenger Capacity</li>
+              <li class="mb-0" data-entity="hospitallift_number_of_openings_div"><i class="bi bi-cash-stack mx-2"></i>Lift Door Openings</li>
              
-			  <li class="mb-3" data-entity="hospitallift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
+			  <li class="mb-0" data-entity="hospitallift_operating_speed_values_div"><i class="bi bi-box mx-2"></i>Preferred Lift Speed</li>
 			  
-			  <li class="mb-3" data-entity="hospitallift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
+			  <li class="mb-0" data-entity="hospitallift_shape_of_shaft_div"><i class="bi bi-box mx-2"></i>Shape of Shaft</li>
 			   
-              <li class="mb-3" data-entity="hospitallift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
-              <li class="mb-3" data-entity="hospitallift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
+              <li class="mb-0" data-entity="hospitallift_recommendations_div"><i class="bi bi-gear mx-2"></i>Our Recommendation</li>
+              <li class="mb-0" data-entity="hospitallift_your_contact_details_div"><i class="bi bi-stars mx-2"></i>Get A Quote</li>
             </ul>
           </div>
 
@@ -14269,7 +14354,7 @@ $(document).ready(function () {
           <div class="col-md-9 p-4">
             <div class="row">
 					<div class="col-md-8" id="hospitallift_questions_div">
-						<form id="hospitalLiftForm" method="post" class="mt-4 pt-2">
+						<form id="hospitalLiftForm" method="post" class="mt-1 pt-2">
 
 						   
 						  <!-- STEP 1: Q1 (images) -->
