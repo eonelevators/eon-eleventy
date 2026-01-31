@@ -2244,17 +2244,8 @@ through a pragmatic approach ensuring quality remains the core concern of our bu
 <div class="form-group mb-3">
 <style> 
 .form-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M2 5l6 6 6-6'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat;
-  background-position: right 1.2rem center;
-  background-size: 14px;
-  padding-right: 2.5rem;
+  background-image: none !important;
 }
-
 </style>
 
 <select class="form-select form-control" aria-label="TypeofProject*" name="type_of_project">
@@ -2584,54 +2575,62 @@ through a pragmatic approach ensuring quality remains the core concern of our bu
     </div>
 
     <div class="row justify-content-center">
+<style> 
+.team-single-img > img {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+}
 
-      <!-- Card 1 -->
-      <div class="col-lg-3 col-sm-6">
-        <div class="single-team">
-          <div class="team-single-img">
-            <img src="assets/img/team/johnson.png" alt="Johnson Lewis">
-            <div class="team-img">
-              <img src="assets/img/team/team-shape.png" alt="">
-            </div>
-          </div>
-
-          <div class="team-content">
-            <h3>Johnson Lewis</h3>
-            <span>Founder & CEO</span>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/johnson-lewis/" target="_blank">
-                  <i class="bx bxl-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+</style>
+   <!-- Card 1 -->
+<div class="col-lg-3 col-sm-6">
+  <div class="single-team">
+    <div class="team-single-img">
+      <img src="assets/img/team/johnson.png" alt="Johnson Lewis">
+      <div class="team-img">
+        <img src="assets/img/team/team-shape.png" alt="">
       </div>
+    </div>
 
-      <!-- Card 2 -->
-      <div class="col-lg-3 col-sm-6">
-        <div class="single-team">
-          <div class="team-single-img">
-            <img src="assets/img/team/sandeep.png" alt="Sandeep Kumar">
-            <div class="team-img">
-              <img src="assets/img/team/team-shape.png" alt="">
-            </div>
-          </div>
+    <div class="team-content">
+      <h3>Johnson Lewis</h3>
+      <span>Founder & CEO</span>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/johnson-lewis/" target="_blank">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
-          <div class="team-content">
-            <h3>Sandeep Kumar</h3>
-            <span>COO</span>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/sandeep-kumar-blr/" target="_blank">
-                  <i class="bx bxl-linkedin"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+<!-- Card 2 -->
+<div class="col-lg-3 col-sm-6">
+  <div class="single-team">
+    <div class="team-single-img">
+      <img src="assets/img/sandeep.png" alt="Sandeep Kumar">
+      <div class="team-img">
+        <img src="assets/img/team/team-shape.png" alt="">
       </div>
+    </div>
+
+    <div class="team-content">
+      <h3>Sandeep Kumar</h3>
+      <span>COO</span>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/sandeep-kumar-blr/" target="_blank">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
       <!-- Card 3 (hidden for now) -->
       <div class="col-lg-3 col-sm-6 d-none">

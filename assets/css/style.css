@@ -2445,6 +2445,8 @@ Quat Area Style
 .get-quat-area .nice-select::after {
   width: 8px !important;
   height: 8px !important;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
 }
 
 .get-quat-area .nice-select .option {
